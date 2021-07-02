@@ -1,0 +1,66 @@
+﻿@model Nop.Plugin.Payments.Windcave.Models.WindcaveSavedCardsModel
+@using Nop.Web.Framework;
+@using Nop.Plugin.Payments.Windcave.Domain;
+@{
+    Layout = "";
+}
+@using Nop.Core
+@inject Nop.Core.IWebHelper webHelper
+@{
+    Layout = "_ColumnsTwo";
+
+    //title
+    Html.AddTitleParts(T("PageTitle.Account").Text);
+    //page class
+    Html.AppendPageCssClassParts("html-account-page");
+    Html.AppendPageCssClassParts("html-customer-info-page");
+}
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Error</title>
+</head>
+<body>
+    <div class="fieldset">
+        @{
+        if (Model?.customerCards.Count() > 0)
+        {
+        <div class="title">
+
+        </div>
+        <div class="form-fields">
+            <table>
+                <thead>
+                    <tr>
+                        <td><strong>Card Number</strong></td>
+                        <td><strong>Expiry Date</strong></td>
+                        <td>&nbsp;</td>
+                    </tr>
+                </thead>
+                @{
+                foreach (var card in Model.customerCards)
+                {
+                string deleteUrl = Model.deleteCardBaseUrl + "?cardId=" + card.CardId;
+                <tr>
+                    <td>@card.CardMask</td>
+                    <td>@card.ExpiryMonth / @card.ExpiryYear</td>
+                    <td><a href="@deleteUrl">delete</a></td>
+                </tr>
+                }
+                }
+            </table>
+        </div>
+        }
+        else
+        {
+        <div class="title">
+            <h1>You have no saved cards</h1>
+        </div>
+        }
+        }
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+﻿@{
+    Layout = "";
+}
+@model Nop.Plugin.Payments.Windcave.Models.PaymentInfoModel
+<table>
+    <tr>
+        <td width="33%">&nbsp;</td>
+        <td>
+            <table style="width:100%;" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td>
+                        <p><b>YOU HAVE SELECTED</b></p>
+                        <br />
+                        <p><img src="~/Plugins/Payments.Windcave/logo.jpg" alt="Windcave" /></p>
+                        <br />
+                        <p><b>@Html.Raw(Model.DescriptionText)</b></p>
+                    </td>
+                </tr>
+                @if (Model.ShowSaveCardInfo)
+                {
+                    if (Model.ShowSelectCard)
+                    {
+                        <tr>
+                            <td align="left">
+                                <label style="float: left;">
+                                    <input type="radio" name="UseSavedCard" value="1" />
+                                    Use saved card
+                                    <select asp-for="CardId" asp-items="@Model.SavedCards" class="dropdownlists"></select>
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left">
+                                <label style="float: left;">
+                                    <input type="radio" name="UseSavedCard" value="0" checked="checked" />
+                                    Proceed without using saved card
+                                </label>
+                                <br>
+
+                                <label style="float: left;">
+                                    Save card for future purchases &nbsp;
+                                    <input type="checkbox" name="SaveCardDetails" value="1" />
+                                </label>
+                            </td>
+                        </tr>
+                    }
+                    else
+                    {
+                        <tr>
+                            <td align="left">
+                                <label style="float: left;">
+                                    Save card for future purchases &nbsp;
+                                    <input type="checkbox" name="SaveCardDetails" value="1" />
+                                </label>
+                            </td>
+                        </tr>
+                    }
+                }
+            </table>
+        </td>
+        <td width="33%">&nbsp;</td>
+    </tr>
+</table>

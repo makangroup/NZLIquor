@@ -1,0 +1,25 @@
+﻿
+@{
+    Layout = "_ColumnsOne";
+
+    //title
+    Html.AddTitleParts(T("PageTitle.Register").Text);
+    //page class
+    Html.AppendPageCssClassParts("html-registration-result-page");
+}
+<form asp-route="RegisterResult" asp-route-returnurl="@Context.Request.Query["ReturnUrl"]" method="post" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly" class="message-error paddingofcategoriespage"></div>
+    <div class="page registration-result-page paddingofcategoriespage">
+        <div class="page-title">
+            <h1>Credit Application Step 3</h1>
+            <h4>Your Registration has been completed</h4>
+            <h4>Site Administrator will check your application and get back to you in sometime.</h4>
+        </div>
+        <div class="page-body">     
+            <div class="buttons">
+                <input type="submit" name="register-continue" class="button-1 register-continue-button" value="@T("Account.Register.Result.Continue")" />
+            </div>
+        </div>
+    </div>
+</form>
+

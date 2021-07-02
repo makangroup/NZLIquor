@@ -1,0 +1,100 @@
+﻿@model ContactUsModel
+@{
+    Layout = "_ColumnsOne";
+
+    //title
+    Html.AddTitleParts(T("PageTitle.ContactUs").Text);
+    //page class
+    Html.AppendPageCssClassParts("html-contact-page");
+}
+<div class="page contact-page paddingofcategoriespage">
+    @*<div class="page-title">
+      
+    </div>*@
+    <div class="page-body">
+        @await Component.InvokeAsync("TopicBlock", new { systemName = "ContactUs" })
+        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ContactUsTop })
+
+
+        <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3188.479773602307!2d174.83311221547754!3d-36.95059689291721!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d0d4eeab9e05c43%3A0xa689b9a17be806fb!2sMakan!5e0!3m2!1sen!2snz!4v1619055210262!5m2!1sen!2snz" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+       
+
+        @if (Model.SuccessfullySent)
+        {
+            <div class="result" style="text-align:center;">
+                @Model.Result
+            </div>
+        }
+        else
+        {
+            <div class="wrapper">
+                <div>
+
+                    <div class="firstcolumn">
+                        <h2 class="storename">NZ Liquor</h2>
+                        <p><h3 style="text-decoration: underline; color: black;"><br><strong>Address:</strong><br></h3> <br />15 McGee Street, Ōtāhuhu, Auckland 1062</p>
+                        <br />   <p><h3 style="text-decoration: underline; color: black;"><strong>Phone:</strong><br></h3> <br /> <a href="tel:092768185" style="color:#EB1C22"> +64 9 276 8185</a></p>
+                        <br />   <p><h3 style="text-decoration: underline; color: black;"><strong>Email:</strong><br></h3> <br /><a href="mailto:liquor@makan.co.nz" style="color:#EB1C22"> liquor@makan.co.nz </a></p>
+                        <br />  <p><h3 style="color: black;"><span style="text-decoration: underline;">Hours:</span><br></h3> <br /></p>
+                        <p>Monday: 9AM–5PM<br>Tuesday: 9AM–5PM<br>Wednesday: 9AM–5PM<br>Thursday: 9AM–5PM<br>Friday: 9AM–5PM<br>Saturday: Closed<br>Sunday: Closed</p>
+                    </div>
+                    <div class="secondcolumn">
+                        <form asp-route="ContactUs" method="post">
+
+                            <div asp-validation-summary="ModelOnly" class="message-error"></div>
+                            <div class="fieldset" style="margin: 0 0 0px;">
+
+                                <div class="form-fields" style="border-top:none;background-color:white;">
+                                    <div style="text-align:left;">
+                                        <h2 class="h2contact" style="font-size: 2.182em;">Contact Us</h2>
+                                    </div>
+                                    <br />
+                                    <div style="text-align:left;">
+                                        <p>Our team is happy to answer your questions. Fill out the form and we'll be in touch as soon as possible.</p>
+                                    </div>
+                                    <div class="inputs" style="text-align:left;">
+                                        <label asp-for="FullName" asp-postfix=":" style=" width: 75px;"></label>
+                                        <input asp-for="FullName" placeholder="@T("ContactUs.FullName.Hint")" class="fullname" />
+                                        <nop-required />
+                                        <span asp-validation-for="FullName"></span>
+                                    </div>
+                                    <div class="inputs" style="text-align:left;">
+                                        <label asp-for="Email" asp-postfix=":" style=" width: 75px; text-align:left;"></label>
+                                        <input asp-for="Email" placeholder="@T("ContactUs.Email.Hint")" class="email" />
+                                        <nop-required />
+                                        <span asp-validation-for="Email"></span>
+                                    </div>
+                                    @if (Model.SubjectEnabled)
+                                    {
+                                        <div class="inputs" style="text-align:left;">
+                                            <label asp-for="Subject" asp-postfix=":" style=" width: 75px;"></label>
+                                            <input asp-for="Subject" placeholder="@T("ContactUs.Subject.Hint")" class="subject" />
+                                            <nop-required />
+                                            <span asp-validation-for="Subject"></span>
+                                        </div>
+                                    }
+                                    <div class="inputs" style="text-align:left;">
+                                        <label asp-for="Enquiry" asp-postfix=":" style=" width: 75px; text-align:left;"></label>
+                                        <textarea asp-for="Enquiry" placeholder="@T("ContactUs.Enquiry.Hint")" class="enquiry"></textarea>
+                                        <nop-required />
+                                        <span asp-validation-for="Enquiry"></span>
+                                    </div>
+                                    @if (Model.DisplayCaptcha)
+                                    {
+                                        <nop-captcha />
+                                    }
+                                </div>
+                            </div>
+                            <div class="contactusbutton">
+                                <input type="submit" name="send-email" class="button-1 contact-us-button" value="@T("ContactUs.Button")" />
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+        }
+        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ContactUsBottom })
+    </div>
+    </div>

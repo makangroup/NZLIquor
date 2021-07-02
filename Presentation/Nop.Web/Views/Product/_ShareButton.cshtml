@@ -1,0 +1,13 @@
+﻿@model ProductDetailsModel
+@if (!string.IsNullOrWhiteSpace(Model.PageShareCode))
+{
+    <div class="product-share-button" style="display:none;">
+        <div>
+            <img src="~/images/icons/facebook-icon.png" />
+            <img src="~/images/icons/instagram-icon.png" />
+            <img src="~/images/icons/messanger-icon.png" />
+            <img src="~/images/icons/whatsapp-icon.png" />
+            <img src="~/images/icons/emai-icon.png" />
+        </div>
+    </div>
+}

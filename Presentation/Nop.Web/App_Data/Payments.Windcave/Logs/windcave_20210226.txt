@@ -1,0 +1,1461 @@
+12:53:47.208 [I] [8000008e0005fb00b63f84710c7967bb] WindcavePaymentProcessor::ValidatePaymentForm()
+12:53:47.209 [I] [8000008e0005fb00b63f84710c7967bb] WindcavePaymentProcessor::GetPaymentInfo()
+12:54:19.248 [I] [800000900005fb00b63f84710c7967bb] WindcavePaymentProcessor::PostProcessPayment()
+12:54:19.250 [I] [800000900005fb00b63f84710c7967bb] WindcavePaymentProcessor.SessionExists(45)
+12:54:19.282 [I] [800000900005fb00b63f84710c7967bb] WindcavePaymentProcessor.GetXID()
+12:54:19.282 [I] [800000900005fb00b63f84710c7967bb] WindcavePaymentProcessor.GetXID generated:d21b805be4629b6522406d24c4993c10-0001-00000045-purchase
+12:54:19.289 [I] [800000900005fb00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession(45, d21b805be4629b6522406d24c4993c10-0001-00000045-purchase, 0, <?xml version="1.0" encoding="utf-16"?><DictionarySerializer><item><key>Save card details</key><value>False</value></item><item><key>Use previously saved card</key><value>False</value></item></DictionarySerializer>)
+12:54:19.292 [I] [800000900005fb00b63f84710c7967bb] WindcaveHelper::GetTransactionObjFromOrderObj()
+12:54:19.671 [I] [800000900005fb00b63f84710c7967bb] WindcaveHelper.GetPluginVersion()
+12:54:19.672 [I] [800000900005fb00b63f84710c7967bb] WindcaveRestClient.GetPostResponseBodyAsync()
+12:54:19.674 [I] [800000900005fb00b63f84710c7967bb] WindcaveRestClient.DoPostAsync(https://sec.windcave.com, api/v1/sessions, RmVuY2h1cmNoTGlxdW9yUkVTVF9EZXY6YTAxNTVhNTNjNGI0MDE3NDUwMGRmNmI4OTNmZDRiY2RjMzRkZDA4ODQ3ZjU1NTkxOTMxMmRiYWE1NTE0OGJlMg==, {"amount":"79.97","callbackUrls":{"approved":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleApproved","cancelled":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleCancelled","declined":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleDeclined"},"cardId":null,"currency":"NZD","customer":{"account":"1","billing":{"address1":"43\/45 Fenchurch St,","address2":"ezfsx","city":"Glen Innes, Auckland","countryCode":"NZ","name":"Fenchurch Store","phoneNumber":"3254865","postalCode":"1072","state":null},"email":"fenchurch.nz@gmail.com","firstName":"Fenchurch","lastName":"Store","phoneNumber":"3254865","shipping":{"address1":"43\/45 Fenchurch St,","address2":"ezfsx","city":"Glen Innes, Auckland","countryCode":"NZ","name":"Fenchurch Store","phoneNumber":"3254865","postalCode":"1072","state":null}},"expires":null,"language":"en-NZ","merchantReference":"45","methods":["card","account2account"],"notificationUrl":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleNotificationCallback","storeCard":false,"storeCustomer":false,"storedCardIndicator":null,"type":"purchase"}, Nop.Core.Domain.Orders.Order, d21b805be4629b6522406d24c4993c10-0001-00000045-purchase)
+12:54:19.674 [I] [800000900005fb00b63f84710c7967bb] WindcaveRestClient.SetClientProps()
+12:54:19.921 [I] [800000900005fb00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession. Created successfully. SessionId:000001007566353201e357dcd36b9503
+12:54:19.928 [I] [800000900005fb00b63f84710c7967bb] WindcavePaymentProcessor.PrepareTransaction(Nop.Core.Domain.Orders.Order, 000001007566353201e357dcd36b9503, , https://sec.windcave.com/pxmi3/FEFCD9D406A63CFA10C95113C428753472CD150A01132DDE2D27C022C064BE7D739DED8BF9A5242DB9C64EA7B1C0C0CCB, NZD)
+12:54:19.931 [I] [800000900005fb00b63f84710c7967bb] WindcavePaymentProcessor.AddTransaction(Amount:79.9700, AuthCode:null, AvsAction:null, AvsResult:null, CardholderName:null, CardId:, CardMask:null, CardType:null, CompleteStatus:Complete Not Applicable, Currency:NZD, CustomerId:1, Cvc2Result:null, DateAdded:25/02/2021 11:53:57 PM, EntityCacheKey:Nop.windcavetransaction.id-0, ExpiryMonth:null, ExpiryYear:null, HppLink:https://sec.windcave.com/pxmi3/FEFCD9D406A63CFA10C95113C428753472CD150A01132DDE2D27C022C064BE7D739DED8BF9A5242DB9C64EA7B1C0C0CCB, Id:0, OrderId:45, ParentTransactionId:null, PaymentAuthentication:null, PaymentMethod:null, RefundStatus:Refund Not Applicable, ResponseCode:null, ResponseText:null, RiskAction:null, RiskSummaryText:null, SessionId:000001007566353201e357dcd36b9503, SessionState:pending, Status:Processing, StoreCard:False, TransactionId:null, Type:purchase, VoidStatus:Void Not Applicable, )
+12:57:07.515 [I] [800003610004ff00b63f84710c7967bb] WindcavePaymentProcessor::ValidatePaymentForm()
+12:57:07.516 [I] [800003610004ff00b63f84710c7967bb] WindcavePaymentProcessor::GetPaymentInfo()
+12:57:14.333 [I] [800003630004ff00b63f84710c7967bb] WindcavePaymentProcessor::PostProcessPayment()
+12:57:14.333 [I] [800003630004ff00b63f84710c7967bb] WindcavePaymentProcessor.SessionExists(46)
+12:57:14.370 [I] [800003630004ff00b63f84710c7967bb] WindcavePaymentProcessor.GetXID()
+12:57:14.370 [I] [800003630004ff00b63f84710c7967bb] WindcavePaymentProcessor.GetXID generated:a009c49c1a494455b401fa0f49848f95-0001-00000046-purchase
+12:57:14.371 [I] [800003630004ff00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession(46, a009c49c1a494455b401fa0f49848f95-0001-00000046-purchase, 0, <?xml version="1.0" encoding="utf-16"?><DictionarySerializer><item><key>Save card details</key><value>False</value></item><item><key>Use previously saved card</key><value>False</value></item></DictionarySerializer>)
+12:57:14.371 [I] [800003630004ff00b63f84710c7967bb] WindcaveHelper::GetTransactionObjFromOrderObj()
+12:57:14.405 [I] [800003630004ff00b63f84710c7967bb] WindcaveHelper.GetPluginVersion()
+12:57:14.406 [I] [800003630004ff00b63f84710c7967bb] WindcaveRestClient.GetPostResponseBodyAsync()
+12:57:14.406 [I] [800003630004ff00b63f84710c7967bb] WindcaveRestClient.DoPostAsync(https://sec.windcave.com, api/v1/sessions, RmVuY2h1cmNoTGlxdW9yUkVTVF9EZXY6YTAxNTVhNTNjNGI0MDE3NDUwMGRmNmI4OTNmZDRiY2RjMzRkZDA4ODQ3ZjU1NTkxOTMxMmRiYWE1NTE0OGJlMg==, {"amount":"106.58","callbackUrls":{"approved":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleApproved","cancelled":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleCancelled","declined":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleDeclined"},"cardId":null,"currency":"NZD","customer":{"account":"1","billing":{"address1":"43\/45 Fenchurch St,","address2":"ezfsx","city":"Glen Innes, Auckland","countryCode":"NZ","name":"Fenchurch Store","phoneNumber":"3254865","postalCode":"1072","state":null},"email":"fenchurch.nz@gmail.com","firstName":"Fenchurch","lastName":"Patel","phoneNumber":"0221004322","shipping":{"address1":"100 Popokatea Drive, Takanini","address2":"Takanini","city":"Auckland","countryCode":"NZ","name":"Fenchurch Patel","phoneNumber":"0221004322","postalCode":"2112","state":null}},"expires":null,"language":"en-NZ","merchantReference":"46","methods":["card","account2account"],"notificationUrl":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleNotificationCallback","storeCard":false,"storeCustomer":false,"storedCardIndicator":null,"type":"purchase"}, Nop.Core.Domain.Orders.Order, a009c49c1a494455b401fa0f49848f95-0001-00000046-purchase)
+12:57:14.406 [I] [800003630004ff00b63f84710c7967bb] WindcaveRestClient.SetClientProps()
+12:57:14.585 [I] [800003630004ff00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession. Created successfully. SessionId:000001007566425901c475f8836192a5
+12:57:14.587 [I] [800003630004ff00b63f84710c7967bb] WindcavePaymentProcessor.PrepareTransaction(Nop.Core.Domain.Orders.Order, 000001007566425901c475f8836192a5, , https://sec.windcave.com/pxmi3/F8455E7E1DDC47C8561A3C30C6F0C2C6F7CA5FC94EFF47E62075C38846E5384F8505B5D1A03C8E74F5C8DD99F6CB8A195, NZD)
+12:57:14.592 [I] [800003630004ff00b63f84710c7967bb] WindcavePaymentProcessor.AddTransaction(Amount:106.5800, AuthCode:null, AvsAction:null, AvsResult:null, CardholderName:null, CardId:, CardMask:null, CardType:null, CompleteStatus:Complete Not Applicable, Currency:NZD, CustomerId:1, Cvc2Result:null, DateAdded:25/02/2021 11:57:12 PM, EntityCacheKey:Nop.windcavetransaction.id-0, ExpiryMonth:null, ExpiryYear:null, HppLink:https://sec.windcave.com/pxmi3/F8455E7E1DDC47C8561A3C30C6F0C2C6F7CA5FC94EFF47E62075C38846E5384F8505B5D1A03C8E74F5C8DD99F6CB8A195, Id:0, OrderId:46, ParentTransactionId:null, PaymentAuthentication:null, PaymentMethod:null, RefundStatus:Refund Not Applicable, ResponseCode:null, ResponseText:null, RiskAction:null, RiskSummaryText:null, SessionId:000001007566425901c475f8836192a5, SessionState:pending, Status:Processing, StoreCard:False, TransactionId:null, Type:purchase, VoidStatus:Void Not Applicable, )
+12:57:28.608 [I] [800003640004ff00b63f84710c7967bb] WindcavePaymentProcessingController.HandleApproved(0, 000001007566425901c475f8836192a5)
+12:57:28.609 [I] [800003640004ff00b63f84710c7967bb] WindcavePaymentProcessingController.HandleCallback(0, 000001007566425901c475f8836192a5)
+12:57:29.111 [I] [800003640004ff00b63f84710c7967bb] HandleCallback lock acquired
+12:57:29.175 [I] [800003640004ff00b63f84710c7967bb] Session state:pending
+12:57:29.176 [I] [800003640004ff00b63f84710c7967bb] WindcavePaymentProcessingController.GetQueryResult(callback, 000001007566425901c475f8836192a5, 0)
+12:57:29.176 [I] [800003640004ff00b63f84710c7967bb] WindcaveHelper.GetPluginVersion()
+12:57:29.182 [I] [800003640004ff00b63f84710c7967bb] WindcaveRestClient.Query(callback, 000001007566425901c475f8836192a5)
+12:57:29.182 [I] [800003640004ff00b63f84710c7967bb] WindcaveHelper.GetPluginVersion()
+12:57:29.183 [I] [800003640004ff00b63f84710c7967bb] WindcaveRestClient.GetResponseBodyAsync(api/v1/sessions/000001007566425901c475f8836192a5)
+12:57:29.187 [I] [800003640004ff00b63f84710c7967bb] WindcaveRestClient.DoGet(api/v1/sessions/000001007566425901c475f8836192a5)
+12:57:29.187 [I] [800003640004ff00b63f84710c7967bb] WindcaveRestClient.SetClientProps()
+12:57:29.286 [I] [800003640004ff00b63f84710c7967bb] 200 response, query successful. Response:{
+    "id" : "000001007566425901c475f8836192a5",
+    "state" : "complete",
+    "type" : "purchase",
+    "amount" : "106.58",
+    "currency" : "NZD",
+    "currencyNumeric" : 554,
+    "merchantReference" : "46",
+    "expires" : "2021-02-28T23:57:15Z",
+    "callbackUrls" : {
+        "approved" : "http://localhost:15536/Payments/Windcave/HandleApproved",
+        "declined" : "http://localhost:15536/Payments/Windcave/HandleDeclined",
+        "cancelled" : "http://localhost:15536/Payments/Windcave/HandleCancelled"
+    },
+    "notificationUrl" : "http://localhost:15536/Payments/Windcave/HandleNotificationCallback",
+    "customer" : {
+        "firstName" : "Fenchurch",
+        "lastName" : "Patel",
+        "email" : "fenchurch.nz@gmail.com",
+        "phoneNumber" : "0221004322",
+        "homePhoneNumber" : "",
+        "account" : "1",
+        "shipping" : {
+            "name" : "Fenchurch Patel",
+            "address1" : "100 Popokatea Drive, Takanini",
+            "address2" : "Takanini",
+            "address3" : "",
+            "city" : "Auckland",
+            "postalCode" : "2112",
+            "countryCode" : "NZ",
+            "phoneNumber" : "0221004322",
+            "state" : ""
+        },
+        "billing" : {
+            "name" : "Fenchurch Store",
+            "address1" : "43/45 Fenchurch St,",
+            "address2" : "ezfsx",
+            "address3" : "",
+            "city" : "Glen Innes, Auckland",
+            "postalCode" : "1072",
+            "countryCode" : "NZ",
+            "phoneNumber" : "3254865",
+            "state" : ""
+        }
+    },
+    "storeCard" : false,
+    "clientType" : "internet",
+    "methods" : [
+        "card",
+        "account2account"
+    ],
+    "links" : [
+        {
+            "href" : "https://sec.windcave.com/api/v1/sessions/000001007566425901c475f8836192a5",
+            "rel" : "self",
+            "method" : "GET"
+        },
+        {
+            "href" : "https://sec.windcave.com/api/v1/transactions/000000012af0bcf4",
+            "rel" : "transaction",
+            "method" : "GET"
+        }
+    ],
+    "transactions" : [
+        {
+            "id" : "000000012af0bcf4",
+            "username" : "FenchurchLiquorREST_Dev",
+            "authorised" : true,
+            "allowRetry" : false,
+            "reCo" : "00",
+            "responseText" : "APPROVED",
+            "authCode" : "125729",
+            "acquirer" : {
+                "name" : "Undefined",
+                "mid" : "10000000",
+                "tid" : "10012787"
+            },
+            "type" : "purchase",
+            "method" : "card",
+            "localTimeZone" : "NZT",
+            "dateTimeUtc" : "2021-02-25T23:57:29Z",
+            "dateTimeLocal" : "2021-02-26T12:57:29+13:00",
+            "settlementDate" : "2021-02-26",
+            "amount" : "106.58",
+            "balanceAmount" : "0.00",
+            "currency" : "NZD",
+            "currencyNumeric" : 554,
+            "clientType" : "internet",
+            "merchantReference" : "46",
+            "card" : {
+                "cardHolderName" : "PLATS",
+                "cardNumber" : "411111........11",
+                "dateExpiryMonth" : "11",
+                "dateExpiryYear" : "34",
+                "type" : "visa"
+            },
+            "cvc2ResultCode" : "M",
+            "storedCardIndicator" : "single",
+            "notificationUrl" : "http://localhost:15536/Payments/Windcave/HandleNotificationCallback",
+            "customer" : {
+                "firstName" : "Fenchurch",
+                "lastName" : "Patel",
+                "email" : "fenchurch.nz@gmail.com",
+                "phoneNumber" : "0221004322",
+                "homePhoneNumber" : "",
+                "account" : "1",
+                "shipping" : {
+                    "name" : "Fenchurch Patel",
+                    "address1" : "100 Popokatea Drive, Takanini",
+                    "address2" : "Takanini",
+                    "address3" : "",
+                    "city" : "Auckland",
+                    "postalCode" : "2112",
+                    "countryCode" : "NZ",
+                    "phoneNumber" : "0221004322",
+                    "state" : ""
+                },
+                "billing" : {
+                    "name" : "Fenchurch Store",
+                    "address1" : "43/45 Fenchurch St,",
+                    "address2" : "ezfsx",
+                    "address3" : "",
+                    "city" : "Glen Innes, Auckland",
+                    "postalCode" : "1072",
+                    "countryCode" : "NZ",
+                    "phoneNumber" : "3254865",
+                    "state" : ""
+                }
+            },
+            "avs" : {
+                "postCode" : "",
+                "streetAddress" : "",
+                "avsAction" : 0,
+                "avsActionName" : "DontCheck",
+                "avsResultCode" : "U",
+                "avsResultDescription" : "U - address information not available, or AVS is unavailable"
+            },
+            "sessionId" : "000001007566425901c475f8836192a5",
+            "browser" : {
+                "ipAddress" : "202.92.216.106",
+                "userAgent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36"
+            },
+            "isSurcharge" : false,
+            "liabilityIndicator" : "standard",
+            "links" : [
+                {
+                    "href" : "https://sec.windcave.com/api/v1/transactions/000000012af0bcf4",
+                    "rel" : "self",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://sec.windcave.com/api/v1/sessions/000001007566425901c475f8836192a5",
+                    "rel" : "session",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://sec.windcave.com/api/v1/transactions",
+                    "rel" : "refund",
+                    "method" : "POST"
+                }
+            ]
+        }
+    ]
+}
+12:57:29.374 [I] [800003640004ff00b63f84710c7967bb] WindcavePaymentProcessingController.ProcessTransaction(000001007566425901c475f8836192a5, , success, callback, Transaction(id:000000012af0bcf4, reCo:00, responseText:APPROVED, authorized:True, type:purchase)
+12:57:29.434 [I] [800003640004ff00b63f84710c7967bb] Updating to processing. SessionId:000001007566425901c475f8836192a5  TransactionId: 
+12:57:29.435 [I] [800003640004ff00b63f84710c7967bb] WindcavePaymentProcessingController.UpdateTransaction(Transaction(id:000000012af0bcf4, reCo:00, responseText:APPROVED, authorized:True, type:purchase, Nop.Plugin.Payments.Windcave.Domain.WindcaveTransaction, True, callback)
+12:57:29.467 [I] [800003640004ff00b63f84710c7967bb] WindcavePaymentProcessingController.MarkOrderAsPaid(46, 000001007566425901c475f8836192a5, 000000012af0bcf4, 125729, purchase)
+12:57:31.398 [I] [800003640004ff00b63f84710c7967bb] WindcavePaymentProcessingController.UpdateTransaction. Updated txn log. SessionId:000001007566425901c475f8836192a5 TransactionId:000000012af0bcf4 Status:Approved
+12:57:31.436 [I] [800003640004ff00b63f84710c7967bb] Updating to complete. SessionId:000001007566425901c475f8836192a5  TransactionId: 000000012af0bcf4
+12:57:31.438 [I] [800003640004ff00b63f84710c7967bb] WindcavePaymentProcessingController.GetTransactionSession()
+12:57:31.439 [I] [800003640004ff00b63f84710c7967bb] WindcavePaymentProcessingController.GetSession(000001007566425901c475f8836192a5)
+12:57:31.439 [I] [800003640004ff00b63f84710c7967bb] WindcaveHelper.GetPluginVersion()
+12:57:31.439 [I] [800003640004ff00b63f84710c7967bb] WindcaveRestClient.GetResponseBodyAsync(api/v1/sessions/000001007566425901c475f8836192a5)
+12:57:31.439 [I] [800003640004ff00b63f84710c7967bb] WindcaveRestClient.DoGet(api/v1/sessions/000001007566425901c475f8836192a5)
+12:57:31.439 [I] [800003640004ff00b63f84710c7967bb] WindcaveRestClient.SetClientProps()
+13:02:35.618 [I] [800003770004ff00b63f84710c7967bb] WindcavePaymentProcessor::ValidatePaymentForm()
+13:02:35.618 [I] [800003770004ff00b63f84710c7967bb] WindcavePaymentProcessor::GetPaymentInfo()
+13:03:04.220 [I] [800003790004ff00b63f84710c7967bb] WindcavePaymentProcessor::PostProcessPayment()
+13:03:04.221 [I] [800003790004ff00b63f84710c7967bb] WindcavePaymentProcessor.SessionExists(47)
+13:03:04.257 [I] [800003790004ff00b63f84710c7967bb] WindcavePaymentProcessor.ContinueExistingSession(47)
+14:07:13.038 [I] [800001330003fe00b63f84710c7967bb] WindcavePaymentProcessor::ValidatePaymentForm()
+14:07:13.039 [I] [800001330003fe00b63f84710c7967bb] WindcavePaymentProcessor::GetPaymentInfo()
+14:07:49.569 [I] [800001350003fe00b63f84710c7967bb] WindcavePaymentProcessor::PostProcessPayment()
+14:07:49.570 [I] [800001350003fe00b63f84710c7967bb] WindcavePaymentProcessor.SessionExists(48)
+14:07:54.752 [I] [800001350003fe00b63f84710c7967bb] WindcavePaymentProcessor.GetXID()
+14:07:54.753 [I] [800001350003fe00b63f84710c7967bb] WindcavePaymentProcessor.GetXID generated:a4b4589220947e83196893613bd2bb54-0001-00000048-purchase
+14:07:54.788 [I] [800001350003fe00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession(48, a4b4589220947e83196893613bd2bb54-0001-00000048-purchase, 0, <?xml version="1.0" encoding="utf-16"?><DictionarySerializer><item><key>Save card details</key><value>False</value></item><item><key>Use previously saved card</key><value>False</value></item></DictionarySerializer>)
+14:07:54.791 [I] [800001350003fe00b63f84710c7967bb] WindcaveHelper::GetTransactionObjFromOrderObj()
+14:07:54.943 [I] [800001350003fe00b63f84710c7967bb] WindcaveHelper.GetPluginVersion()
+14:07:54.943 [I] [800001350003fe00b63f84710c7967bb] WindcaveRestClient.GetPostResponseBodyAsync()
+14:07:54.945 [I] [800001350003fe00b63f84710c7967bb] WindcaveRestClient.DoPostAsync(https://sec.windcave.com, api/v1/sessions, RmVuY2h1cmNoTGlxdW9yUkVTVF9EZXY6YTAxNTVhNTNjNGI0MDE3NDUwMGRmNmI4OTNmZDRiY2RjMzRkZDA4ODQ3ZjU1NTkxOTMxMmRiYWE1NTE0OGJlMg==, {"amount":"94.68","callbackUrls":{"approved":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleApproved","cancelled":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleCancelled","declined":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleDeclined"},"cardId":null,"currency":"NZD","customer":{"account":"1","billing":{"address1":"43\/45 Fenchurch St,","address2":"ezfsx","city":"Glen Innes, Auckland","countryCode":"NZ","name":"Fenchurch Store","phoneNumber":"3254865","postalCode":"1072","state":null},"email":"fenchurch.nz@gmail.com","firstName":"Fenchurch","lastName":"Store","phoneNumber":"3254865","shipping":{"address1":"43\/45 Fenchurch St,","address2":"ezfsx","city":"Glen Innes, Auckland","countryCode":"NZ","name":"Fenchurch Store","phoneNumber":"3254865","postalCode":"1072","state":null}},"expires":null,"language":"en-NZ","merchantReference":"48","methods":["card","account2account"],"notificationUrl":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleNotificationCallback","storeCard":false,"storeCustomer":false,"storedCardIndicator":null,"type":"purchase"}, Nop.Core.Domain.Orders.Order, a4b4589220947e83196893613bd2bb54-0001-00000048-purchase)
+14:07:54.945 [I] [800001350003fe00b63f84710c7967bb] WindcaveRestClient.SetClientProps()
+14:07:55.341 [I] [800001350003fe00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession. Created successfully. SessionId:000001007568097401ddd437c374c7c4
+14:07:55.349 [I] [800001350003fe00b63f84710c7967bb] WindcavePaymentProcessor.PrepareTransaction(Nop.Core.Domain.Orders.Order, 000001007568097401ddd437c374c7c4, , https://sec.windcave.com/pxmi3/FE30E8892063342909F65D688050B512BA7E22A34DED8AA0C014D28515461FD5DF453C73F662ED8562C18231B66034B47, NZD)
+14:07:55.354 [I] [800001350003fe00b63f84710c7967bb] WindcavePaymentProcessor.AddTransaction(Amount:94.6800, AuthCode:null, AvsAction:null, AvsResult:null, CardholderName:null, CardId:, CardMask:null, CardType:null, CompleteStatus:Complete Not Applicable, Currency:NZD, CustomerId:1, Cvc2Result:null, DateAdded:26/02/2021 1:07:27 AM, EntityCacheKey:Nop.windcavetransaction.id-0, ExpiryMonth:null, ExpiryYear:null, HppLink:https://sec.windcave.com/pxmi3/FE30E8892063342909F65D688050B512BA7E22A34DED8AA0C014D28515461FD5DF453C73F662ED8562C18231B66034B47, Id:0, OrderId:48, ParentTransactionId:null, PaymentAuthentication:null, PaymentMethod:null, RefundStatus:Refund Not Applicable, ResponseCode:null, ResponseText:null, RiskAction:null, RiskSummaryText:null, SessionId:000001007568097401ddd437c374c7c4, SessionState:pending, Status:Processing, StoreCard:False, TransactionId:null, Type:purchase, VoidStatus:Void Not Applicable, )
+14:08:21.374 [I] [800001360003fe00b63f84710c7967bb] WindcavePaymentProcessingController.HandleApproved(0, 000001007568097401ddd437c374c7c4)
+14:08:21.374 [I] [800001360003fe00b63f84710c7967bb] WindcavePaymentProcessingController.HandleCallback(0, 000001007568097401ddd437c374c7c4)
+14:08:21.876 [I] [800001360003fe00b63f84710c7967bb] HandleCallback lock acquired
+14:08:21.924 [I] [800001360003fe00b63f84710c7967bb] Session state:pending
+14:08:21.924 [I] [800001360003fe00b63f84710c7967bb] WindcavePaymentProcessingController.GetQueryResult(callback, 000001007568097401ddd437c374c7c4, 0)
+14:08:21.924 [I] [800001360003fe00b63f84710c7967bb] WindcaveHelper.GetPluginVersion()
+14:08:21.929 [I] [800001360003fe00b63f84710c7967bb] WindcaveRestClient.Query(callback, 000001007568097401ddd437c374c7c4)
+14:08:21.929 [I] [800001360003fe00b63f84710c7967bb] WindcaveHelper.GetPluginVersion()
+14:08:21.929 [I] [800001360003fe00b63f84710c7967bb] WindcaveRestClient.GetResponseBodyAsync(api/v1/sessions/000001007568097401ddd437c374c7c4)
+14:08:21.931 [I] [800001360003fe00b63f84710c7967bb] WindcaveRestClient.DoGet(api/v1/sessions/000001007568097401ddd437c374c7c4)
+14:08:21.931 [I] [800001360003fe00b63f84710c7967bb] WindcaveRestClient.SetClientProps()
+14:08:22.005 [I] [800001360003fe00b63f84710c7967bb] 200 response, query successful. Response:{
+    "id" : "000001007568097401ddd437c374c7c4",
+    "state" : "complete",
+    "type" : "purchase",
+    "amount" : "94.68",
+    "currency" : "NZD",
+    "currencyNumeric" : 554,
+    "merchantReference" : "48",
+    "expires" : "2021-03-01T01:07:56Z",
+    "callbackUrls" : {
+        "approved" : "http://localhost:15536/Payments/Windcave/HandleApproved",
+        "declined" : "http://localhost:15536/Payments/Windcave/HandleDeclined",
+        "cancelled" : "http://localhost:15536/Payments/Windcave/HandleCancelled"
+    },
+    "notificationUrl" : "http://localhost:15536/Payments/Windcave/HandleNotificationCallback",
+    "customer" : {
+        "firstName" : "Fenchurch",
+        "lastName" : "Store",
+        "email" : "fenchurch.nz@gmail.com",
+        "phoneNumber" : "3254865",
+        "homePhoneNumber" : "",
+        "account" : "1",
+        "shipping" : {
+            "name" : "Fenchurch Store",
+            "address1" : "43/45 Fenchurch St,",
+            "address2" : "ezfsx",
+            "address3" : "",
+            "city" : "Glen Innes, Auckland",
+            "postalCode" : "1072",
+            "countryCode" : "NZ",
+            "phoneNumber" : "3254865",
+            "state" : ""
+        },
+        "billing" : {
+            "name" : "Fenchurch Store",
+            "address1" : "43/45 Fenchurch St,",
+            "address2" : "ezfsx",
+            "address3" : "",
+            "city" : "Glen Innes, Auckland",
+            "postalCode" : "1072",
+            "countryCode" : "NZ",
+            "phoneNumber" : "3254865",
+            "state" : ""
+        }
+    },
+    "storeCard" : false,
+    "clientType" : "internet",
+    "methods" : [
+        "card",
+        "account2account"
+    ],
+    "links" : [
+        {
+            "href" : "https://sec.windcave.com/api/v1/sessions/000001007568097401ddd437c374c7c4",
+            "rel" : "self",
+            "method" : "GET"
+        },
+        {
+            "href" : "https://sec.windcave.com/api/v1/transactions/000000012af54f66",
+            "rel" : "transaction",
+            "method" : "GET"
+        }
+    ],
+    "transactions" : [
+        {
+            "id" : "000000012af54f66",
+            "username" : "FenchurchLiquorREST_Dev",
+            "authorised" : true,
+            "allowRetry" : false,
+            "reCo" : "00",
+            "responseText" : "APPROVED",
+            "authCode" : "140822",
+            "acquirer" : {
+                "name" : "Undefined",
+                "mid" : "10000000",
+                "tid" : "10012787"
+            },
+            "type" : "purchase",
+            "method" : "card",
+            "localTimeZone" : "NZT",
+            "dateTimeUtc" : "2021-02-26T01:08:22Z",
+            "dateTimeLocal" : "2021-02-26T14:08:22+13:00",
+            "settlementDate" : "2021-02-26",
+            "amount" : "94.68",
+            "balanceAmount" : "0.00",
+            "currency" : "NZD",
+            "currencyNumeric" : 554,
+            "clientType" : "internet",
+            "merchantReference" : "48",
+            "card" : {
+                "cardHolderName" : "MASJKDHAD",
+                "cardNumber" : "411111........11",
+                "dateExpiryMonth" : "08",
+                "dateExpiryYear" : "32",
+                "type" : "visa"
+            },
+            "cvc2ResultCode" : "M",
+            "storedCardIndicator" : "single",
+            "notificationUrl" : "http://localhost:15536/Payments/Windcave/HandleNotificationCallback",
+            "customer" : {
+                "firstName" : "Fenchurch",
+                "lastName" : "Store",
+                "email" : "fenchurch.nz@gmail.com",
+                "phoneNumber" : "3254865",
+                "homePhoneNumber" : "",
+                "account" : "1",
+                "shipping" : {
+                    "name" : "Fenchurch Store",
+                    "address1" : "43/45 Fenchurch St,",
+                    "address2" : "ezfsx",
+                    "address3" : "",
+                    "city" : "Glen Innes, Auckland",
+                    "postalCode" : "1072",
+                    "countryCode" : "NZ",
+                    "phoneNumber" : "3254865",
+                    "state" : ""
+                },
+                "billing" : {
+                    "name" : "Fenchurch Store",
+                    "address1" : "43/45 Fenchurch St,",
+                    "address2" : "ezfsx",
+                    "address3" : "",
+                    "city" : "Glen Innes, Auckland",
+                    "postalCode" : "1072",
+                    "countryCode" : "NZ",
+                    "phoneNumber" : "3254865",
+                    "state" : ""
+                }
+            },
+            "avs" : {
+                "postCode" : "",
+                "streetAddress" : "",
+                "avsAction" : 0,
+                "avsActionName" : "DontCheck",
+                "avsResultCode" : "U",
+                "avsResultDescription" : "U - address information not available, or AVS is unavailable"
+            },
+            "sessionId" : "000001007568097401ddd437c374c7c4",
+            "browser" : {
+                "ipAddress" : "202.92.216.106",
+                "userAgent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36"
+            },
+            "isSurcharge" : false,
+            "liabilityIndicator" : "standard",
+            "links" : [
+                {
+                    "href" : "https://sec.windcave.com/api/v1/transactions/000000012af54f66",
+                    "rel" : "self",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://sec.windcave.com/api/v1/sessions/000001007568097401ddd437c374c7c4",
+                    "rel" : "session",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://sec.windcave.com/api/v1/transactions",
+                    "rel" : "refund",
+                    "method" : "POST"
+                }
+            ]
+        }
+    ]
+}
+14:08:22.087 [I] [800001360003fe00b63f84710c7967bb] WindcavePaymentProcessingController.ProcessTransaction(000001007568097401ddd437c374c7c4, , success, callback, Transaction(id:000000012af54f66, reCo:00, responseText:APPROVED, authorized:True, type:purchase)
+14:08:22.150 [I] [800001360003fe00b63f84710c7967bb] Updating to processing. SessionId:000001007568097401ddd437c374c7c4  TransactionId: 
+14:08:22.150 [I] [800001360003fe00b63f84710c7967bb] WindcavePaymentProcessingController.UpdateTransaction(Transaction(id:000000012af54f66, reCo:00, responseText:APPROVED, authorized:True, type:purchase, Nop.Plugin.Payments.Windcave.Domain.WindcaveTransaction, True, callback)
+14:08:22.198 [I] [800001360003fe00b63f84710c7967bb] WindcavePaymentProcessingController.MarkOrderAsPaid(48, 000001007568097401ddd437c374c7c4, 000000012af54f66, 140822, purchase)
+14:08:27.851 [I] [800001360003fe00b63f84710c7967bb] WindcavePaymentProcessingController.UpdateTransaction. Updated txn log. SessionId:000001007568097401ddd437c374c7c4 TransactionId:000000012af54f66 Status:Approved
+14:08:27.888 [I] [800001360003fe00b63f84710c7967bb] Updating to complete. SessionId:000001007568097401ddd437c374c7c4  TransactionId: 000000012af54f66
+14:08:27.892 [I] [800001360003fe00b63f84710c7967bb] WindcavePaymentProcessingController.GetTransactionSession()
+14:08:27.892 [I] [800001360003fe00b63f84710c7967bb] WindcavePaymentProcessingController.GetSession(000001007568097401ddd437c374c7c4)
+14:08:27.892 [I] [800001360003fe00b63f84710c7967bb] WindcaveHelper.GetPluginVersion()
+14:08:27.893 [I] [800001360003fe00b63f84710c7967bb] WindcaveRestClient.GetResponseBodyAsync(api/v1/sessions/000001007568097401ddd437c374c7c4)
+14:08:27.893 [I] [800001360003fe00b63f84710c7967bb] WindcaveRestClient.DoGet(api/v1/sessions/000001007568097401ddd437c374c7c4)
+14:08:27.893 [I] [800001360003fe00b63f84710c7967bb] WindcaveRestClient.SetClientProps()
+14:09:58.272 [I] [800002440004fd00b63f84710c7967bb] WindcavePaymentProcessor::ValidatePaymentForm()
+14:09:58.272 [I] [800002440004fd00b63f84710c7967bb] WindcavePaymentProcessor::GetPaymentInfo()
+14:10:05.773 [I] [800002460004fd00b63f84710c7967bb] WindcavePaymentProcessor::PostProcessPayment()
+14:10:05.774 [I] [800002460004fd00b63f84710c7967bb] WindcavePaymentProcessor.SessionExists(49)
+14:10:05.806 [I] [800002460004fd00b63f84710c7967bb] WindcavePaymentProcessor.GetXID()
+14:10:05.806 [I] [800002460004fd00b63f84710c7967bb] WindcavePaymentProcessor.GetXID generated:3ef2094d18fc70f1521cfb12f249a8b9-0001-00000049-purchase
+14:10:05.806 [I] [800002460004fd00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession(49, 3ef2094d18fc70f1521cfb12f249a8b9-0001-00000049-purchase, 0, <?xml version="1.0" encoding="utf-16"?><DictionarySerializer><item><key>Save card details</key><value>False</value></item><item><key>Use previously saved card</key><value>False</value></item></DictionarySerializer>)
+14:10:05.806 [I] [800002460004fd00b63f84710c7967bb] WindcaveHelper::GetTransactionObjFromOrderObj()
+14:10:05.836 [I] [800002460004fd00b63f84710c7967bb] WindcaveHelper.GetPluginVersion()
+14:10:05.837 [I] [800002460004fd00b63f84710c7967bb] WindcaveRestClient.GetPostResponseBodyAsync()
+14:10:05.837 [I] [800002460004fd00b63f84710c7967bb] WindcaveRestClient.DoPostAsync(https://sec.windcave.com, api/v1/sessions, RmVuY2h1cmNoTGlxdW9yUkVTVF9EZXY6YTAxNTVhNTNjNGI0MDE3NDUwMGRmNmI4OTNmZDRiY2RjMzRkZDA4ODQ3ZjU1NTkxOTMxMmRiYWE1NTE0OGJlMg==, {"amount":"72.08","callbackUrls":{"approved":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleApproved","cancelled":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleCancelled","declined":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleDeclined"},"cardId":null,"currency":"NZD","customer":{"account":"1","billing":{"address1":"43\/45 Fenchurch St,","address2":"ezfsx","city":"Glen Innes, Auckland","countryCode":"NZ","name":"Fenchurch Store","phoneNumber":"3254865","postalCode":"1072","state":null},"email":"fenchurch.nz@gmail.com","firstName":"Fenchurch","lastName":"Store","phoneNumber":"3254865","shipping":{"address1":"43\/45 Fenchurch St,","address2":"ezfsx","city":"Glen Innes, Auckland","countryCode":"NZ","name":"Fenchurch Store","phoneNumber":"3254865","postalCode":"1072","state":null}},"expires":null,"language":"en-NZ","merchantReference":"49","methods":["card","account2account"],"notificationUrl":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleNotificationCallback","storeCard":false,"storeCustomer":false,"storedCardIndicator":null,"type":"purchase"}, Nop.Core.Domain.Orders.Order, 3ef2094d18fc70f1521cfb12f249a8b9-0001-00000049-purchase)
+14:10:05.837 [I] [800002460004fd00b63f84710c7967bb] WindcaveRestClient.SetClientProps()
+14:10:06.177 [I] [800002460004fd00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession. Created successfully. SessionId:0000010075681469017650d03fa5e356
+14:10:06.181 [I] [800002460004fd00b63f84710c7967bb] WindcavePaymentProcessor.PrepareTransaction(Nop.Core.Domain.Orders.Order, 0000010075681469017650d03fa5e356, , https://sec.windcave.com/pxmi3/FF3FF0C6E68B3EC81700BE41C873E9828D40977AA4B219B79EE6F8649B41CD28701E432589CDB2E8A497322352DC48B67, NZD)
+14:10:06.183 [I] [800002460004fd00b63f84710c7967bb] WindcavePaymentProcessor.AddTransaction(Amount:72.0800, AuthCode:null, AvsAction:null, AvsResult:null, CardholderName:null, CardId:, CardMask:null, CardType:null, CompleteStatus:Complete Not Applicable, Currency:NZD, CustomerId:1, Cvc2Result:null, DateAdded:26/02/2021 1:10:04 AM, EntityCacheKey:Nop.windcavetransaction.id-0, ExpiryMonth:null, ExpiryYear:null, HppLink:https://sec.windcave.com/pxmi3/FF3FF0C6E68B3EC81700BE41C873E9828D40977AA4B219B79EE6F8649B41CD28701E432589CDB2E8A497322352DC48B67, Id:0, OrderId:49, ParentTransactionId:null, PaymentAuthentication:null, PaymentMethod:null, RefundStatus:Refund Not Applicable, ResponseCode:null, ResponseText:null, RiskAction:null, RiskSummaryText:null, SessionId:0000010075681469017650d03fa5e356, SessionState:pending, Status:Processing, StoreCard:False, TransactionId:null, Type:purchase, VoidStatus:Void Not Applicable, )
+14:10:19.447 [I] [800002470004fd00b63f84710c7967bb] WindcavePaymentProcessingController.HandleApproved(0, 0000010075681469017650d03fa5e356)
+14:10:19.447 [I] [800002470004fd00b63f84710c7967bb] WindcavePaymentProcessingController.HandleCallback(0, 0000010075681469017650d03fa5e356)
+14:10:19.948 [I] [800002470004fd00b63f84710c7967bb] HandleCallback lock acquired
+14:10:19.979 [I] [800002470004fd00b63f84710c7967bb] Session state:pending
+14:10:19.979 [I] [800002470004fd00b63f84710c7967bb] WindcavePaymentProcessingController.GetQueryResult(callback, 0000010075681469017650d03fa5e356, 0)
+14:10:19.979 [I] [800002470004fd00b63f84710c7967bb] WindcaveHelper.GetPluginVersion()
+14:10:19.980 [I] [800002470004fd00b63f84710c7967bb] WindcaveRestClient.Query(callback, 0000010075681469017650d03fa5e356)
+14:10:19.980 [I] [800002470004fd00b63f84710c7967bb] WindcaveHelper.GetPluginVersion()
+14:10:19.980 [I] [800002470004fd00b63f84710c7967bb] WindcaveRestClient.GetResponseBodyAsync(api/v1/sessions/0000010075681469017650d03fa5e356)
+14:10:19.980 [I] [800002470004fd00b63f84710c7967bb] WindcaveRestClient.DoGet(api/v1/sessions/0000010075681469017650d03fa5e356)
+14:10:19.980 [I] [800002470004fd00b63f84710c7967bb] WindcaveRestClient.SetClientProps()
+14:10:20.060 [I] [800002470004fd00b63f84710c7967bb] 200 response, query successful. Response:{
+    "id" : "0000010075681469017650d03fa5e356",
+    "state" : "complete",
+    "type" : "purchase",
+    "amount" : "72.08",
+    "currency" : "NZD",
+    "currencyNumeric" : 554,
+    "merchantReference" : "49",
+    "expires" : "2021-03-01T01:10:07Z",
+    "callbackUrls" : {
+        "approved" : "http://localhost:15536/Payments/Windcave/HandleApproved",
+        "declined" : "http://localhost:15536/Payments/Windcave/HandleDeclined",
+        "cancelled" : "http://localhost:15536/Payments/Windcave/HandleCancelled"
+    },
+    "notificationUrl" : "http://localhost:15536/Payments/Windcave/HandleNotificationCallback",
+    "customer" : {
+        "firstName" : "Fenchurch",
+        "lastName" : "Store",
+        "email" : "fenchurch.nz@gmail.com",
+        "phoneNumber" : "3254865",
+        "homePhoneNumber" : "",
+        "account" : "1",
+        "shipping" : {
+            "name" : "Fenchurch Store",
+            "address1" : "43/45 Fenchurch St,",
+            "address2" : "ezfsx",
+            "address3" : "",
+            "city" : "Glen Innes, Auckland",
+            "postalCode" : "1072",
+            "countryCode" : "NZ",
+            "phoneNumber" : "3254865",
+            "state" : ""
+        },
+        "billing" : {
+            "name" : "Fenchurch Store",
+            "address1" : "43/45 Fenchurch St,",
+            "address2" : "ezfsx",
+            "address3" : "",
+            "city" : "Glen Innes, Auckland",
+            "postalCode" : "1072",
+            "countryCode" : "NZ",
+            "phoneNumber" : "3254865",
+            "state" : ""
+        }
+    },
+    "storeCard" : false,
+    "clientType" : "internet",
+    "methods" : [
+        "card",
+        "account2account"
+    ],
+    "links" : [
+        {
+            "href" : "https://sec.windcave.com/api/v1/sessions/0000010075681469017650d03fa5e356",
+            "rel" : "self",
+            "method" : "GET"
+        },
+        {
+            "href" : "https://sec.windcave.com/api/v1/transactions/000000012af56f02",
+            "rel" : "transaction",
+            "method" : "GET"
+        }
+    ],
+    "transactions" : [
+        {
+            "id" : "000000012af56f02",
+            "username" : "FenchurchLiquorREST_Dev",
+            "authorised" : true,
+            "allowRetry" : false,
+            "reCo" : "00",
+            "responseText" : "APPROVED",
+            "authCode" : "141020",
+            "acquirer" : {
+                "name" : "Undefined",
+                "mid" : "10000000",
+                "tid" : "10012787"
+            },
+            "type" : "purchase",
+            "method" : "card",
+            "localTimeZone" : "NZT",
+            "dateTimeUtc" : "2021-02-26T01:10:20Z",
+            "dateTimeLocal" : "2021-02-26T14:10:20+13:00",
+            "settlementDate" : "2021-02-26",
+            "amount" : "72.08",
+            "balanceAmount" : "0.00",
+            "currency" : "NZD",
+            "currencyNumeric" : 554,
+            "clientType" : "internet",
+            "merchantReference" : "49",
+            "card" : {
+                "cardHolderName" : "SDZFAS",
+                "cardNumber" : "411111........11",
+                "dateExpiryMonth" : "10",
+                "dateExpiryYear" : "34",
+                "type" : "visa"
+            },
+            "cvc2ResultCode" : "M",
+            "storedCardIndicator" : "single",
+            "notificationUrl" : "http://localhost:15536/Payments/Windcave/HandleNotificationCallback",
+            "customer" : {
+                "firstName" : "Fenchurch",
+                "lastName" : "Store",
+                "email" : "fenchurch.nz@gmail.com",
+                "phoneNumber" : "3254865",
+                "homePhoneNumber" : "",
+                "account" : "1",
+                "shipping" : {
+                    "name" : "Fenchurch Store",
+                    "address1" : "43/45 Fenchurch St,",
+                    "address2" : "ezfsx",
+                    "address3" : "",
+                    "city" : "Glen Innes, Auckland",
+                    "postalCode" : "1072",
+                    "countryCode" : "NZ",
+                    "phoneNumber" : "3254865",
+                    "state" : ""
+                },
+                "billing" : {
+                    "name" : "Fenchurch Store",
+                    "address1" : "43/45 Fenchurch St,",
+                    "address2" : "ezfsx",
+                    "address3" : "",
+                    "city" : "Glen Innes, Auckland",
+                    "postalCode" : "1072",
+                    "countryCode" : "NZ",
+                    "phoneNumber" : "3254865",
+                    "state" : ""
+                }
+            },
+            "avs" : {
+                "postCode" : "",
+                "streetAddress" : "",
+                "avsAction" : 0,
+                "avsActionName" : "DontCheck",
+                "avsResultCode" : "U",
+                "avsResultDescription" : "U - address information not available, or AVS is unavailable"
+            },
+            "sessionId" : "0000010075681469017650d03fa5e356",
+            "browser" : {
+                "ipAddress" : "202.92.216.106",
+                "userAgent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36"
+            },
+            "isSurcharge" : false,
+            "liabilityIndicator" : "standard",
+            "links" : [
+                {
+                    "href" : "https://sec.windcave.com/api/v1/transactions/000000012af56f02",
+                    "rel" : "self",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://sec.windcave.com/api/v1/sessions/0000010075681469017650d03fa5e356",
+                    "rel" : "session",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://sec.windcave.com/api/v1/transactions",
+                    "rel" : "refund",
+                    "method" : "POST"
+                }
+            ]
+        }
+    ]
+}
+14:10:20.061 [I] [800002470004fd00b63f84710c7967bb] WindcavePaymentProcessingController.ProcessTransaction(0000010075681469017650d03fa5e356, , success, callback, Transaction(id:000000012af56f02, reCo:00, responseText:APPROVED, authorized:True, type:purchase)
+14:10:20.098 [I] [800002470004fd00b63f84710c7967bb] Updating to processing. SessionId:0000010075681469017650d03fa5e356  TransactionId: 
+14:10:20.098 [I] [800002470004fd00b63f84710c7967bb] WindcavePaymentProcessingController.UpdateTransaction(Transaction(id:000000012af56f02, reCo:00, responseText:APPROVED, authorized:True, type:purchase, Nop.Plugin.Payments.Windcave.Domain.WindcaveTransaction, True, callback)
+14:10:20.128 [I] [800002470004fd00b63f84710c7967bb] WindcavePaymentProcessingController.MarkOrderAsPaid(49, 0000010075681469017650d03fa5e356, 000000012af56f02, 141020, purchase)
+14:10:21.199 [I] [800002470004fd00b63f84710c7967bb] WindcavePaymentProcessingController.UpdateTransaction. Updated txn log. SessionId:0000010075681469017650d03fa5e356 TransactionId:000000012af56f02 Status:Approved
+14:10:21.234 [I] [800002470004fd00b63f84710c7967bb] Updating to complete. SessionId:0000010075681469017650d03fa5e356  TransactionId: 000000012af56f02
+14:10:21.234 [I] [800002470004fd00b63f84710c7967bb] WindcavePaymentProcessingController.GetTransactionSession()
+14:10:21.235 [I] [800002470004fd00b63f84710c7967bb] WindcavePaymentProcessingController.GetSession(0000010075681469017650d03fa5e356)
+14:10:21.235 [I] [800002470004fd00b63f84710c7967bb] WindcaveHelper.GetPluginVersion()
+14:10:21.235 [I] [800002470004fd00b63f84710c7967bb] WindcaveRestClient.GetResponseBodyAsync(api/v1/sessions/0000010075681469017650d03fa5e356)
+14:10:21.235 [I] [800002470004fd00b63f84710c7967bb] WindcaveRestClient.DoGet(api/v1/sessions/0000010075681469017650d03fa5e356)
+14:10:21.235 [I] [800002470004fd00b63f84710c7967bb] WindcaveRestClient.SetClientProps()
+14:18:58.788 [I] [8000005e0000fd00b63f84710c7967bb] WindcavePaymentProcessor::ValidatePaymentForm()
+14:18:58.789 [I] [8000005e0000fd00b63f84710c7967bb] WindcavePaymentProcessor::GetPaymentInfo()
+14:19:51.710 [I] [800000600000fd00b63f84710c7967bb] WindcavePaymentProcessor::PostProcessPayment()
+14:19:51.710 [I] [800000600000fd00b63f84710c7967bb] WindcavePaymentProcessor.SessionExists(50)
+14:19:56.824 [I] [800000600000fd00b63f84710c7967bb] WindcavePaymentProcessor.GetXID()
+14:19:56.825 [I] [800000600000fd00b63f84710c7967bb] WindcavePaymentProcessor.GetXID generated:c3e80c915c96bd38e9e7a735f23dfae1-0001-00000050-purchase
+14:19:56.850 [I] [800000600000fd00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession(50, c3e80c915c96bd38e9e7a735f23dfae1-0001-00000050-purchase, 0, <?xml version="1.0" encoding="utf-16"?><DictionarySerializer><item><key>Save card details</key><value>False</value></item><item><key>Use previously saved card</key><value>False</value></item></DictionarySerializer>)
+14:19:56.852 [I] [800000600000fd00b63f84710c7967bb] WindcaveHelper::GetTransactionObjFromOrderObj()
+14:19:56.939 [I] [800000600000fd00b63f84710c7967bb] WindcaveHelper.GetPluginVersion()
+14:19:56.939 [I] [800000600000fd00b63f84710c7967bb] WindcaveRestClient.GetPostResponseBodyAsync()
+14:19:56.940 [I] [800000600000fd00b63f84710c7967bb] WindcaveRestClient.DoPostAsync(https://sec.windcave.com, api/v1/sessions, RmVuY2h1cmNoTGlxdW9yUkVTVF9EZXY6YTAxNTVhNTNjNGI0MDE3NDUwMGRmNmI4OTNmZDRiY2RjMzRkZDA4ODQ3ZjU1NTkxOTMxMmRiYWE1NTE0OGJlMg==, {"amount":"92.83","callbackUrls":{"approved":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleApproved","cancelled":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleCancelled","declined":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleDeclined"},"cardId":null,"currency":"NZD","customer":{"account":"1","billing":{"address1":"43\/45 Fenchurch St,","address2":"ezfsx","city":"Glen Innes, Auckland","countryCode":"NZ","name":"Fenchurch Store","phoneNumber":"3254865","postalCode":"1072","state":null},"email":"fenchurch.nz@gmail.com","firstName":"Fenchurch","lastName":"Store","phoneNumber":"3254865","shipping":{"address1":"43\/45 Fenchurch St,","address2":"ezfsx","city":"Glen Innes, Auckland","countryCode":"NZ","name":"Fenchurch Store","phoneNumber":"3254865","postalCode":"1072","state":null}},"expires":null,"language":"en-NZ","merchantReference":"50","methods":["card","account2account"],"notificationUrl":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleNotificationCallback","storeCard":false,"storeCustomer":false,"storedCardIndicator":null,"type":"purchase"}, Nop.Core.Domain.Orders.Order, c3e80c915c96bd38e9e7a735f23dfae1-0001-00000050-purchase)
+14:19:56.941 [I] [800000600000fd00b63f84710c7967bb] WindcaveRestClient.SetClientProps()
+14:19:57.155 [I] [800000600000fd00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession. Created successfully. SessionId:00000100756837440157d9f6d1dd1b9e
+14:19:57.164 [I] [800000600000fd00b63f84710c7967bb] WindcavePaymentProcessor.PrepareTransaction(Nop.Core.Domain.Orders.Order, 00000100756837440157d9f6d1dd1b9e, , https://sec.windcave.com/pxmi3/FB6C6D14567D96C20D0E5CE49487266D7615CBD63D467942F60CC2014012FE2F20B0EE939E36E9974D54BF4B17B460583, NZD)
+14:19:57.171 [I] [800000600000fd00b63f84710c7967bb] WindcavePaymentProcessor.AddTransaction(Amount:92.8300, AuthCode:null, AvsAction:null, AvsResult:null, CardholderName:null, CardId:, CardMask:null, CardType:null, CompleteStatus:Complete Not Applicable, Currency:NZD, CustomerId:1, Cvc2Result:null, DateAdded:26/02/2021 1:19:29 AM, EntityCacheKey:Nop.windcavetransaction.id-0, ExpiryMonth:null, ExpiryYear:null, HppLink:https://sec.windcave.com/pxmi3/FB6C6D14567D96C20D0E5CE49487266D7615CBD63D467942F60CC2014012FE2F20B0EE939E36E9974D54BF4B17B460583, Id:0, OrderId:50, ParentTransactionId:null, PaymentAuthentication:null, PaymentMethod:null, RefundStatus:Refund Not Applicable, ResponseCode:null, ResponseText:null, RiskAction:null, RiskSummaryText:null, SessionId:00000100756837440157d9f6d1dd1b9e, SessionState:pending, Status:Processing, StoreCard:False, TransactionId:null, Type:purchase, VoidStatus:Void Not Applicable, )
+14:20:18.085 [I] [800000610000fd00b63f84710c7967bb] WindcavePaymentProcessingController.HandleApproved(0, 00000100756837440157d9f6d1dd1b9e)
+14:20:18.086 [I] [800000610000fd00b63f84710c7967bb] WindcavePaymentProcessingController.HandleCallback(0, 00000100756837440157d9f6d1dd1b9e)
+14:20:18.588 [I] [800000610000fd00b63f84710c7967bb] HandleCallback lock acquired
+14:20:18.637 [I] [800000610000fd00b63f84710c7967bb] Session state:pending
+14:20:18.638 [I] [800000610000fd00b63f84710c7967bb] WindcavePaymentProcessingController.GetQueryResult(callback, 00000100756837440157d9f6d1dd1b9e, 0)
+14:20:18.638 [I] [800000610000fd00b63f84710c7967bb] WindcaveHelper.GetPluginVersion()
+14:20:18.646 [I] [800000610000fd00b63f84710c7967bb] WindcaveRestClient.Query(callback, 00000100756837440157d9f6d1dd1b9e)
+14:20:18.646 [I] [800000610000fd00b63f84710c7967bb] WindcaveHelper.GetPluginVersion()
+14:20:18.647 [I] [800000610000fd00b63f84710c7967bb] WindcaveRestClient.GetResponseBodyAsync(api/v1/sessions/00000100756837440157d9f6d1dd1b9e)
+14:20:18.650 [I] [800000610000fd00b63f84710c7967bb] WindcaveRestClient.DoGet(api/v1/sessions/00000100756837440157d9f6d1dd1b9e)
+14:20:18.650 [I] [800000610000fd00b63f84710c7967bb] WindcaveRestClient.SetClientProps()
+14:20:18.745 [I] [800000610000fd00b63f84710c7967bb] 200 response, query successful. Response:{
+    "id" : "00000100756837440157d9f6d1dd1b9e",
+    "state" : "complete",
+    "type" : "purchase",
+    "amount" : "92.83",
+    "currency" : "NZD",
+    "currencyNumeric" : 554,
+    "merchantReference" : "50",
+    "expires" : "2021-03-01T01:19:58Z",
+    "callbackUrls" : {
+        "approved" : "http://localhost:15536/Payments/Windcave/HandleApproved",
+        "declined" : "http://localhost:15536/Payments/Windcave/HandleDeclined",
+        "cancelled" : "http://localhost:15536/Payments/Windcave/HandleCancelled"
+    },
+    "notificationUrl" : "http://localhost:15536/Payments/Windcave/HandleNotificationCallback",
+    "customer" : {
+        "firstName" : "Fenchurch",
+        "lastName" : "Store",
+        "email" : "fenchurch.nz@gmail.com",
+        "phoneNumber" : "3254865",
+        "homePhoneNumber" : "",
+        "account" : "1",
+        "shipping" : {
+            "name" : "Fenchurch Store",
+            "address1" : "43/45 Fenchurch St,",
+            "address2" : "ezfsx",
+            "address3" : "",
+            "city" : "Glen Innes, Auckland",
+            "postalCode" : "1072",
+            "countryCode" : "NZ",
+            "phoneNumber" : "3254865",
+            "state" : ""
+        },
+        "billing" : {
+            "name" : "Fenchurch Store",
+            "address1" : "43/45 Fenchurch St,",
+            "address2" : "ezfsx",
+            "address3" : "",
+            "city" : "Glen Innes, Auckland",
+            "postalCode" : "1072",
+            "countryCode" : "NZ",
+            "phoneNumber" : "3254865",
+            "state" : ""
+        }
+    },
+    "storeCard" : false,
+    "clientType" : "internet",
+    "methods" : [
+        "card",
+        "account2account"
+    ],
+    "links" : [
+        {
+            "href" : "https://sec.windcave.com/api/v1/sessions/00000100756837440157d9f6d1dd1b9e",
+            "rel" : "self",
+            "method" : "GET"
+        },
+        {
+            "href" : "https://sec.windcave.com/api/v1/transactions/000000012af60e0a",
+            "rel" : "transaction",
+            "method" : "GET"
+        }
+    ],
+    "transactions" : [
+        {
+            "id" : "000000012af60e0a",
+            "username" : "FenchurchLiquorREST_Dev",
+            "authorised" : true,
+            "allowRetry" : false,
+            "reCo" : "00",
+            "responseText" : "APPROVED",
+            "authCode" : "142018",
+            "acquirer" : {
+                "name" : "Undefined",
+                "mid" : "10000000",
+                "tid" : "10012787"
+            },
+            "type" : "purchase",
+            "method" : "card",
+            "localTimeZone" : "NZT",
+            "dateTimeUtc" : "2021-02-26T01:20:18Z",
+            "dateTimeLocal" : "2021-02-26T14:20:18+13:00",
+            "settlementDate" : "2021-02-26",
+            "amount" : "92.83",
+            "balanceAmount" : "0.00",
+            "currency" : "NZD",
+            "currencyNumeric" : 554,
+            "clientType" : "internet",
+            "merchantReference" : "50",
+            "card" : {
+                "cardHolderName" : "ASDBGHJ",
+                "cardNumber" : "411111........11",
+                "dateExpiryMonth" : "10",
+                "dateExpiryYear" : "30",
+                "type" : "visa"
+            },
+            "cvc2ResultCode" : "M",
+            "storedCardIndicator" : "single",
+            "notificationUrl" : "http://localhost:15536/Payments/Windcave/HandleNotificationCallback",
+            "customer" : {
+                "firstName" : "Fenchurch",
+                "lastName" : "Store",
+                "email" : "fenchurch.nz@gmail.com",
+                "phoneNumber" : "3254865",
+                "homePhoneNumber" : "",
+                "account" : "1",
+                "shipping" : {
+                    "name" : "Fenchurch Store",
+                    "address1" : "43/45 Fenchurch St,",
+                    "address2" : "ezfsx",
+                    "address3" : "",
+                    "city" : "Glen Innes, Auckland",
+                    "postalCode" : "1072",
+                    "countryCode" : "NZ",
+                    "phoneNumber" : "3254865",
+                    "state" : ""
+                },
+                "billing" : {
+                    "name" : "Fenchurch Store",
+                    "address1" : "43/45 Fenchurch St,",
+                    "address2" : "ezfsx",
+                    "address3" : "",
+                    "city" : "Glen Innes, Auckland",
+                    "postalCode" : "1072",
+                    "countryCode" : "NZ",
+                    "phoneNumber" : "3254865",
+                    "state" : ""
+                }
+            },
+            "avs" : {
+                "postCode" : "",
+                "streetAddress" : "",
+                "avsAction" : 0,
+                "avsActionName" : "DontCheck",
+                "avsResultCode" : "U",
+                "avsResultDescription" : "U - address information not available, or AVS is unavailable"
+            },
+            "sessionId" : "00000100756837440157d9f6d1dd1b9e",
+            "browser" : {
+                "ipAddress" : "202.92.216.106",
+                "userAgent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36"
+            },
+            "isSurcharge" : false,
+            "liabilityIndicator" : "standard",
+            "links" : [
+                {
+                    "href" : "https://sec.windcave.com/api/v1/transactions/000000012af60e0a",
+                    "rel" : "self",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://sec.windcave.com/api/v1/sessions/00000100756837440157d9f6d1dd1b9e",
+                    "rel" : "session",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://sec.windcave.com/api/v1/transactions",
+                    "rel" : "refund",
+                    "method" : "POST"
+                }
+            ]
+        }
+    ]
+}
+14:20:18.802 [I] [800000610000fd00b63f84710c7967bb] WindcavePaymentProcessingController.ProcessTransaction(00000100756837440157d9f6d1dd1b9e, , success, callback, Transaction(id:000000012af60e0a, reCo:00, responseText:APPROVED, authorized:True, type:purchase)
+14:20:18.861 [I] [800000610000fd00b63f84710c7967bb] Updating to processing. SessionId:00000100756837440157d9f6d1dd1b9e  TransactionId: 
+14:20:18.863 [I] [800000610000fd00b63f84710c7967bb] WindcavePaymentProcessingController.UpdateTransaction(Transaction(id:000000012af60e0a, reCo:00, responseText:APPROVED, authorized:True, type:purchase, Nop.Plugin.Payments.Windcave.Domain.WindcaveTransaction, True, callback)
+14:20:18.909 [I] [800000610000fd00b63f84710c7967bb] WindcavePaymentProcessingController.MarkOrderAsPaid(50, 00000100756837440157d9f6d1dd1b9e, 000000012af60e0a, 142018, purchase)
+14:20:24.877 [I] [800000610000fd00b63f84710c7967bb] WindcavePaymentProcessingController.UpdateTransaction. Updated txn log. SessionId:00000100756837440157d9f6d1dd1b9e TransactionId:000000012af60e0a Status:Approved
+14:20:24.954 [I] [800000610000fd00b63f84710c7967bb] Updating to complete. SessionId:00000100756837440157d9f6d1dd1b9e  TransactionId: 000000012af60e0a
+14:20:24.956 [I] [800000610000fd00b63f84710c7967bb] WindcavePaymentProcessingController.GetTransactionSession()
+14:20:24.957 [I] [800000610000fd00b63f84710c7967bb] WindcavePaymentProcessingController.GetSession(00000100756837440157d9f6d1dd1b9e)
+14:20:24.957 [I] [800000610000fd00b63f84710c7967bb] WindcaveHelper.GetPluginVersion()
+14:20:24.957 [I] [800000610000fd00b63f84710c7967bb] WindcaveRestClient.GetResponseBodyAsync(api/v1/sessions/00000100756837440157d9f6d1dd1b9e)
+14:20:24.958 [I] [800000610000fd00b63f84710c7967bb] WindcaveRestClient.DoGet(api/v1/sessions/00000100756837440157d9f6d1dd1b9e)
+14:20:24.958 [I] [800000610000fd00b63f84710c7967bb] WindcaveRestClient.SetClientProps()
+14:35:39.273 [I] [800001450003fe00b63f84710c7967bb] WindcavePaymentProcessor::ValidatePaymentForm()
+14:35:39.273 [I] [800001450003fe00b63f84710c7967bb] WindcavePaymentProcessor::GetPaymentInfo()
+14:36:29.713 [I] [800001470003fe00b63f84710c7967bb] WindcavePaymentProcessor::PostProcessPayment()
+14:36:29.713 [I] [800001470003fe00b63f84710c7967bb] WindcavePaymentProcessor.SessionExists(51)
+14:36:29.748 [I] [800001470003fe00b63f84710c7967bb] WindcavePaymentProcessor.ContinueExistingSession(51)
+14:44:38.303 [I] [800000af0005fb00b63f84710c7967bb] WindcavePaymentProcessor::ValidatePaymentForm()
+14:44:38.304 [I] [800000af0005fb00b63f84710c7967bb] WindcavePaymentProcessor::GetPaymentInfo()
+15:25:06.803 [I] [800002f50000fe00b63f84710c7967bb] WindcavePaymentProcessor::ValidatePaymentForm()
+15:25:06.804 [I] [800002f50000fe00b63f84710c7967bb] WindcavePaymentProcessor::GetPaymentInfo()
+15:28:01.459 [I] [800002f70000fe00b63f84710c7967bb] WindcavePaymentProcessor::PostProcessPayment()
+15:28:01.461 [I] [800002f70000fe00b63f84710c7967bb] WindcavePaymentProcessor.SessionExists(53)
+15:28:06.498 [I] [800002f70000fe00b63f84710c7967bb] WindcavePaymentProcessor.GetXID()
+15:28:06.499 [I] [800002f70000fe00b63f84710c7967bb] WindcavePaymentProcessor.GetXID generated:af13ae4d4dcf0b66ebc1c812dc76caac-0001-00000053-purchase
+15:28:06.543 [I] [800002f70000fe00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession(53, af13ae4d4dcf0b66ebc1c812dc76caac-0001-00000053-purchase, 0, <?xml version="1.0" encoding="utf-16"?><DictionarySerializer><item><key>Save card details</key><value>False</value></item><item><key>Use previously saved card</key><value>False</value></item></DictionarySerializer>)
+15:28:06.547 [I] [800002f70000fe00b63f84710c7967bb] WindcaveHelper::GetTransactionObjFromOrderObj()
+15:28:06.690 [I] [800002f70000fe00b63f84710c7967bb] WindcaveHelper.GetPluginVersion()
+15:28:06.691 [I] [800002f70000fe00b63f84710c7967bb] WindcaveRestClient.GetPostResponseBodyAsync()
+15:28:06.692 [I] [800002f70000fe00b63f84710c7967bb] WindcaveRestClient.DoPostAsync(https://sec.windcave.com, api/v1/sessions, RmVuY2h1cmNoTGlxdW9yUkVTVF9EZXY6YTAxNTVhNTNjNGI0MDE3NDUwMGRmNmI4OTNmZDRiY2RjMzRkZDA4ODQ3ZjU1NTkxOTMxMmRiYWE1NTE0OGJlMg==, {"amount":"94.83","callbackUrls":{"approved":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleApproved","cancelled":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleCancelled","declined":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleDeclined"},"cardId":null,"currency":"NZD","customer":{"account":"1","billing":{"address1":"43\/45 Fenchurch St,","address2":"ezfsx","city":"Glen Innes, Auckland","countryCode":"NZ","name":"Fenchurch Store","phoneNumber":"3254865","postalCode":"1072","state":null},"email":"fenchurch.nz@gmail.com","firstName":"John","lastName":"Smith","phoneNumber":"1455352251251","shipping":{"address1":"dzsxc","address2":"zxcd","city":"cxz","countryCode":"NZ","name":"John Smith","phoneNumber":"1455352251251","postalCode":"54","state":null}},"expires":null,"language":"en-NZ","merchantReference":"53","methods":["card","account2account"],"notificationUrl":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleNotificationCallback","storeCard":false,"storeCustomer":false,"storedCardIndicator":null,"type":"purchase"}, Nop.Core.Domain.Orders.Order, af13ae4d4dcf0b66ebc1c812dc76caac-0001-00000053-purchase)
+15:28:06.693 [I] [800002f70000fe00b63f84710c7967bb] WindcaveRestClient.SetClientProps()
+15:28:06.918 [I] [800002f70000fe00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession. Created successfully. SessionId:0000010075699537015902efa4967c7d
+15:28:06.920 [I] [800002f70000fe00b63f84710c7967bb] WindcavePaymentProcessor.PrepareTransaction(Nop.Core.Domain.Orders.Order, 0000010075699537015902efa4967c7d, , https://sec.windcave.com/pxmi3/FEAD0CB3F7C0CE41E70849A80D61DE921867699FE6E80D4F0C415C10389A08531131665C8AF8877C137216783962B325E, NZD)
+15:28:06.925 [I] [800002f70000fe00b63f84710c7967bb] WindcavePaymentProcessor.AddTransaction(Amount:94.8300, AuthCode:null, AvsAction:null, AvsResult:null, CardholderName:null, CardId:, CardMask:null, CardType:null, CompleteStatus:Complete Not Applicable, Currency:NZD, CustomerId:1, Cvc2Result:null, DateAdded:26/02/2021 2:26:36 AM, EntityCacheKey:Nop.windcavetransaction.id-0, ExpiryMonth:null, ExpiryYear:null, HppLink:https://sec.windcave.com/pxmi3/FEAD0CB3F7C0CE41E70849A80D61DE921867699FE6E80D4F0C415C10389A08531131665C8AF8877C137216783962B325E, Id:0, OrderId:53, ParentTransactionId:null, PaymentAuthentication:null, PaymentMethod:null, RefundStatus:Refund Not Applicable, ResponseCode:null, ResponseText:null, RiskAction:null, RiskSummaryText:null, SessionId:0000010075699537015902efa4967c7d, SessionState:pending, Status:Processing, StoreCard:False, TransactionId:null, Type:purchase, VoidStatus:Void Not Applicable, )
+15:28:30.830 [I] [800002f80000fe00b63f84710c7967bb] WindcavePaymentProcessingController.HandleApproved(0, 0000010075699537015902efa4967c7d)
+15:28:30.831 [I] [800002f80000fe00b63f84710c7967bb] WindcavePaymentProcessingController.HandleCallback(0, 0000010075699537015902efa4967c7d)
+15:28:31.333 [I] [800002f80000fe00b63f84710c7967bb] HandleCallback lock acquired
+15:28:31.379 [I] [800002f80000fe00b63f84710c7967bb] Session state:pending
+15:28:31.379 [I] [800002f80000fe00b63f84710c7967bb] WindcavePaymentProcessingController.GetQueryResult(callback, 0000010075699537015902efa4967c7d, 0)
+15:28:31.379 [I] [800002f80000fe00b63f84710c7967bb] WindcaveHelper.GetPluginVersion()
+15:28:31.382 [I] [800002f80000fe00b63f84710c7967bb] WindcaveRestClient.Query(callback, 0000010075699537015902efa4967c7d)
+15:28:31.382 [I] [800002f80000fe00b63f84710c7967bb] WindcaveHelper.GetPluginVersion()
+15:28:31.382 [I] [800002f80000fe00b63f84710c7967bb] WindcaveRestClient.GetResponseBodyAsync(api/v1/sessions/0000010075699537015902efa4967c7d)
+15:28:31.384 [I] [800002f80000fe00b63f84710c7967bb] WindcaveRestClient.DoGet(api/v1/sessions/0000010075699537015902efa4967c7d)
+15:28:31.384 [I] [800002f80000fe00b63f84710c7967bb] WindcaveRestClient.SetClientProps()
+15:28:31.458 [I] [800002f80000fe00b63f84710c7967bb] 200 response, query successful. Response:{
+    "id" : "0000010075699537015902efa4967c7d",
+    "state" : "complete",
+    "type" : "purchase",
+    "amount" : "94.83",
+    "currency" : "NZD",
+    "currencyNumeric" : 554,
+    "merchantReference" : "53",
+    "expires" : "2021-03-01T02:28:08Z",
+    "callbackUrls" : {
+        "approved" : "http://localhost:15536/Payments/Windcave/HandleApproved",
+        "declined" : "http://localhost:15536/Payments/Windcave/HandleDeclined",
+        "cancelled" : "http://localhost:15536/Payments/Windcave/HandleCancelled"
+    },
+    "notificationUrl" : "http://localhost:15536/Payments/Windcave/HandleNotificationCallback",
+    "customer" : {
+        "firstName" : "John",
+        "lastName" : "Smith",
+        "email" : "fenchurch.nz@gmail.com",
+        "phoneNumber" : "1455352251251",
+        "homePhoneNumber" : "",
+        "account" : "1",
+        "shipping" : {
+            "name" : "John Smith",
+            "address1" : "dzsxc",
+            "address2" : "zxcd",
+            "address3" : "",
+            "city" : "cxz",
+            "postalCode" : "54",
+            "countryCode" : "NZ",
+            "phoneNumber" : "1455352251251",
+            "state" : ""
+        },
+        "billing" : {
+            "name" : "Fenchurch Store",
+            "address1" : "43/45 Fenchurch St,",
+            "address2" : "ezfsx",
+            "address3" : "",
+            "city" : "Glen Innes, Auckland",
+            "postalCode" : "1072",
+            "countryCode" : "NZ",
+            "phoneNumber" : "3254865",
+            "state" : ""
+        }
+    },
+    "storeCard" : false,
+    "clientType" : "internet",
+    "methods" : [
+        "card",
+        "account2account"
+    ],
+    "links" : [
+        {
+            "href" : "https://sec.windcave.com/api/v1/sessions/0000010075699537015902efa4967c7d",
+            "rel" : "self",
+            "method" : "GET"
+        },
+        {
+            "href" : "https://sec.windcave.com/api/v1/transactions/000000012afa5dbd",
+            "rel" : "transaction",
+            "method" : "GET"
+        }
+    ],
+    "transactions" : [
+        {
+            "id" : "000000012afa5dbd",
+            "username" : "FenchurchLiquorREST_Dev",
+            "authorised" : true,
+            "allowRetry" : false,
+            "reCo" : "00",
+            "responseText" : "APPROVED",
+            "authCode" : "152831",
+            "acquirer" : {
+                "name" : "Undefined",
+                "mid" : "10000000",
+                "tid" : "10012787"
+            },
+            "type" : "purchase",
+            "method" : "card",
+            "localTimeZone" : "NZT",
+            "dateTimeUtc" : "2021-02-26T02:28:31Z",
+            "dateTimeLocal" : "2021-02-26T15:28:31+13:00",
+            "settlementDate" : "2021-02-26",
+            "amount" : "94.83",
+            "balanceAmount" : "0.00",
+            "currency" : "NZD",
+            "currencyNumeric" : 554,
+            "clientType" : "internet",
+            "merchantReference" : "53",
+            "card" : {
+                "cardHolderName" : "JBSFDH",
+                "cardNumber" : "411111........11",
+                "dateExpiryMonth" : "07",
+                "dateExpiryYear" : "32",
+                "type" : "visa"
+            },
+            "cvc2ResultCode" : "M",
+            "storedCardIndicator" : "single",
+            "notificationUrl" : "http://localhost:15536/Payments/Windcave/HandleNotificationCallback",
+            "customer" : {
+                "firstName" : "John",
+                "lastName" : "Smith",
+                "email" : "fenchurch.nz@gmail.com",
+                "phoneNumber" : "1455352251251",
+                "homePhoneNumber" : "",
+                "account" : "1",
+                "shipping" : {
+                    "name" : "John Smith",
+                    "address1" : "dzsxc",
+                    "address2" : "zxcd",
+                    "address3" : "",
+                    "city" : "cxz",
+                    "postalCode" : "54",
+                    "countryCode" : "NZ",
+                    "phoneNumber" : "1455352251251",
+                    "state" : ""
+                },
+                "billing" : {
+                    "name" : "Fenchurch Store",
+                    "address1" : "43/45 Fenchurch St,",
+                    "address2" : "ezfsx",
+                    "address3" : "",
+                    "city" : "Glen Innes, Auckland",
+                    "postalCode" : "1072",
+                    "countryCode" : "NZ",
+                    "phoneNumber" : "3254865",
+                    "state" : ""
+                }
+            },
+            "avs" : {
+                "postCode" : "",
+                "streetAddress" : "",
+                "avsAction" : 0,
+                "avsActionName" : "DontCheck",
+                "avsResultCode" : "U",
+                "avsResultDescription" : "U - address information not available, or AVS is unavailable"
+            },
+            "sessionId" : "0000010075699537015902efa4967c7d",
+            "browser" : {
+                "ipAddress" : "202.92.216.106",
+                "userAgent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36"
+            },
+            "isSurcharge" : false,
+            "liabilityIndicator" : "standard",
+            "links" : [
+                {
+                    "href" : "https://sec.windcave.com/api/v1/transactions/000000012afa5dbd",
+                    "rel" : "self",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://sec.windcave.com/api/v1/sessions/0000010075699537015902efa4967c7d",
+                    "rel" : "session",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://sec.windcave.com/api/v1/transactions",
+                    "rel" : "refund",
+                    "method" : "POST"
+                }
+            ]
+        }
+    ]
+}
+15:28:31.528 [I] [800002f80000fe00b63f84710c7967bb] WindcavePaymentProcessingController.ProcessTransaction(0000010075699537015902efa4967c7d, , success, callback, Transaction(id:000000012afa5dbd, reCo:00, responseText:APPROVED, authorized:True, type:purchase)
+15:28:31.592 [I] [800002f80000fe00b63f84710c7967bb] Updating to processing. SessionId:0000010075699537015902efa4967c7d  TransactionId: 
+15:28:31.594 [I] [800002f80000fe00b63f84710c7967bb] WindcavePaymentProcessingController.UpdateTransaction(Transaction(id:000000012afa5dbd, reCo:00, responseText:APPROVED, authorized:True, type:purchase, Nop.Plugin.Payments.Windcave.Domain.WindcaveTransaction, True, callback)
+15:28:31.656 [I] [800002f80000fe00b63f84710c7967bb] WindcavePaymentProcessingController.MarkOrderAsPaid(53, 0000010075699537015902efa4967c7d, 000000012afa5dbd, 152831, purchase)
+15:28:37.614 [I] [800002f80000fe00b63f84710c7967bb] WindcavePaymentProcessingController.UpdateTransaction. Updated txn log. SessionId:0000010075699537015902efa4967c7d TransactionId:000000012afa5dbd Status:Approved
+15:28:37.652 [I] [800002f80000fe00b63f84710c7967bb] Updating to complete. SessionId:0000010075699537015902efa4967c7d  TransactionId: 000000012afa5dbd
+15:28:37.654 [I] [800002f80000fe00b63f84710c7967bb] WindcavePaymentProcessingController.GetTransactionSession()
+15:28:37.654 [I] [800002f80000fe00b63f84710c7967bb] WindcavePaymentProcessingController.GetSession(0000010075699537015902efa4967c7d)
+15:28:37.654 [I] [800002f80000fe00b63f84710c7967bb] WindcaveHelper.GetPluginVersion()
+15:28:37.655 [I] [800002f80000fe00b63f84710c7967bb] WindcaveRestClient.GetResponseBodyAsync(api/v1/sessions/0000010075699537015902efa4967c7d)
+15:28:37.655 [I] [800002f80000fe00b63f84710c7967bb] WindcaveRestClient.DoGet(api/v1/sessions/0000010075699537015902efa4967c7d)
+15:28:37.655 [I] [800002f80000fe00b63f84710c7967bb] WindcaveRestClient.SetClientProps()
+15:47:22.420 [I] [800001500002fd00b63f84710c7967bb] WindcavePaymentProcessor::ValidatePaymentForm()
+15:47:22.421 [I] [800001500002fd00b63f84710c7967bb] WindcavePaymentProcessor::GetPaymentInfo()
+16:05:21.196 [I] [8000033f0004fe00b63f84710c7967bb] WindcavePaymentProcessor::ValidatePaymentForm()
+16:05:21.197 [I] [8000033f0004fe00b63f84710c7967bb] WindcavePaymentProcessor::GetPaymentInfo()
+16:07:36.150 [I] [800003410004fe00b63f84710c7967bb] WindcavePaymentProcessor::ValidatePaymentForm()
+16:07:36.150 [I] [800003410004fe00b63f84710c7967bb] WindcavePaymentProcessor::GetPaymentInfo()
+16:09:10.703 [I] [800003430004fe00b63f84710c7967bb] WindcavePaymentProcessor::ValidatePaymentForm()
+16:09:10.703 [I] [800003430004fe00b63f84710c7967bb] WindcavePaymentProcessor::GetPaymentInfo()
+16:12:41.218 [I] [800000bc0005fb00b63f84710c7967bb] WindcavePaymentProcessor::ValidatePaymentForm()
+16:12:41.219 [I] [800000bc0005fb00b63f84710c7967bb] WindcavePaymentProcessor::GetPaymentInfo()
+16:15:01.125 [I] [8000015b0003fe00b63f84710c7967bb] WindcavePaymentProcessor::ValidatePaymentForm()
+16:15:01.125 [I] [8000015b0003fe00b63f84710c7967bb] WindcavePaymentProcessor::GetPaymentInfo()
+16:16:38.259 [I] [800000cf0005fb00b63f84710c7967bb] WindcavePaymentProcessor::ValidatePaymentForm()
+16:16:38.259 [I] [800000cf0005fb00b63f84710c7967bb] WindcavePaymentProcessor::GetPaymentInfo()
+16:19:32.913 [I] [800000d40005fb00b63f84710c7967bb] WindcavePaymentProcessor::ValidatePaymentForm()
+16:19:32.913 [I] [800000d40005fb00b63f84710c7967bb] WindcavePaymentProcessor::GetPaymentInfo()
+16:24:16.565 [I] [8000006e0000fd00b63f84710c7967bb] WindcavePaymentProcessor::ValidatePaymentForm()
+16:24:16.565 [I] [8000006e0000fd00b63f84710c7967bb] WindcavePaymentProcessor::GetPaymentInfo()
+16:25:22.131 [I] [800000700000fd00b63f84710c7967bb] WindcavePaymentProcessor::PostProcessPayment()
+16:25:22.133 [I] [800000700000fd00b63f84710c7967bb] WindcavePaymentProcessor.SessionExists(54)
+16:25:27.286 [I] [800000700000fd00b63f84710c7967bb] WindcavePaymentProcessor.GetXID()
+16:25:27.286 [I] [800000700000fd00b63f84710c7967bb] WindcavePaymentProcessor.GetXID generated:5a78348a0074369436abbcebab087be1-0001-00000054-purchase
+16:25:27.303 [I] [800000700000fd00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession(54, 5a78348a0074369436abbcebab087be1-0001-00000054-purchase, 0, <?xml version="1.0" encoding="utf-16"?><DictionarySerializer><item><key>Save card details</key><value>False</value></item><item><key>Use previously saved card</key><value>False</value></item></DictionarySerializer>)
+16:25:27.305 [I] [800000700000fd00b63f84710c7967bb] WindcaveHelper::GetTransactionObjFromOrderObj()
+16:25:27.410 [I] [800000700000fd00b63f84710c7967bb] WindcaveHelper.GetPluginVersion()
+16:25:27.411 [I] [800000700000fd00b63f84710c7967bb] WindcaveRestClient.GetPostResponseBodyAsync()
+16:25:27.412 [I] [800000700000fd00b63f84710c7967bb] WindcaveRestClient.DoPostAsync(https://sec.windcave.com, api/v1/sessions, RmVuY2h1cmNoTGlxdW9yUkVTVF9EZXY6YTAxNTVhNTNjNGI0MDE3NDUwMGRmNmI4OTNmZDRiY2RjMzRkZDA4ODQ3ZjU1NTkxOTMxMmRiYWE1NTE0OGJlMg==, {"amount":"684.59","callbackUrls":{"approved":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleApproved","cancelled":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleCancelled","declined":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleDeclined"},"cardId":null,"currency":"NZD","customer":{"account":"2261","billing":{"address1":"21","address2":"Welasly Roade1","city":"Auckland1","countryCode":"NZ","name":"Swati Patel","phoneNumber":"0221004322","postalCode":"11001","state":null},"email":"swati.prity21@gmail.com","firstName":"Swati","lastName":"Patel","phoneNumber":"0221004322","shipping":{"address1":"100 Popokatea Drive, Takanini","address2":"Takanini","city":"Auckland","countryCode":"NZ","name":"Swati Patel","phoneNumber":"0221004322","postalCode":"2112","state":null}},"expires":null,"language":"en-NZ","merchantReference":"54","methods":["card","account2account"],"notificationUrl":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleNotificationCallback","storeCard":false,"storeCustomer":false,"storedCardIndicator":null,"type":"purchase"}, Nop.Core.Domain.Orders.Order, 5a78348a0074369436abbcebab087be1-0001-00000054-purchase)
+16:25:27.413 [I] [800000700000fd00b63f84710c7967bb] WindcaveRestClient.SetClientProps()
+16:25:27.627 [I] [800000700000fd00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession. Created successfully. SessionId:0000010075712411012b2b946b67f880
+16:25:27.634 [I] [800000700000fd00b63f84710c7967bb] WindcavePaymentProcessor.PrepareTransaction(Nop.Core.Domain.Orders.Order, 0000010075712411012b2b946b67f880, , https://sec.windcave.com/pxmi3/FC2E5B4AF879237D6F79F9860BF1F0486014E40ADA1E0234D416E8EF76CD4BB1CCA6FA4479416C1192D767A81192598E9, NZD)
+16:25:27.639 [I] [800000700000fd00b63f84710c7967bb] WindcavePaymentProcessor.AddTransaction(Amount:684.5900, AuthCode:null, AvsAction:null, AvsResult:null, CardholderName:null, CardId:, CardMask:null, CardType:null, CompleteStatus:Complete Not Applicable, Currency:NZD, CustomerId:2261, Cvc2Result:null, DateAdded:26/02/2021 3:24:56 AM, EntityCacheKey:Nop.windcavetransaction.id-0, ExpiryMonth:null, ExpiryYear:null, HppLink:https://sec.windcave.com/pxmi3/FC2E5B4AF879237D6F79F9860BF1F0486014E40ADA1E0234D416E8EF76CD4BB1CCA6FA4479416C1192D767A81192598E9, Id:0, OrderId:54, ParentTransactionId:null, PaymentAuthentication:null, PaymentMethod:null, RefundStatus:Refund Not Applicable, ResponseCode:null, ResponseText:null, RiskAction:null, RiskSummaryText:null, SessionId:0000010075712411012b2b946b67f880, SessionState:pending, Status:Processing, StoreCard:False, TransactionId:null, Type:purchase, VoidStatus:Void Not Applicable, )
+16:25:50.103 [I] [800000710000fd00b63f84710c7967bb] WindcavePaymentProcessingController.HandleApproved(0, 0000010075712411012b2b946b67f880)
+16:25:50.104 [I] [800000710000fd00b63f84710c7967bb] WindcavePaymentProcessingController.HandleCallback(0, 0000010075712411012b2b946b67f880)
+16:25:50.605 [I] [800000710000fd00b63f84710c7967bb] HandleCallback lock acquired
+16:25:50.641 [I] [800000710000fd00b63f84710c7967bb] Session state:pending
+16:25:50.641 [I] [800000710000fd00b63f84710c7967bb] WindcavePaymentProcessingController.GetQueryResult(callback, 0000010075712411012b2b946b67f880, 0)
+16:25:50.641 [I] [800000710000fd00b63f84710c7967bb] WindcaveHelper.GetPluginVersion()
+16:25:50.644 [I] [800000710000fd00b63f84710c7967bb] WindcaveRestClient.Query(callback, 0000010075712411012b2b946b67f880)
+16:25:50.644 [I] [800000710000fd00b63f84710c7967bb] WindcaveHelper.GetPluginVersion()
+16:25:50.644 [I] [800000710000fd00b63f84710c7967bb] WindcaveRestClient.GetResponseBodyAsync(api/v1/sessions/0000010075712411012b2b946b67f880)
+16:25:50.645 [I] [800000710000fd00b63f84710c7967bb] WindcaveRestClient.DoGet(api/v1/sessions/0000010075712411012b2b946b67f880)
+16:25:50.645 [I] [800000710000fd00b63f84710c7967bb] WindcaveRestClient.SetClientProps()
+16:25:50.728 [I] [800000710000fd00b63f84710c7967bb] 200 response, query successful. Response:{
+    "id" : "0000010075712411012b2b946b67f880",
+    "state" : "complete",
+    "type" : "purchase",
+    "amount" : "684.59",
+    "currency" : "NZD",
+    "currencyNumeric" : 554,
+    "merchantReference" : "54",
+    "expires" : "2021-03-01T03:25:28Z",
+    "callbackUrls" : {
+        "approved" : "http://localhost:15536/Payments/Windcave/HandleApproved",
+        "declined" : "http://localhost:15536/Payments/Windcave/HandleDeclined",
+        "cancelled" : "http://localhost:15536/Payments/Windcave/HandleCancelled"
+    },
+    "notificationUrl" : "http://localhost:15536/Payments/Windcave/HandleNotificationCallback",
+    "customer" : {
+        "firstName" : "Swati",
+        "lastName" : "Patel",
+        "email" : "swati.prity21@gmail.com",
+        "phoneNumber" : "0221004322",
+        "homePhoneNumber" : "",
+        "account" : "2261",
+        "shipping" : {
+            "name" : "Swati Patel",
+            "address1" : "100 Popokatea Drive, Takanini",
+            "address2" : "Takanini",
+            "address3" : "",
+            "city" : "Auckland",
+            "postalCode" : "2112",
+            "countryCode" : "NZ",
+            "phoneNumber" : "0221004322",
+            "state" : ""
+        },
+        "billing" : {
+            "name" : "Swati Patel",
+            "address1" : "21",
+            "address2" : "Welasly Roade1",
+            "address3" : "",
+            "city" : "Auckland1",
+            "postalCode" : "11001",
+            "countryCode" : "NZ",
+            "phoneNumber" : "0221004322",
+            "state" : ""
+        }
+    },
+    "storeCard" : false,
+    "clientType" : "internet",
+    "methods" : [
+        "card",
+        "account2account"
+    ],
+    "links" : [
+        {
+            "href" : "https://sec.windcave.com/api/v1/sessions/0000010075712411012b2b946b67f880",
+            "rel" : "self",
+            "method" : "GET"
+        },
+        {
+            "href" : "https://sec.windcave.com/api/v1/transactions/000000012afe0301",
+            "rel" : "transaction",
+            "method" : "GET"
+        }
+    ],
+    "transactions" : [
+        {
+            "id" : "000000012afe0301",
+            "username" : "FenchurchLiquorREST_Dev",
+            "authorised" : true,
+            "allowRetry" : false,
+            "reCo" : "00",
+            "responseText" : "APPROVED",
+            "authCode" : "162550",
+            "acquirer" : {
+                "name" : "Undefined",
+                "mid" : "10000000",
+                "tid" : "10012787"
+            },
+            "type" : "purchase",
+            "method" : "card",
+            "localTimeZone" : "NZT",
+            "dateTimeUtc" : "2021-02-26T03:25:50Z",
+            "dateTimeLocal" : "2021-02-26T16:25:50+13:00",
+            "settlementDate" : "2021-02-26",
+            "amount" : "684.59",
+            "balanceAmount" : "0.00",
+            "currency" : "NZD",
+            "currencyNumeric" : 554,
+            "clientType" : "internet",
+            "merchantReference" : "54",
+            "card" : {
+                "cardHolderName" : "SDJFK",
+                "cardNumber" : "411111........11",
+                "dateExpiryMonth" : "09",
+                "dateExpiryYear" : "33",
+                "type" : "visa"
+            },
+            "cvc2ResultCode" : "M",
+            "storedCardIndicator" : "single",
+            "notificationUrl" : "http://localhost:15536/Payments/Windcave/HandleNotificationCallback",
+            "customer" : {
+                "firstName" : "Swati",
+                "lastName" : "Patel",
+                "email" : "swati.prity21@gmail.com",
+                "phoneNumber" : "0221004322",
+                "homePhoneNumber" : "",
+                "account" : "2261",
+                "shipping" : {
+                    "name" : "Swati Patel",
+                    "address1" : "100 Popokatea Drive, Takanini",
+                    "address2" : "Takanini",
+                    "address3" : "",
+                    "city" : "Auckland",
+                    "postalCode" : "2112",
+                    "countryCode" : "NZ",
+                    "phoneNumber" : "0221004322",
+                    "state" : ""
+                },
+                "billing" : {
+                    "name" : "Swati Patel",
+                    "address1" : "21",
+                    "address2" : "Welasly Roade1",
+                    "address3" : "",
+                    "city" : "Auckland1",
+                    "postalCode" : "11001",
+                    "countryCode" : "NZ",
+                    "phoneNumber" : "0221004322",
+                    "state" : ""
+                }
+            },
+            "avs" : {
+                "postCode" : "",
+                "streetAddress" : "",
+                "avsAction" : 0,
+                "avsActionName" : "DontCheck",
+                "avsResultCode" : "U",
+                "avsResultDescription" : "U - address information not available, or AVS is unavailable"
+            },
+            "sessionId" : "0000010075712411012b2b946b67f880",
+            "browser" : {
+                "ipAddress" : "202.92.216.106",
+                "userAgent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36"
+            },
+            "isSurcharge" : false,
+            "liabilityIndicator" : "standard",
+            "links" : [
+                {
+                    "href" : "https://sec.windcave.com/api/v1/transactions/000000012afe0301",
+                    "rel" : "self",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://sec.windcave.com/api/v1/sessions/0000010075712411012b2b946b67f880",
+                    "rel" : "session",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://sec.windcave.com/api/v1/transactions",
+                    "rel" : "refund",
+                    "method" : "POST"
+                }
+            ]
+        }
+    ]
+}
+16:25:50.788 [I] [800000710000fd00b63f84710c7967bb] WindcavePaymentProcessingController.ProcessTransaction(0000010075712411012b2b946b67f880, , success, callback, Transaction(id:000000012afe0301, reCo:00, responseText:APPROVED, authorized:True, type:purchase)
+16:25:50.846 [I] [800000710000fd00b63f84710c7967bb] Updating to processing. SessionId:0000010075712411012b2b946b67f880  TransactionId: 
+16:25:50.847 [I] [800000710000fd00b63f84710c7967bb] WindcavePaymentProcessingController.UpdateTransaction(Transaction(id:000000012afe0301, reCo:00, responseText:APPROVED, authorized:True, type:purchase, Nop.Plugin.Payments.Windcave.Domain.WindcaveTransaction, True, callback)
+16:25:50.893 [I] [800000710000fd00b63f84710c7967bb] WindcavePaymentProcessingController.MarkOrderAsPaid(54, 0000010075712411012b2b946b67f880, 000000012afe0301, 162550, purchase)
+16:25:57.186 [I] [800000710000fd00b63f84710c7967bb] WindcavePaymentProcessingController.UpdateTransaction. Updated txn log. SessionId:0000010075712411012b2b946b67f880 TransactionId:000000012afe0301 Status:Approved
+16:25:57.224 [I] [800000710000fd00b63f84710c7967bb] Updating to complete. SessionId:0000010075712411012b2b946b67f880  TransactionId: 000000012afe0301
+16:25:57.226 [I] [800000710000fd00b63f84710c7967bb] WindcavePaymentProcessingController.GetTransactionSession()
+16:25:57.226 [I] [800000710000fd00b63f84710c7967bb] WindcavePaymentProcessingController.GetSession(0000010075712411012b2b946b67f880)
+16:25:57.226 [I] [800000710000fd00b63f84710c7967bb] WindcaveHelper.GetPluginVersion()
+16:25:57.227 [I] [800000710000fd00b63f84710c7967bb] WindcaveRestClient.GetResponseBodyAsync(api/v1/sessions/0000010075712411012b2b946b67f880)
+16:25:57.227 [I] [800000710000fd00b63f84710c7967bb] WindcaveRestClient.DoGet(api/v1/sessions/0000010075712411012b2b946b67f880)
+16:25:57.227 [I] [800000710000fd00b63f84710c7967bb] WindcaveRestClient.SetClientProps()
+16:30:56.430 [I] [800000da0001fe00b63f84710c7967bb] WindcavePaymentProcessor::ValidatePaymentForm()
+16:30:56.431 [I] [800000da0001fe00b63f84710c7967bb] WindcavePaymentProcessor::GetPaymentInfo()
+16:33:49.093 [I] [800000e90001fe00b63f84710c7967bb] WindcavePaymentProcessor::ValidatePaymentForm()
+16:33:49.093 [I] [800000e90001fe00b63f84710c7967bb] WindcavePaymentProcessor::GetPaymentInfo()
+16:42:59.491 [I] [8000037a0006ff00b63f84710c7967bb] WindcavePaymentProcessor::ValidatePaymentForm()
+16:42:59.492 [I] [8000037a0006ff00b63f84710c7967bb] WindcavePaymentProcessor::GetPaymentInfo()
+16:44:51.212 [I] [8000037c0006ff00b63f84710c7967bb] WindcavePaymentProcessor::PostProcessPayment()
+16:44:51.214 [I] [8000037c0006ff00b63f84710c7967bb] WindcavePaymentProcessor.SessionExists(57)
+16:44:56.445 [I] [8000037c0006ff00b63f84710c7967bb] WindcavePaymentProcessor.GetXID()
+16:44:56.445 [I] [8000037c0006ff00b63f84710c7967bb] WindcavePaymentProcessor.GetXID generated:d2fb656150c446dbc819a5580ce9062f-0001-00000057-purchase
+16:44:56.475 [I] [8000037c0006ff00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession(57, d2fb656150c446dbc819a5580ce9062f-0001-00000057-purchase, 0, <?xml version="1.0" encoding="utf-16"?><DictionarySerializer><item><key>Save card details</key><value>False</value></item><item><key>Use previously saved card</key><value>False</value></item></DictionarySerializer>)
+16:44:56.480 [I] [8000037c0006ff00b63f84710c7967bb] WindcaveHelper::GetTransactionObjFromOrderObj()
+16:44:56.542 [I] [8000037c0006ff00b63f84710c7967bb] WindcaveHelper.GetPluginVersion()
+16:44:56.543 [I] [8000037c0006ff00b63f84710c7967bb] WindcaveRestClient.GetPostResponseBodyAsync()
+16:44:56.544 [I] [8000037c0006ff00b63f84710c7967bb] WindcaveRestClient.DoPostAsync(https://sec.windcave.com, api/v1/sessions, RmVuY2h1cmNoTGlxdW9yUkVTVF9EZXY6YTAxNTVhNTNjNGI0MDE3NDUwMGRmNmI4OTNmZDRiY2RjMzRkZDA4ODQ3ZjU1NTkxOTMxMmRiYWE1NTE0OGJlMg==, {"amount":"89.68","callbackUrls":{"approved":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleApproved","cancelled":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleCancelled","declined":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleDeclined"},"cardId":null,"currency":"NZD","customer":{"account":"2261","billing":{"address1":"21","address2":"Welasly Roade1","city":"Auckland1","countryCode":"NZ","name":"Swati Patel","phoneNumber":"0221004322","postalCode":"11001","state":null},"email":"swati.prity21@gmail.com","firstName":"Swati","lastName":"Patel","phoneNumber":"0221004322","shipping":{"address1":"21","address2":"Welasly Roade1","city":"Auckland1","countryCode":"NZ","name":"Swati Patel","phoneNumber":"0221004322","postalCode":"11001","state":null}},"expires":null,"language":"en-NZ","merchantReference":"57","methods":["card","account2account"],"notificationUrl":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleNotificationCallback","storeCard":false,"storeCustomer":false,"storedCardIndicator":null,"type":"purchase"}, Nop.Core.Domain.Orders.Order, d2fb656150c446dbc819a5580ce9062f-0001-00000057-purchase)
+16:44:56.544 [I] [8000037c0006ff00b63f84710c7967bb] WindcaveRestClient.SetClientProps()
+16:44:56.775 [I] [8000037c0006ff00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession. Created successfully. SessionId:00000100757166620160b53ab9a0b93c
+16:44:56.780 [I] [8000037c0006ff00b63f84710c7967bb] WindcavePaymentProcessor.PrepareTransaction(Nop.Core.Domain.Orders.Order, 00000100757166620160b53ab9a0b93c, , https://sec.windcave.com/pxmi3/F36F5540359B4772FBB03602D54541B1E1EB5CFF9E0100F9C4F3375A868FF51221DDBF607B6F61FCABAC3F7F7D6BEE39B, NZD)
+16:44:56.784 [I] [8000037c0006ff00b63f84710c7967bb] WindcavePaymentProcessor.AddTransaction(Amount:89.6800, AuthCode:null, AvsAction:null, AvsResult:null, CardholderName:null, CardId:, CardMask:null, CardType:null, CompleteStatus:Complete Not Applicable, Currency:NZD, CustomerId:2261, Cvc2Result:null, DateAdded:26/02/2021 3:43:24 AM, EntityCacheKey:Nop.windcavetransaction.id-0, ExpiryMonth:null, ExpiryYear:null, HppLink:https://sec.windcave.com/pxmi3/F36F5540359B4772FBB03602D54541B1E1EB5CFF9E0100F9C4F3375A868FF51221DDBF607B6F61FCABAC3F7F7D6BEE39B, Id:0, OrderId:57, ParentTransactionId:null, PaymentAuthentication:null, PaymentMethod:null, RefundStatus:Refund Not Applicable, ResponseCode:null, ResponseText:null, RiskAction:null, RiskSummaryText:null, SessionId:00000100757166620160b53ab9a0b93c, SessionState:pending, Status:Processing, StoreCard:False, TransactionId:null, Type:purchase, VoidStatus:Void Not Applicable, )
+16:45:19.606 [I] [8000037d0006ff00b63f84710c7967bb] WindcavePaymentProcessingController.HandleApproved(0, 00000100757166620160b53ab9a0b93c)
+16:45:19.606 [I] [8000037d0006ff00b63f84710c7967bb] WindcavePaymentProcessingController.HandleCallback(0, 00000100757166620160b53ab9a0b93c)
+16:45:20.108 [I] [8000037d0006ff00b63f84710c7967bb] HandleCallback lock acquired
+16:45:20.150 [I] [8000037d0006ff00b63f84710c7967bb] Session state:pending
+16:45:20.150 [I] [8000037d0006ff00b63f84710c7967bb] WindcavePaymentProcessingController.GetQueryResult(callback, 00000100757166620160b53ab9a0b93c, 0)
+16:45:20.150 [I] [8000037d0006ff00b63f84710c7967bb] WindcaveHelper.GetPluginVersion()
+16:45:20.158 [I] [8000037d0006ff00b63f84710c7967bb] WindcaveRestClient.Query(callback, 00000100757166620160b53ab9a0b93c)
+16:45:20.158 [I] [8000037d0006ff00b63f84710c7967bb] WindcaveHelper.GetPluginVersion()
+16:45:20.159 [I] [8000037d0006ff00b63f84710c7967bb] WindcaveRestClient.GetResponseBodyAsync(api/v1/sessions/00000100757166620160b53ab9a0b93c)
+16:45:20.163 [I] [8000037d0006ff00b63f84710c7967bb] WindcaveRestClient.DoGet(api/v1/sessions/00000100757166620160b53ab9a0b93c)
+16:45:20.163 [I] [8000037d0006ff00b63f84710c7967bb] WindcaveRestClient.SetClientProps()
+16:45:20.241 [I] [8000037d0006ff00b63f84710c7967bb] 200 response, query successful. Response:{
+    "id" : "00000100757166620160b53ab9a0b93c",
+    "state" : "complete",
+    "type" : "purchase",
+    "amount" : "89.68",
+    "currency" : "NZD",
+    "currencyNumeric" : 554,
+    "merchantReference" : "57",
+    "expires" : "2021-03-01T03:44:57Z",
+    "callbackUrls" : {
+        "approved" : "http://localhost:15536/Payments/Windcave/HandleApproved",
+        "declined" : "http://localhost:15536/Payments/Windcave/HandleDeclined",
+        "cancelled" : "http://localhost:15536/Payments/Windcave/HandleCancelled"
+    },
+    "notificationUrl" : "http://localhost:15536/Payments/Windcave/HandleNotificationCallback",
+    "customer" : {
+        "firstName" : "Swati",
+        "lastName" : "Patel",
+        "email" : "swati.prity21@gmail.com",
+        "phoneNumber" : "0221004322",
+        "homePhoneNumber" : "",
+        "account" : "2261",
+        "shipping" : {
+            "name" : "Swati Patel",
+            "address1" : "21",
+            "address2" : "Welasly Roade1",
+            "address3" : "",
+            "city" : "Auckland1",
+            "postalCode" : "11001",
+            "countryCode" : "NZ",
+            "phoneNumber" : "0221004322",
+            "state" : ""
+        },
+        "billing" : {
+            "name" : "Swati Patel",
+            "address1" : "21",
+            "address2" : "Welasly Roade1",
+            "address3" : "",
+            "city" : "Auckland1",
+            "postalCode" : "11001",
+            "countryCode" : "NZ",
+            "phoneNumber" : "0221004322",
+            "state" : ""
+        }
+    },
+    "storeCard" : false,
+    "clientType" : "internet",
+    "methods" : [
+        "card",
+        "account2account"
+    ],
+    "links" : [
+        {
+            "href" : "https://sec.windcave.com/api/v1/sessions/00000100757166620160b53ab9a0b93c",
+            "rel" : "self",
+            "method" : "GET"
+        },
+        {
+            "href" : "https://sec.windcave.com/api/v1/transactions/000000012aff3c84",
+            "rel" : "transaction",
+            "method" : "GET"
+        }
+    ],
+    "transactions" : [
+        {
+            "id" : "000000012aff3c84",
+            "username" : "FenchurchLiquorREST_Dev",
+            "authorised" : true,
+            "allowRetry" : false,
+            "reCo" : "00",
+            "responseText" : "APPROVED",
+            "authCode" : "164520",
+            "acquirer" : {
+                "name" : "Undefined",
+                "mid" : "10000000",
+                "tid" : "10012787"
+            },
+            "type" : "purchase",
+            "method" : "card",
+            "localTimeZone" : "NZT",
+            "dateTimeUtc" : "2021-02-26T03:45:20Z",
+            "dateTimeLocal" : "2021-02-26T16:45:20+13:00",
+            "settlementDate" : "2021-02-26",
+            "amount" : "89.68",
+            "balanceAmount" : "0.00",
+            "currency" : "NZD",
+            "currencyNumeric" : 554,
+            "clientType" : "internet",
+            "merchantReference" : "57",
+            "card" : {
+                "cardHolderName" : "GIHKU",
+                "cardNumber" : "411111........11",
+                "dateExpiryMonth" : "10",
+                "dateExpiryYear" : "34",
+                "type" : "visa"
+            },
+            "cvc2ResultCode" : "M",
+            "storedCardIndicator" : "single",
+            "notificationUrl" : "http://localhost:15536/Payments/Windcave/HandleNotificationCallback",
+            "customer" : {
+                "firstName" : "Swati",
+                "lastName" : "Patel",
+                "email" : "swati.prity21@gmail.com",
+                "phoneNumber" : "0221004322",
+                "homePhoneNumber" : "",
+                "account" : "2261",
+                "shipping" : {
+                    "name" : "Swati Patel",
+                    "address1" : "21",
+                    "address2" : "Welasly Roade1",
+                    "address3" : "",
+                    "city" : "Auckland1",
+                    "postalCode" : "11001",
+                    "countryCode" : "NZ",
+                    "phoneNumber" : "0221004322",
+                    "state" : ""
+                },
+                "billing" : {
+                    "name" : "Swati Patel",
+                    "address1" : "21",
+                    "address2" : "Welasly Roade1",
+                    "address3" : "",
+                    "city" : "Auckland1",
+                    "postalCode" : "11001",
+                    "countryCode" : "NZ",
+                    "phoneNumber" : "0221004322",
+                    "state" : ""
+                }
+            },
+            "avs" : {
+                "postCode" : "",
+                "streetAddress" : "",
+                "avsAction" : 0,
+                "avsActionName" : "DontCheck",
+                "avsResultCode" : "U",
+                "avsResultDescription" : "U - address information not available, or AVS is unavailable"
+            },
+            "sessionId" : "00000100757166620160b53ab9a0b93c",
+            "browser" : {
+                "ipAddress" : "202.92.216.106",
+                "userAgent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36"
+            },
+            "isSurcharge" : false,
+            "liabilityIndicator" : "standard",
+            "links" : [
+                {
+                    "href" : "https://sec.windcave.com/api/v1/transactions/000000012aff3c84",
+                    "rel" : "self",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://sec.windcave.com/api/v1/sessions/00000100757166620160b53ab9a0b93c",
+                    "rel" : "session",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://sec.windcave.com/api/v1/transactions",
+                    "rel" : "refund",
+                    "method" : "POST"
+                }
+            ]
+        }
+    ]
+}
+16:45:20.300 [I] [8000037d0006ff00b63f84710c7967bb] WindcavePaymentProcessingController.ProcessTransaction(00000100757166620160b53ab9a0b93c, , success, callback, Transaction(id:000000012aff3c84, reCo:00, responseText:APPROVED, authorized:True, type:purchase)
+16:45:20.358 [I] [8000037d0006ff00b63f84710c7967bb] Updating to processing. SessionId:00000100757166620160b53ab9a0b93c  TransactionId: 
+16:45:20.358 [I] [8000037d0006ff00b63f84710c7967bb] WindcavePaymentProcessingController.UpdateTransaction(Transaction(id:000000012aff3c84, reCo:00, responseText:APPROVED, authorized:True, type:purchase, Nop.Plugin.Payments.Windcave.Domain.WindcaveTransaction, True, callback)
+16:45:20.419 [I] [8000037d0006ff00b63f84710c7967bb] WindcavePaymentProcessingController.MarkOrderAsPaid(57, 00000100757166620160b53ab9a0b93c, 000000012aff3c84, 164520, purchase)
+16:45:26.109 [I] [8000037d0006ff00b63f84710c7967bb] WindcavePaymentProcessingController.UpdateTransaction. Updated txn log. SessionId:00000100757166620160b53ab9a0b93c TransactionId:000000012aff3c84 Status:Approved
+16:45:26.147 [I] [8000037d0006ff00b63f84710c7967bb] Updating to complete. SessionId:00000100757166620160b53ab9a0b93c  TransactionId: 000000012aff3c84
+16:45:26.149 [I] [8000037d0006ff00b63f84710c7967bb] WindcavePaymentProcessingController.GetTransactionSession()
+16:45:26.149 [I] [8000037d0006ff00b63f84710c7967bb] WindcavePaymentProcessingController.GetSession(00000100757166620160b53ab9a0b93c)
+16:45:26.149 [I] [8000037d0006ff00b63f84710c7967bb] WindcaveHelper.GetPluginVersion()
+16:45:26.150 [I] [8000037d0006ff00b63f84710c7967bb] WindcaveRestClient.GetResponseBodyAsync(api/v1/sessions/00000100757166620160b53ab9a0b93c)
+16:45:26.150 [I] [8000037d0006ff00b63f84710c7967bb] WindcaveRestClient.DoGet(api/v1/sessions/00000100757166620160b53ab9a0b93c)
+16:45:26.150 [I] [8000037d0006ff00b63f84710c7967bb] WindcaveRestClient.SetClientProps()

@@ -1,0 +1,90 @@
+﻿@using Fenchurch.Web.Areas.Admin.Models.CorporateCustomers
+@model ProfitMarkupsModel
+
+@{
+    //page title
+    ViewBag.PageTitle = T("Admin.Configuration.Settings.CorporateCustomerProfitMarkups").Text;
+    //active menu item (system name)
+    Html.SetActiveMenuItemSystemName("Corporate Profit Markups");
+}
+
+<div class="content-header clearfix">
+    <h1 class="pull-left">
+        @T("Admin.Configuration.Settings.CorporateCustomerProfitMarkups")
+    </h1>
+    <div class="pull-right">
+        <a asp-action="CreateProfitMarkup" class="btn bg-blue">
+            <i class="fa fa-plus-square"></i>
+            @T("Admin.Common.AddNew")
+        </a>
+    </div>
+</div>
+
+<div class="content">
+    <div class="form-horizontal">
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <p>
+                        You can configure profit markups for corporate customers on this screen.
+                    </p>
+
+                    @await Html.PartialAsync("Table", new DataTablesModel
+               {
+                   Name = "profitmarkup-grid",
+                   UrlRead = new DataUrl("ProfitMarkupsList", "CorporateCustomer", null),
+                   UrlUpdate = new DataUrl("ProfitsMarkupUpdate", "CorporateCustomer", null),
+                   UrlDelete = new DataUrl("ProfitsMarkupDelete", "CorporateCustomer", null),
+                   Length = Model.ProfitMarkups.PageSize,
+                   LengthMenu = Model.ProfitMarkups.AvailablePageSizes,
+                   ColumnCollection = new List<ColumnProperty>
+                            {
+                                new ColumnProperty(nameof(ProfitMarkupsModel.CorporateCustomerTypeName))
+                                {
+                                    Title = T("Admin.Configuration.ProfitMarkups.CorporateTypes").Text,
+                                    EditType = EditType.String
+                                },
+                                new ColumnProperty(nameof(ProfitMarkupsModel.ProductCategorie))
+                                {
+                                    Title = T("Admin.Configuration.ProfitMarkups.ProductCategories").Text,
+                                    EditType = EditType.String
+                                },
+                                new ColumnProperty(nameof(ProfitMarkupsModel.ProfitMarkup))
+                                {
+                                    Title = T("Admin.Configuration.ProfitMarkups.Rates").Text,
+                                    Editable = true,
+                                    Width = "100",
+                                    EditType = EditType.Number
+                                },
+                                new ColumnProperty(nameof(ProfitMarkupsModel.Id))
+                                {
+                                    Title = T("Admin.Common.Edit").Text,
+                                    Width = "200",
+                                    ClassName =  NopColumnClassDefaults.Button,
+                                    Render = new RenderButtonsInlineEdit()
+                                },
+                                new ColumnProperty(nameof(ProfitMarkupsModel.Id))
+                                {
+                                    Title = T("Admin.Common.Delete").Text,
+                                    Width = "100",
+                                    Render = new RenderButtonRemove(T("Admin.Common.Delete").Text),
+                                    ClassName = NopColumnClassDefaults.Button
+                                }
+                            }
+               })
+
+                    <script>
+                        function renderColumnConfigure(data, type, row, meta) {
+                            if (row.ConfigurationUrl && row.ConfigurationUrl.length > 0) {
+                                return '<a class="btn btn-default" href="' + row.ConfigurationUrl + '"><i class="fa fa-cog"></i>@T("Admin.Configuration.Payment.Methods.Configure")</a>';
+                            } else {
+                                return '';
+                            }
+                        }
+                    </script>
+                </div>
+            </div>
+            @await Component.InvokeAsync("AdminWidget", new { widgetZone = AdminWidgetZones.PaymentMethodListBottom, additionalData = Model })
+        </div>
+    </div>
+</div>

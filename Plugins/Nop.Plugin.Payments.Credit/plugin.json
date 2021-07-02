@@ -1,0 +1,11 @@
+﻿{
+  "Group": "Payment methods",
+  "FriendlyName": "Credit Payment",
+  "SystemName": "Payments.Credit",
+  "Version": "1.0",
+  "SupportedVersions": [ "4.30" ],
+  "Author": "Rasika Hemantha",
+  "DisplayOrder": 1,
+  "FileName": "Nop.Plugin.Payments.Credit.dll",
+  "Description": "This plugin enables corporate customers to buy on credit"
+}

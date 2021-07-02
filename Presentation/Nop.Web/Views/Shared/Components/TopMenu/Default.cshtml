@@ -1,0 +1,208 @@
+﻿@model TopMenuModel
+@if (!Model.UseAjaxMenu)
+{
+    var rootCategories = Model.Categories.Where(x => x.IncludeInTopMenu).ToList();
+    @foreach (var category in rootCategories)
+    {
+        var categoryLineModel = new TopMenuModel.CategoryLineModel
+        {
+            Category = category
+        };
+        <li class="drop-down">
+            <a href="@category.SeName">
+                @category.Name
+            </a>
+            @if (category.HaveSubCategories)
+            {
+                <ul>
+                    @foreach (var subcategories in category.SubCategories)
+                    {
+                        @if (subcategories.HaveSubCategories)
+                        {
+                            <li class="drop-down">
+                                <a href="@subcategories.SeName">
+                                    @subcategories.Name
+                                </a>
+                                @if (subcategories.HaveSubCategories)
+                                {
+                                    <ul>
+                                        @foreach (var subcategory in subcategories.SubCategories)
+                                        {
+                                            <li>
+                                                <a href="@subcategory.SeName">
+                                                    @subcategory.Name
+                                                </a>
+                                            </li>
+                                        }
+                                    </ul>
+                                }
+                            </li>
+                        }
+                        else
+                        {
+                            <li>
+                                <a href="@subcategories.SeName">
+                                    @subcategories.Name
+                                </a>
+                                @if (subcategories.HaveSubCategories)
+                                {
+                                    <ul>
+                                        @foreach (var subcategory in subcategories.SubCategories)
+                                        {
+                                            <li>
+                                                <a href="@subcategory.SeName">
+                                                    @subcategory.Name
+                                                </a>
+                                            </li>
+                                        }
+                                    </ul>
+                                }
+                            </li>
+                        }
+
+                    }
+                </ul>
+            }
+        </li>
+    }
+}
+
+@{
+    var rootCategoriesResponsive = Model.Categories.ToList();
+    //name it "Categories" if we have only categories. Otherwise, "Menu"
+    var responsiveMenuTitle = Model.HasOnlyCategories ? T("Categories") : T("Menu");
+    <li class="menu-toggle"></li>
+    <div id="mobileMenue" style="height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.9);
+  overflow-x: hidden;
+  transition: 0.5s;">
+        <div style="position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;">
+            <ul>
+                @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.MobHeaderMenuBefore })
+                @if (Model.DisplayHomepageMenuItem)
+                {
+                    <li><a href="@Url.RouteUrl("Homepage")">@T("Homepage")</a></li>
+                }
+                @if (!Model.UseAjaxMenu)
+                {
+                    @foreach (var category in rootCategoriesResponsive)
+                    {
+                        var categoryLineModel = new TopMenuModel.CategoryLineModel
+                        {
+                            Category = category,
+                            ResponsiveMobileMenu = true
+                        };
+                        @await Html.PartialAsync("_CategoryLine.TopMenu", categoryLineModel)
+                    }
+
+                }
+                @foreach (var topic in Model.Topics)
+                {
+                    <li><a href="@Url.RouteUrl("Topic", new { SeName = topic.SeName })">@topic.Name</a></li>
+                }
+                @if (Model.NewProductsEnabled && Model.DisplayNewProductsMenuItem)
+                {
+                    <li><a href="@Url.RouteUrl("NewProducts")">@T("Products.NewProducts")</a></li>
+                }
+                @if (Model.DisplayProductSearchMenuItem)
+                {
+                    <li><a href="@Url.RouteUrl("ProductSearch")">@T("Search")</a></li>
+                }
+                @if (Model.DisplayCustomerInfoMenuItem)
+                {
+                    <li><a href="@Url.RouteUrl("CustomerInfo")">@T("Account.MyAccount")</a></li>
+                }
+                @if (Model.BlogEnabled && Model.DisplayBlogMenuItem)
+                {
+                    <li><a href="@Url.RouteUrl("Blog")">@T("Blog")</a></li>
+                }
+                @if (Model.ForumEnabled && Model.DisplayForumsMenuItem)
+                {
+                    <li><a href="@Url.RouteUrl("Boards")">@T("Forum.Forums")</a></li>
+                }
+                @if (Model.DisplayContactUsMenuItem)
+                {
+                    <li><a href="@Url.RouteUrl("ContactUs")">@T("ContactUs")</a></li>
+                }
+                @if (Model.DisplayAboutUsMenuItem)
+                {
+                    <li><a href="@Url.RouteUrl("AboutUs")">@T("AboutUs")</a></li>
+                }
+                @if (Model.DisplayFeedBackMenuItem)
+                {
+                    <li><a href="@Url.RouteUrl("FeedBack")">@T("FeedBack")</a></li>
+                }
+                @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.MobHeaderMenuAfter })
+            </ul>
+        </div>
+    </div>
+
+    @if (Model.UseAjaxMenu)
+    {
+        <script asp-location="Footer">
+        $(document).ready(function () {
+            $('.menu-toggle').on('click', function () {
+                $(this).siblings('.top-menu.mobile').slideToggle('slow');
+            });
+            var localized_data = {
+                AjaxFailure: "@T("MainMenu.AjaxFailure")"
+            };
+            mainMenu.init('@Url.RouteUrl("GetCatalogRoot")', '@Url.RouteUrl("GetCatalogSubCategories")', 'ul.top-menu.notmobile', 'ul.top-menu.mobile', localized_data);
+        });
+        </script>
+
+        Html.AppendScriptParts(ResourceLocation.Footer, "~/js/public.menu.js");
+
+    }
+    else
+    {
+        <script asp-location="Footer">
+            $(document).ready(function () {
+                $('.menu-toggle').on('click', function () {
+                    //$(this).siblings('.top-menu.mobile').slideToggle('slow');
+                    $('#mobileMenue').css({ "width": "100%" });
+                });
+                $('.top-menu.mobile .sublist-toggle').on('click', function () {
+                    $(this).siblings('.sublist').slideToggle('slow');
+                });
+
+
+                $(".header-menu > ul.top-menu.notmobile > li > .sublist").wrapInner("<ul class='submenu submenupadding'></ul>");
+                $("#mobileMenue").append("<span class='close'></div>")
+
+                $(".menu-toggle").click(function () {
+                    $("#mobileMenue").toggleClass("active");
+                })
+                $(document).on("click", "#mobileMenue .close", function () {
+                    $("#mobileMenue").removeClass("active");
+                })
+                $(".sublist-toggle").click(function () {
+                    $("#mobileMenue").append("<ul class='chidMenu'></ul>");
+                    $("#mobileMenue > div").hide();
+                    $(".chidMenu").append($(this).siblings(".sublist").html());
+                    $(".chidMenu").append("<span class='back'></span>")
+                })
+                $(document).on('click', ".chidMenu .back", function () {
+                    $(this).parents("#mobileMenue").children("div").show();
+                    $(this).parents(".chidMenu").remove();
+                });
+                $(document).on('click', ".chidMenu > li > .sublist-toggle", function () {
+                    $(this).toggleClass("open");
+                    $(this).siblings(".sublist").slideToggle();
+                })
+            });
+
+        </script>
+
+    }
+
+}

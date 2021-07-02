@@ -1,0 +1,8 @@
+﻿@model Nop.Plugin.Payments.Windcave.Models.WindcaveButtonModel
+
+@if (Model.ShowButton)
+{
+    <a href="Payments/Windcave/Retry?retryId=@Model.RetryId" class="btn bg-purple">
+        @Model.ButtonText
+    </a>
+}

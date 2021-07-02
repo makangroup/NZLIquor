@@ -1,0 +1,16 @@
+﻿{
+  "Group": "Payment methods",
+  "FriendlyName": "Windcave",
+  "SupportedVersions": [
+    "4.30"
+  ],
+  "Author": "Windcave Dev Support (devsupport@windcave.com)",
+  "DisplayOrder": 2,
+  "FileName": "Nop.Plugin.Payments.Windcave.dll",
+  "Description": "This plugin provides integration with Windcave REST API for Payments and Refunds",
+  "LimitedToStores": [],
+  "LimitedToCustomerRoles": [],
+  "DependsOnSystemNames": [],
+  "SystemName": "Payments.Windcave",
+  "Version": "1.00"
+}

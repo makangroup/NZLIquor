@@ -1,0 +1,42 @@
+﻿
+@model IEnumerable<OrderDetailsModel>
+@{
+    Layout = null;
+}
+
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Order No</th>
+            <th scope="col">Payment Status</th>
+            <th scope="col">Shipping Address</th>
+            <th scope="col">Order Date</th>
+            <th scope="col">Total</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td scope="col"><input type="checkbox" id="Checkbox@(order.Id)" /></td>
+                <td scope="col">@(order.CustomOrderNumber)</td>
+                <td scope="col">@(order.PaymentStatus)</td>
+                <td scope="col">
+                    @(order.ShippingAddress.FirstName)
+                    @(order.ShippingAddress.LastName)
+                    @(order.ShippingAddress.Address1)
+                    @(order.ShippingAddress.Address2)
+                    @(order.ShippingAddress.City)
+                    @(order.ShippingAddress.ZipPostalCode)
+                    @(order.ShippingAddress.PhoneNumber)
+                </td>
+                <td scope="col">@order.CreatedOn</td>
+                <td scope="col">@order.OrderTotal</td>
+                <td scope="col"></td>
+            </tr>
+        }
+    </tbody>
+</table>

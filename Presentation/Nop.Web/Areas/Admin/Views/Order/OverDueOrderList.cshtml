@@ -1,0 +1,381 @@
+﻿@model OverDueOrderSearchModel
+
+@inject IStoreService storeService
+@using Nop.Services.Stores
+@using Fenchurch.Web.Areas.Admin.Models.Orders
+
+@{
+    //page title
+    ViewBag.PageTitle = "Over Due Order List";
+    //active menu item (system name)
+    Html.SetActiveMenuItemSystemName("Over Due Orders");
+}
+
+@{
+    const string hideSearchBlockAttributeName = "OrdersPage.HideSearchBlock";
+    var hideSearchBlock = genericAttributeService.GetAttribute<bool>(workContext.CurrentCustomer, hideSearchBlockAttributeName);
+}
+
+<form asp-controller="Order" asp-action="List" method="post">
+    <div class="content-header clearfix">
+        <h1 class="pull-left">
+            Over Due Order List
+        </h1>
+        <div class="pull-right">
+            <div class="btn-group">
+                <button type="button" class="btn btn-success">
+                    <i class="fa fa-download"></i>
+                    @T("Admin.Common.Export")
+                </button>
+                <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <span class="caret"></span>
+                    <span class="sr-only">&nbsp;</span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li>
+                        <button asp-action="ExportXml" type="submit" name="exportxml-all">
+                            <i class="fa fa-file-code-o"></i>
+                            @T("Admin.Common.ExportToXml.All")
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button" id="exportxml-selected">
+                            <i class="fa fa-file-code-o"></i>
+                            @T("Admin.Common.ExportToXml.Selected")
+                        </button>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <button asp-action="ExportExcel" type="submit" name="exportexcel-all">
+                            <i class="fa fa-file-excel-o"></i>
+                            @T("Admin.Common.ExportToExcel.All")
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button" id="exportexcel-selected">
+                            <i class="fa fa-file-excel-o"></i>
+                            @T("Admin.Common.ExportToExcel.Selected")
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            <div class="btn-group">
+                <button type="button" class="btn bg-purple">
+                    <i class="fa fa-file-pdf-o"></i>
+                    @T("Admin.Orders.PdfInvoices")
+                </button>
+                <button type="button" class="btn bg-purple dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <span class="caret"></span>
+                    <span class="sr-only">&nbsp;</span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li>
+                        <button asp-action="PdfInvoice" type="submit" name="pdf-invoice-all">
+                            @T("Admin.Orders.PdfInvoices.All")
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button" id="pdf-invoice-selected">
+                            @T("Admin.Orders.PdfInvoices.Selected")
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            @await Component.InvokeAsync("AdminWidget", new { widgetZone = AdminWidgetZones.OrderListButtons })
+        </div>
+    </div>
+    <div class="content">
+        <div class="form-horizontal">
+            <div class="panel-group">
+                <div class="panel panel-default panel-search">
+                    <div class="panel-body">
+                        <div class="row search-row @(!hideSearchBlock ? "opened" : "")" data-hideAttribute="@hideSearchBlockAttributeName">
+                            <div class="search-text">@T("Admin.Common.Search")</div>
+                            <div class="icon-search"><i class="fa fa-search" aria-hidden="true"></i></div>
+                            <div class="icon-collapse"><i class="fa fa-angle-down" aria-hidden="true"></i></div>
+                        </div>
+
+                        <div class="search-body @(hideSearchBlock ? "closed" : "")">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <div class="col-md-4">
+                                            <nop-label asp-for="StartDate" />
+                                        </div>
+                                        <div class="col-md-8">
+                                            <nop-editor asp-for="StartDate" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-4">
+                                            <nop-label asp-for="EndDate" />
+                                        </div>
+                                        <div class="col-md-8">
+                                            <nop-editor asp-for="EndDate" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="form-group">
+                                        <div class="col-md-4">
+                                            <nop-label asp-for="CompanyName" />
+                                        </div>
+                                        <div class="col-md-8">
+                                            <nop-editor asp-for="CompanyName" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-4">
+                                            <nop-label asp-for="ContactPersonName" />
+                                        </div>
+                                        <div class="col-md-8">
+                                            <nop-editor asp-for="ContactPersonName" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-7 col-md-offset-5">
+                                    <button type="button" id="search-orders" class="btn btn-primary btn-search">
+                                        <i class="fa fa-search"></i>
+                                        @T("Admin.Common.Search")
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        @{
+                            var gridModel = new DataTablesModel
+                            {
+                                Name = "orders-grid",
+                                UrlRead = new DataUrl("OverDueOrderListItems", "Order", null),
+                                SearchButtonId = "search-orders",
+                                Length = Model.PageSize,
+                                LengthMenu = Model.AvailablePageSizes,
+                                Filters = new List<FilterParameter>
+                                                                {
+                                                    new FilterParameter(nameof(Model.StartDate), typeof(DateTime?)),
+                                                    new FilterParameter(nameof(Model.EndDate), typeof(DateTime?)),
+                                                    new FilterParameter(nameof(Model.CompanyName)),
+                                                    new FilterParameter(nameof(Model.ContactPersonName))
+                                                }
+                            };
+                            gridModel.ColumnCollection = new List<ColumnProperty>
+                                            {
+                                new ColumnProperty(nameof(OverDueOrderModel.Id))
+                                {
+                                    IsMasterCheckBox = true,
+                                    Render = new RenderCheckBox("checkbox_orders"),
+                                    ClassName =  NopColumnClassDefaults.CenterAll,
+                                    Width = "50"
+                                },
+                                new ColumnProperty(nameof(OverDueOrderModel.CustomOrderNumber))
+                                {
+                                    Title = T("Admin.Orders.Fields.CustomOrderNumber").Text,
+                                    Width = "50"
+                                }
+                            };
+                            //a vendor does not have access to this functionality
+                            gridModel.ColumnCollection.Add(new ColumnProperty(nameof(OverDueOrderModel.DPD))
+                            {
+                                Title = "DPD",
+                                Width = "50",
+                                Render = new RenderCustom("renderColumnOrderStatus")
+                            });
+                            gridModel.ColumnCollection.Add(new ColumnProperty(nameof(OverDueOrderModel.CompanyName))
+                            {
+                                Title = "Company Name",
+                                Width = "300"
+                            });
+                            //a vendor does not have access to this functionality
+                            gridModel.ColumnCollection.Add(new ColumnProperty(nameof(OverDueOrderModel.ContactPersonName))
+                            {
+                                Title = "Contact Person Name"
+                            });
+                            gridModel.ColumnCollection.Add(new ColumnProperty(nameof(OverDueOrderModel.Email))
+                            {
+                                Title = "Email",
+                                Width = "150"
+                            });
+                            gridModel.ColumnCollection.Add(new ColumnProperty(nameof(OverDueOrderModel.PhoneNo))
+                            {
+                                Title = "Phone No",
+                                Width = "100",
+                            });
+                            gridModel.ColumnCollection.Add(new ColumnProperty(nameof(OverDueOrderModel.CreateOn))
+                            {
+                                Title = T("Admin.Orders.Fields.CreatedOn").Text,
+                                Width = "120",
+                                Render = new RenderDate()
+                            });
+                            //a vendor does not have access to this functionality
+                            gridModel.ColumnCollection.Add(new ColumnProperty(nameof(OverDueOrderModel.OrderTotal))
+                            {
+                                Title = T("Admin.Orders.Fields.OrderTotal").Text,
+                                Width = "100",
+                            });
+                            gridModel.ColumnCollection.Add(new ColumnProperty(nameof(OverDueOrderModel.Id))
+                            {
+                                Title = T("Admin.Common.View").Text,
+                                Width = "50",
+                                ClassName = NopColumnClassDefaults.Button,
+                                Render = new RenderButtonView(new DataUrl("Edit"))
+                            });
+                            var orderSummaryColumnNumber = 8;
+                        }
+
+                        @await Html.PartialAsync("Table", gridModel)
+
+                        <script>
+                            function renderColumnOrderStatus(data, type, row, meta) {
+                                var color;
+                                
+                                if (row.DPD <= 10) {
+                                    color = 'green';
+                                }
+                                else if (row.DPD <= 30) {
+                                    color = 'yellow';
+                                }
+                                else {
+                                    color = 'red';
+                                }
+                                return '<span class="grid-report-item ' + color + '">' + data + '</span >';
+                            }
+                            @*
+                            $(document).ready(function() {
+                                $("#@Html.IdFor(model => model.GoDirectlyToCustomOrderNumber)").keydown(
+                                    function(event) {
+                                        if (event.keyCode === 13) {
+                                            $("#go-to-order-by-number").click();
+                                            return false;
+                                        }
+                                    });
+                            });
+                            function ordersfootercallback(tfoot, data, start, end, display) {
+                                //update order totals summary
+                                var postData = {
+                                    StartDate: $('#@Html.IdFor(model => model.StartDate)').val(),
+                                    EndDate: $('#@Html.IdFor(model => model.EndDate)').val(),
+                                    OrderStatusIds: $('#@Html.IdFor(model => model.OrderStatusIds)').val(),
+                                    PaymentStatusIds: $('#@Html.IdFor(model => model.PaymentStatusIds)').val(),
+                                    ShippingStatusIds: $('#@Html.IdFor(model => model.ShippingStatusIds)').val(),
+                                    StoreId: $('#@Html.IdFor(model => model.StoreId)').val(),
+                                    VendorId: $('#@Html.IdFor(model => model.VendorId)').val(),
+                                    WarehouseId: $('#@Html.IdFor(model => model.WarehouseId)').val(),
+                                    BillingEmail: $('#@Html.IdFor(model => model.BillingEmail)').val(),
+                                    BillingPhone: $('#@Html.IdFor(model => model.BillingPhone)').val(),
+                                    BillingLastName: $('#@Html.IdFor(model => model.BillingLastName)').val(),
+                                    BillingCountryId: $('#@Html.IdFor(model => model.BillingCountryId)').val(),
+                                    PaymentMethodSystemName: $('#@Html.IdFor(model => model.PaymentMethodSystemName)').val(),
+                                    ProductId: $('#@Html.IdFor(model => model.ProductId)').val(),
+                                    OrderNotes: $('#@Html.IdFor(model => model.OrderNotes)').val()
+                                };
+                                *@
+                                addAntiForgeryToken(postData);
+
+                                $.ajax({
+                                    cache: false,
+                                    type: "POST",
+                                    url: "@(Url.Action("ReportAggregates", "Order"))",
+                                    data: postData,
+                                    success: function (data, textStatus, jqXHR) {
+                                        if (data) {
+                                            for (var key in data) {
+                                                var reportSummary = '<div><strong>@T("Admin.Orders.Report.Summary")</strong></div>' +
+                                                    '<div>@T("Admin.Orders.Report.Profit") <span>' + data['aggregatorprofit'] +'</span></div>' +
+                                                    '<div>@T("Admin.Orders.Report.Shipping") <span>' + data['aggregatorshipping'] + '</span></div>' +
+                                                    '<div>@T("Admin.Orders.Report.Tax") <span>' +  data['aggregatortax'] + '</span></div>' +
+                                                    '<div>@T("Admin.Orders.Report.Total") <span>' + data['aggregatortotal'] + '</span></div>'
+                                                var orderTotalsColumn = $('#orders-grid').DataTable().column(@(orderSummaryColumnNumber));
+                                                $(orderTotalsColumn.footer()).html(reportSummary);
+                                            }
+                                        }
+                                    }
+                                });
+                            //}
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+@*export selected (XML). We don't use GET approach because it's limited to 2K-4K chars and won't work for large number of entities*@
+<form asp-controller="Order" asp-action="ExportXmlSelected" method="post" id="export-xml-selected-form">
+    <input type="hidden" id="selectedIds" name="selectedIds" value="" />
+</form>
+
+<script>
+    $(document).ready(function () {
+        $('#exportxml-selected').click(function (e) {
+            e.preventDefault();
+            var ids = selectedIds.join(",");
+            if (!ids) {
+                $('#exportXmlSelected-info').text("@T("Admin.Orders.NoOrders")");
+                $("#exportXmlSelected").click();
+            }
+            else {
+                $('#export-xml-selected-form #selectedIds').val(ids);
+                $('#export-xml-selected-form').submit();
+                updateTable('#orders-grid');
+            }
+            return false;
+        });
+    });
+</script>
+<nop-alert asp-alert-id="exportXmlSelected" />
+
+@*export selected (Excel). We don't use GET approach because it's limited to 2K-4K chars and won't work for large number of entities*@
+<form asp-controller="Order" asp-action="ExportExcelSelected" method="post" id="export-excel-selected-form">
+    <input type="hidden" id="selectedIds" name="selectedIds" value="" />
+</form>
+
+<script>
+    $(document).ready(function () {
+        $('#exportexcel-selected').click(function (e) {
+            e.preventDefault();
+            var ids = selectedIds.join(",");
+            if (!ids) {
+                $('#exportExcelSelected-info').text("@T("Admin.Orders.NoOrders")");
+                $("#exportExcelSelected").click();
+            }
+            else {
+                $('#export-excel-selected-form #selectedIds').val(ids);
+                $('#export-excel-selected-form').submit();
+                updateTable('#orders-grid');
+            }
+            return false;
+        });
+    });
+</script>
+<nop-alert asp-alert-id="exportExcelSelected" />
+
+@*Print packaging slips selected (XML). We don't use GET approach because it's limited to 2K-4K chars and won't work for large number of entities*@
+<form asp-controller="Order" asp-action="PdfInvoiceSelected" method="post" id="pdf-invoice-selected-form">
+    <input type="hidden" id="selectedIds" name="selectedIds" value="" />
+</form>
+
+<script>
+    $(document).ready(function () {
+        $('#pdf-invoice-selected').click(function (e) {
+            e.preventDefault();
+            var ids = selectedIds.join(",");
+            if (!ids) {
+                $('#pdfInvoiceSelected-info').text("@T("Admin.Orders.NoOrders")");
+                $("#pdfInvoiceSelected").click();
+            }
+            else {
+                $('#pdf-invoice-selected-form #selectedIds').val(ids);
+                $('#pdf-invoice-selected-form').submit();
+                updateTable('#orders-grid');
+            }
+            return false;
+        });
+    });
+</script>
+<nop-alert asp-alert-id="pdfInvoiceSelected" />

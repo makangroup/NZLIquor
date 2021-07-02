@@ -1,0 +1,323 @@
+﻿@model FooterModel
+@using Nop.Core
+@using Nop.Core.Domain.Tax
+@inject IWorkContext workContext;
+<div class="footer">
+    <div class="footer-upper">
+        <div class="footer-block information">
+            <div class="title">
+                <strong>@T("Footer.Information")</strong>
+            </div>
+            <ul class="list">
+                @if (Model.SitemapEnabled && Model.DisplaySitemapFooterItem)
+                {
+                    <li><a href="@Url.RouteUrl("Sitemap")">@T("Sitemap")</a></li>
+                }
+                @foreach (var topic in Model.Topics.Where(x => x.IncludeInFooterColumn1).ToList())
+                {
+                    <li><a href="@Url.RouteUrl("Topic", new { SeName = topic.SeName })">@topic.Name</a></li>
+                }
+                @if (Model.DisplayContactUsFooterItem)
+                {
+                    <li><a href="@Url.RouteUrl("ContactUs")">@T("ContactUs")</a></li>
+                }
+                @if (Model.DisplayAboutUsFooterItem)
+                {
+                    <li><a href="@Url.RouteUrl("AboutUs")">@T("AboutUs")</a></li>
+                }
+                @*@if (Model.DisplayFeedBackFooterItem)
+                {
+                    <li><a href="@Url.RouteUrl("Feedback")">@T("FeedBack")</a></li>
+                }*@
+            </ul>
+
+        </div>
+        <div class="footer-block my-account">
+            <div class="title">
+                <strong>@T("Footer.MyAccount")</strong>
+            </div>
+            <ul class="list">
+                @if (Model.DisplayCustomerInfoFooterItem)
+                {
+                    <li><a href="@Url.RouteUrl("CustomerInfo")">My Account</a></li>
+                }
+                @if (Model.DisplayCustomerOrdersFooterItem)
+                {
+                    <li><a href="@Url.RouteUrl("CustomerOrders")">@T("Account.CustomerOrders")</a></li>
+                }
+                @if (Model.DisplayCustomerAddressesFooterItem)
+                {
+                    <li><a href="@Url.RouteUrl("CustomerAddresses")">@T("Account.CustomerAddresses")</a></li>
+                }
+                @if (Model.ShoppingCartEnabled && Model.DisplayShoppingCartFooterItem)
+                {
+                    <li><a href="@Url.RouteUrl("ShoppingCart")">@T("ShoppingCart")</a></li>
+                }
+                @*@if (Model.WishlistEnabled && Model.DisplayWishlistFooterItem)
+                {
+                    <li><a href="@Url.RouteUrl("Wishlist")">@T("Wishlist")</a></li>
+                }*@
+                @*@if (Model.AllowCustomersToApplyForVendorAccount && Model.DisplayApplyVendorAccountFooterItem)
+                {
+                    <li><a href="/corporatecustomer/register/">Corporate Customer</a></li>
+                }*@
+                @foreach (var topic in Model.Topics.Where(x => x.IncludeInFooterColumn3).ToList())
+                {
+                    <li><a href="@Url.RouteUrl("Topic", new {SeName = topic.SeName})">@topic.Name</a></li>
+                }
+            </ul>
+        </div>
+        <div class="footer-block customer-service">
+            <div class="social">
+                <div class="title">
+                    <strong>Liquor Licence</strong>
+                </div>
+                @*<p style="color:white;font-size: 12px;">
+                    Alcohol is sold under the licence no : 007/OFF/9204/2020
+                    <br />
+                    <br />
+                    Expiry Date: 13th June 2021
+                    <br />
+                    <a style="color:white;font-size: 12px; display:block; width:auto; height:auto; background:none;text-decoration:underline;" href="../Themes/FenchurchThemes/Content/images/Off-Licence.pdf">Licence can be viewed here</a>
+                </p>*@
+                <br />
+            </div>
+            @*@await Component.InvokeAsync("NewsletterBox")*@
+        </div>
+        <!--<div class="footer-block customer-service">
+        <div class="title">
+            <strong>@T("Footer.CustomerService")</strong>
+        </div>
+        <ul class="list">
+            @if (Model.DisplayProductSearchFooterItem)
+            {
+                <li><a href="@Url.RouteUrl("ProductSearch")">@T("Search")</a> </li>
+            }-->
+        @*@if (Model.NewsEnabled && Model.DisplayNewsFooterItem)
+        {
+            <li><a href="@Url.RouteUrl("NewsArchive")">@T("News")</a></li>
+        }
+        @if (Model.BlogEnabled && Model.DisplayBlogFooterItem)
+        {
+            <li><a href="@Url.RouteUrl("Blog")">@T("Blog")</a></li>
+        }*@
+        <!--@if (Model.ForumEnabled && Model.DisplayForumsFooterItem)
+    {
+        <li><a href="@Url.RouteUrl("Boards")">@T("Forum.Forums")</a></li>
+    }
+    @if (Model.RecentlyViewedProductsEnabled && Model.DisplayRecentlyViewedProductsFooterItem)
+    {
+        <li><a href="@Url.RouteUrl("RecentlyViewedProducts")">@T("Products.RecentlyViewedProducts")</a></li>
+    }
+    @if (Model.CompareProductsEnabled && Model.DisplayCompareProductsFooterItem)
+    {
+        <li><a href="@Url.RouteUrl("CompareProducts")">@T("Products.Compare.List")</a></li>
+    }-->
+        @*@if (Model.NewProductsEnabled && Model.DisplayNewProductsFooterItem)
+        {
+            <li><a href="@Url.RouteUrl("NewProducts")">@T("Products.NewProducts")</a></li>
+        }*@
+        <!--@foreach (var topic in Model.Topics.Where(x => x.IncludeInFooterColumn2).ToList())
+            {
+                <li><a href="@Url.RouteUrl("Topic", new {SeName = topic.SeName})">@topic.Name</a></li>
+            }
+            @if (Model.AllowCustomersToCheckGiftCardBalance)
+            {
+                <li><a href="@Url.RouteUrl("CheckGiftCardBalance")">@T("CheckGiftCardBalance")</a></li>
+            }
+        </ul>
+    </div>-->
+        <!--<div class="footer-block follow-us">
+    <div class="social">-->
+        @*<div class="title">
+            <strong>Liquor Licence</strong>
+        </div>
+        <p style="color:white;font-size: 12px;">
+            Alcohol is sold under the licence no : 007/OFF/9204/2020
+            <br />
+            <br />
+            Expiry Date: 13th June 2021
+            <br />
+            <a style="color:white;font-size: 12px; display:block; width:auto; height:auto; background:none;text-decoration:underline;" href="../Themes/FenchurchThemes/Content/images/Off-Licence.pdf">Licence can be viewed here</a>
+        </p>
+        <br />*@
+        <!--<div class="title">
+               <strong>Follow us: </strong>
+               <br />
+               <br />
+               @await Component.InvokeAsync("SocialButtons")
+           </div>
+       </div>
+    </div>-->
+    </div>
+    <script src="~/js/bpopup.min.js"></script>
+    <style type="text/css">
+        .pic {
+            width: 190px;
+            height: 190px;
+            opacity: 1;
+            filter: alpha(opacity=100);
+            width: 49%;
+            height: 49%;
+            cursor: pointer
+        }
+
+            .pic:hover {
+                -ms-transform: scale(0.95);
+                -webkit-transform: scale(0.95);
+                transform: scale(0.95);
+                filter: alpha(opacity=100);
+            }
+
+        .pic2 {
+            opacity: 1;
+            filter: alpha(opacity=100);
+        }
+
+            .pic2:hover {
+                -ms-transform: scale(0.9);
+                -webkit-transform: scale(0.9);
+                transform: scale(0.9);
+                filter: alpha(opacity=100);
+            }
+    </style>
+    <style>
+        #AgeCheck {
+            text-align: center;
+            background-color: #fff;
+            border-radius: 0px;
+            color: #333;
+            display: none;
+            width: 500px;
+            max-width: 100%;
+        }
+
+            #AgeCheck .title {
+                font-family: "BrandonTextWeb-Black",Verdana,Arial,Helvetica,sans-serif;
+                text-transform: uppercase;
+                font-size: 26px;
+                box-sizing: border-box;
+                margin: 0px;
+                font-size: 26px;
+                padding-bottom: 0;
+                color: #3C2620;
+            }
+
+            #AgeCheck .image {
+                margin-top: 0px;
+                max-width: 100%;
+            }
+
+            #AgeCheck .text {
+                margin-top: 0px;
+                margin-bottom: 0px;
+                color: #A5A3A3;
+            }
+
+        #YesNo18 {
+            text-align: center;
+            margin-top: 0px;
+        }
+    </style>
+    <style media="all and (max-width: 100%)">
+        #AgeCheck {
+        }
+
+            #AgeCheck .title {
+                font-size: 10px !important;
+            }
+
+            #AgeCheck .image {
+                margin-top: 0px;
+                max-width: 100%;
+            }
+
+            #AgeCheck .text {
+                margin-top: 0px;
+                font-size: 8px !important;
+            }
+    </style>
+    <style media="all and (max-width: 100%)">
+        #AgeCheck {
+            width: 100%;
+        }
+
+            #AgeCheck .image {
+                margin-top: 0px;
+                max-width: 100%;
+            }
+    </style>
+    <div id="AgeCheck">
+        <div style="font-family: arial, helvetica, sans-serif; padding: 18px;">
+            <img src="/Themes/FenchurchThemes/Content/images/NZliquor.png" style="width:90%;height:90%" alt="" />
+            <div id="YesNo18">
+                <h2>Welcome!</h2>
+                <h3>Are you over the age of 18?</h3>
+                <tr>
+                    <td><img id="age-yes" src="/Themes/FenchurchThemes/Content/images/YES_button.png" style="width:25%;height:25%;cursor:pointer;padding-top: 12px;" class="pic2" /></td>
+                    <td>
+                        &nbsp;&nbsp;
+                        <a href="http://www.alcohol.org.nz/">
+                            <img src="/Themes/FenchurchThemes/Content/images/age_no.png" style="width:25%;height:25%;cursor:pointer;padding-top: 12px;" class="pic2" />
+                        </a>
+                    </td>
+                </tr>
+            </div>
+        </div>
+    </div>
+</div>
+<script asp-location="Footer">
+    $(document).ready(function () {
+        var dc = document.cookie;
+        var begin = dc.indexOf("agecheck=yes");
+        if (begin < 0) {
+            $("html").addClass("lockBody");
+            $("body").addClass("lockBody");
+            $('#AgeCheck').bPopup(
+            {
+                easing: 'easeOutBack', //uses jQuery easing plugin
+                speed: 500,
+                modal: true,
+                escClose: false,
+                modalClose: false,
+                transition: 'slideDown'
+            });
+        }
+
+        $('#age-yes').click(function () {
+            document.cookie = "agecheck=yes; path=/";
+            $('#AgeCheck').bPopup().close();
+            document.getElementById("AgeCheck").style.display = "none";
+        });
+    });
+</script>
+<script asp-location="Footer">
+    $(document).ready(function () {
+        $('.footer-block .title').on('click', function () {
+            var e = window, a = 'inner';
+            if (!('innerWidth' in window)) {
+                a = 'client';
+                e = document.documentElement || document.body;
+            }
+            var result = { width: e[a + 'Width'], height: e[a + 'Height'] };
+            if (result.width < 769) {
+                $(this).siblings('.list').slideToggle('slow');
+            }
+        });
+    });
+</script>
+<script asp-location="Footer">
+    $(document).ready(function () {
+        $('.block .title').on('click', function () {
+            var e = window, a = 'inner';
+            if (!('innerWidth' in window)) {
+                a = 'client';
+                e = document.documentElement || document.body;
+            }
+            var result = { width: e[a + 'Width'], height: e[a + 'Height'] };
+            if (result.width < 1001) {
+                $(this).siblings('.listbox').slideToggle('slow');
+            }
+        });
+    });
+</script>

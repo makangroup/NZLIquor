@@ -1,0 +1,153 @@
+10:15:53.091 [I] [800000510000fd00b63f84710c7967bb] WindcavePaymentProcessor::ValidatePaymentForm()
+10:15:53.093 [I] [800000510000fd00b63f84710c7967bb] WindcavePaymentProcessor::GetPaymentInfo()
+10:18:13.708 [I] [800000550000fd00b63f84710c7967bb] WindcavePaymentProcessor::PostProcessPayment()
+10:18:13.710 [I] [800000550000fd00b63f84710c7967bb] WindcavePaymentProcessor.SessionExists(14)
+10:18:13.980 [I] [800000550000fd00b63f84710c7967bb] WindcavePaymentProcessor.GetXID()
+10:18:13.980 [I] [800000550000fd00b63f84710c7967bb] WindcavePaymentProcessor.GetXID generated:86b07aa5390f9c6167ab9078b87a97c2-0001-00000014-purchase
+10:18:14.003 [I] [800000550000fd00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession(14, 86b07aa5390f9c6167ab9078b87a97c2-0001-00000014-purchase, 0, <?xml version="1.0" encoding="utf-16"?><DictionarySerializer><item><key>Save card details</key><value>False</value></item><item><key>Use previously saved card</key><value>False</value></item></DictionarySerializer>)
+10:18:14.006 [I] [800000550000fd00b63f84710c7967bb] WindcaveHelper::GetTransactionObjFromOrderObj()
+10:18:14.167 [I] [800000550000fd00b63f84710c7967bb] WindcaveHelper.GetPluginVersion()
+10:18:14.168 [I] [800000550000fd00b63f84710c7967bb] WindcaveRestClient.GetPostResponseBodyAsync()
+10:18:14.171 [I] [800000550000fd00b63f84710c7967bb] WindcaveRestClient.DoPostAsync(https://sec.windcave.com/api, api/v1/sessions, RmVuY2h1cmNoTGlxdW9yUkVTVF9EZXY6YTAxNTVhNTNjNGI0MDE3NDUwMGRmNmI4OTNmZDRiY2RjMzRkZDA4ODQ3ZjU1NTkxOTMxMmRiYWE1NTE0OGJlMg==, {"amount":"30.00","callbackUrls":{"approved":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleApproved","cancelled":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleCancelled","declined":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleDeclined"},"cardId":null,"currency":"NZD","customer":{"account":"12","billing":{"address1":null,"address2":null,"city":null,"countryCode":null,"name":"Thantrige Hemantha","phoneNumber":null,"postalCode":null,"state":null},"email":"rasika.2000@yahoo.com","firstName":"Thantrige","lastName":"Hemantha","phoneNumber":null,"shipping":{"address1":null,"address2":null,"city":null,"countryCode":null,"name":"Thantrige Hemantha","phoneNumber":null,"postalCode":null,"state":null}},"expires":null,"language":"en-US","merchantReference":"14","methods":[],"notificationUrl":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleNotificationCallback","storeCard":false,"storeCustomer":false,"storedCardIndicator":null,"type":"purchase"}, Nop.Core.Domain.Orders.Order, 86b07aa5390f9c6167ab9078b87a97c2-0001-00000014-purchase)
+10:18:14.173 [I] [800000550000fd00b63f84710c7967bb] WindcaveRestClient.SetClientProps()
+10:18:14.715 [I] [800000550000fd00b63f84710c7967bb] WindcavePaymentProcessor.AddAuthErrorNoteToOrder(14, Response. StatusCode:400 Body:{
+    "requestId" : "1224519508",
+    "timestampUtc" : "2020-08-19T22:18:16Z",
+    "errors" : [
+        {
+            "target" : "shipping/address1",
+            "message" : "Address1 is required"
+        },
+        {
+            "target" : "billing/address1",
+            "message" : "Address1 is required"
+        }
+    ]
+})
+10:18:14.784 [I] [800000550000fd00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession. Request Fails: 400 BadRequest
+10:18:14.785 [I] [800000550000fd00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession. Error Field: shipping/address1 | Error: Address1 is required
+10:18:14.785 [I] [800000550000fd00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession. Error Field: billing/address1 | Error: Address1 is required
+10:18:15.171 [I] [8000017a0000ff00b63f84710c7967bb] WindcavePaymentProcessingController.HandleApiError()
+10:18:15.174 [E] [8000017a0000ff00b63f84710c7967bb] WindcavePaymentProcessingController.HandleApiError(14, 400)
+10:20:22.626 [I] [800000680005ff00b63f84710c7967bb] WindcavePaymentProcessor::ValidatePaymentForm()
+10:20:22.626 [I] [800000680005ff00b63f84710c7967bb] WindcavePaymentProcessor::GetPaymentInfo()
+10:21:12.937 [I] [800000e50002fd00b63f84710c7967bb] WindcavePaymentProcessor::PostProcessPayment()
+10:21:12.937 [I] [800000e50002fd00b63f84710c7967bb] WindcavePaymentProcessor.SessionExists(15)
+10:21:12.941 [I] [800000e50002fd00b63f84710c7967bb] WindcavePaymentProcessor.GetXID()
+10:21:12.941 [I] [800000e50002fd00b63f84710c7967bb] WindcavePaymentProcessor.GetXID generated:8d0ef07f661a2c3c84b1146606b9960e-0001-00000015-purchase
+10:21:12.941 [I] [800000e50002fd00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession(15, 8d0ef07f661a2c3c84b1146606b9960e-0001-00000015-purchase, 0, <?xml version="1.0" encoding="utf-16"?><DictionarySerializer><item><key>Save card details</key><value>False</value></item><item><key>Use previously saved card</key><value>False</value></item></DictionarySerializer>)
+10:21:12.941 [I] [800000e50002fd00b63f84710c7967bb] WindcaveHelper::GetTransactionObjFromOrderObj()
+10:21:12.943 [I] [800000e50002fd00b63f84710c7967bb] WindcaveHelper.GetPluginVersion()
+10:21:12.943 [I] [800000e50002fd00b63f84710c7967bb] WindcaveRestClient.GetPostResponseBodyAsync()
+10:21:12.943 [I] [800000e50002fd00b63f84710c7967bb] WindcaveRestClient.DoPostAsync(https://sec.windcave.com/api, api/v1/sessions, RmVuY2h1cmNoTGlxdW9yUkVTVF9EZXY6YTAxNTVhNTNjNGI0MDE3NDUwMGRmNmI4OTNmZDRiY2RjMzRkZDA4ODQ3ZjU1NTkxOTMxMmRiYWE1NTE0OGJlMg==, {"amount":"30.00","callbackUrls":{"approved":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleApproved","cancelled":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleCancelled","declined":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleDeclined"},"cardId":null,"currency":"NZD","customer":{"account":"12","billing":{"address1":null,"address2":null,"city":null,"countryCode":null,"name":"Thantrige Hemantha","phoneNumber":null,"postalCode":null,"state":null},"email":"rasika.2000@yahoo.com","firstName":"Thantrige","lastName":"Hemantha","phoneNumber":null,"shipping":{"address1":null,"address2":null,"city":null,"countryCode":null,"name":"Thantrige Hemantha","phoneNumber":null,"postalCode":null,"state":null}},"expires":null,"language":"en-US","merchantReference":"15","methods":[],"notificationUrl":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleNotificationCallback","storeCard":false,"storeCustomer":false,"storedCardIndicator":null,"type":"purchase"}, Nop.Core.Domain.Orders.Order, 8d0ef07f661a2c3c84b1146606b9960e-0001-00000015-purchase)
+10:21:12.943 [I] [800000e50002fd00b63f84710c7967bb] WindcaveRestClient.SetClientProps()
+10:21:13.131 [I] [800000e50002fd00b63f84710c7967bb] WindcavePaymentProcessor.AddAuthErrorNoteToOrder(15, Response. StatusCode:400 Body:{
+    "requestId" : "568074875",
+    "timestampUtc" : "2020-08-19T22:21:14Z",
+    "errors" : [
+        {
+            "target" : "shipping/address1",
+            "message" : "Address1 is required"
+        },
+        {
+            "target" : "billing/address1",
+            "message" : "Address1 is required"
+        }
+    ]
+})
+10:21:13.214 [I] [800000e50002fd00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession. Request Fails: 400 BadRequest
+10:21:13.214 [I] [800000e50002fd00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession. Error Field: shipping/address1 | Error: Address1 is required
+10:21:13.214 [I] [800000e50002fd00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession. Error Field: billing/address1 | Error: Address1 is required
+10:21:13.399 [I] [8000006b0005ff00b63f84710c7967bb] WindcavePaymentProcessingController.HandleApiError()
+10:21:13.399 [E] [8000006b0005ff00b63f84710c7967bb] WindcavePaymentProcessingController.HandleApiError(15, 400)
+10:22:43.068 [I] [800001ca0004fc00b63f84710c7967bb] WindcavePaymentProcessor::PostProcessPayment()
+10:22:43.068 [I] [800001ca0004fc00b63f84710c7967bb] WindcavePaymentProcessor.SessionExists(15)
+10:22:43.072 [I] [800001ca0004fc00b63f84710c7967bb] WindcavePaymentProcessor.GetXID()
+10:22:43.072 [I] [800001ca0004fc00b63f84710c7967bb] WindcavePaymentProcessor.GetXID generated:e28bf7a8cf17bfbb7cf2e1259a41e00c-0001-00000015-purchase
+10:22:43.072 [I] [800001ca0004fc00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession(15, e28bf7a8cf17bfbb7cf2e1259a41e00c-0001-00000015-purchase, 0, )
+10:22:43.072 [I] [800001ca0004fc00b63f84710c7967bb] WindcaveHelper::GetTransactionObjFromOrderObj()
+10:22:43.073 [I] [800001ca0004fc00b63f84710c7967bb] WindcaveHelper.GetPluginVersion()
+10:22:43.074 [I] [800001ca0004fc00b63f84710c7967bb] WindcaveRestClient.GetPostResponseBodyAsync()
+10:22:43.074 [I] [800001ca0004fc00b63f84710c7967bb] WindcaveRestClient.DoPostAsync(https://sec.windcave.com/api, api/v1/sessions, RmVuY2h1cmNoTGlxdW9yUkVTVF9EZXY6YTAxNTVhNTNjNGI0MDE3NDUwMGRmNmI4OTNmZDRiY2RjMzRkZDA4ODQ3ZjU1NTkxOTMxMmRiYWE1NTE0OGJlMg==, {"amount":"30.00","callbackUrls":{"approved":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleApproved","cancelled":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleCancelled","declined":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleDeclined"},"cardId":null,"currency":"NZD","customer":{"account":"12","billing":{"address1":null,"address2":null,"city":null,"countryCode":null,"name":"Thantrige Hemantha","phoneNumber":null,"postalCode":null,"state":null},"email":"rasika.2000@yahoo.com","firstName":"Thantrige","lastName":"Hemantha","phoneNumber":null,"shipping":{"address1":null,"address2":null,"city":null,"countryCode":null,"name":"Thantrige Hemantha","phoneNumber":null,"postalCode":null,"state":null}},"expires":null,"language":"en-US","merchantReference":"15","methods":[],"notificationUrl":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleNotificationCallback","storeCard":false,"storeCustomer":false,"storedCardIndicator":null,"type":"purchase"}, Nop.Core.Domain.Orders.Order, e28bf7a8cf17bfbb7cf2e1259a41e00c-0001-00000015-purchase)
+10:22:43.074 [I] [800001ca0004fc00b63f84710c7967bb] WindcaveRestClient.SetClientProps()
+10:22:43.282 [I] [800001ca0004fc00b63f84710c7967bb] WindcavePaymentProcessor.AddAuthErrorNoteToOrder(15, Response. StatusCode:400 Body:{
+    "requestId" : "1240224015",
+    "timestampUtc" : "2020-08-19T22:22:44Z",
+    "errors" : [
+        {
+            "target" : "shipping/address1",
+            "message" : "Address1 is required"
+        },
+        {
+            "target" : "billing/address1",
+            "message" : "Address1 is required"
+        }
+    ]
+})
+10:22:43.304 [I] [800001ca0004fc00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession. Request Fails: 400 BadRequest
+10:22:43.306 [I] [800001ca0004fc00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession. Error Field: shipping/address1 | Error: Address1 is required
+10:22:43.307 [I] [800001ca0004fc00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession. Error Field: billing/address1 | Error: Address1 is required
+10:22:43.733 [I] [8000019d0007fd00b63f84710c7967bb] WindcavePaymentProcessingController.HandleApiError()
+10:22:43.734 [E] [8000019d0007fd00b63f84710c7967bb] WindcavePaymentProcessingController.HandleApiError(15, 400)
+10:39:51.276 [I] [800001f80004fc00b63f84710c7967bb] WindcavePaymentProcessor::ValidatePaymentForm()
+10:39:51.285 [I] [800001f80004fc00b63f84710c7967bb] WindcavePaymentProcessor::GetPaymentInfo()
+10:40:13.067 [I] [800001580001fe00b63f84710c7967bb] WindcavePaymentProcessor::PostProcessPayment()
+10:40:13.068 [I] [800001580001fe00b63f84710c7967bb] WindcavePaymentProcessor.SessionExists(16)
+10:40:13.533 [I] [800001580001fe00b63f84710c7967bb] WindcavePaymentProcessor.GetXID()
+10:40:13.534 [I] [800001580001fe00b63f84710c7967bb] WindcavePaymentProcessor.GetXID generated:80b406ef1b0529393fcfef5882c9994a-0001-00000016-purchase
+10:40:13.605 [I] [800001580001fe00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession(16, 80b406ef1b0529393fcfef5882c9994a-0001-00000016-purchase, 0, <?xml version="1.0" encoding="utf-16"?><DictionarySerializer><item><key>Save card details</key><value>False</value></item><item><key>Use previously saved card</key><value>False</value></item></DictionarySerializer>)
+10:40:13.619 [I] [800001580001fe00b63f84710c7967bb] WindcaveHelper::GetTransactionObjFromOrderObj()
+10:40:13.864 [I] [800001580001fe00b63f84710c7967bb] WindcaveHelper.GetPluginVersion()
+10:40:13.867 [I] [800001580001fe00b63f84710c7967bb] WindcaveRestClient.GetPostResponseBodyAsync()
+10:40:13.872 [I] [800001580001fe00b63f84710c7967bb] WindcaveRestClient.DoPostAsync(https://sec.windcave.com/api, api/v1/sessions, RmVuY2h1cmNoTGlxdW9yUkVTVF9EZXY6YTAxNTVhNTNjNGI0MDE3NDUwMGRmNmI4OTNmZDRiY2RjMzRkZDA4ODQ3ZjU1NTkxOTMxMmRiYWE1NTE0OGJlMg==, {"amount":"30.00","callbackUrls":{"approved":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleApproved","cancelled":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleCancelled","declined":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleDeclined"},"cardId":null,"currency":"NZD","customer":{"account":"12","billing":{"address1":null,"address2":null,"city":null,"countryCode":null,"name":"Thantrige Hemantha","phoneNumber":null,"postalCode":null,"state":null},"email":"rasika.2000@yahoo.com","firstName":"Thantrige","lastName":"Hemantha","phoneNumber":null,"shipping":{"address1":null,"address2":null,"city":null,"countryCode":null,"name":"Thantrige Hemantha","phoneNumber":null,"postalCode":null,"state":null}},"expires":null,"language":"en-US","merchantReference":"16","methods":[],"notificationUrl":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleNotificationCallback","storeCard":false,"storeCustomer":false,"storedCardIndicator":null,"type":"purchase"}, Nop.Core.Domain.Orders.Order, 80b406ef1b0529393fcfef5882c9994a-0001-00000016-purchase)
+10:40:13.875 [I] [800001580001fe00b63f84710c7967bb] WindcaveRestClient.SetClientProps()
+10:40:14.212 [I] [800001580001fe00b63f84710c7967bb] WindcavePaymentProcessor.AddAuthErrorNoteToOrder(16, Response. StatusCode:400 Body:{
+    "requestId" : "1176025553",
+    "timestampUtc" : "2020-08-19T22:40:15Z",
+    "errors" : [
+        {
+            "target" : "shipping/address1",
+            "message" : "Address1 is required"
+        },
+        {
+            "target" : "billing/address1",
+            "message" : "Address1 is required"
+        }
+    ]
+})
+10:40:14.298 [I] [800001580001fe00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession. Request Fails: 400 BadRequest
+10:40:14.298 [I] [800001580001fe00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession. Error Field: shipping/address1 | Error: Address1 is required
+10:40:14.299 [I] [800001580001fe00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession. Error Field: billing/address1 | Error: Address1 is required
+10:40:14.579 [I] [800000ba0005ff00b63f84710c7967bb] WindcavePaymentProcessingController.HandleApiError()
+10:40:14.580 [E] [800000ba0005ff00b63f84710c7967bb] WindcavePaymentProcessingController.HandleApiError(16, 400)
+22:39:34.870 [I] [8000074a0005fc00b63f84710c7967bb] WindcavePaymentProcessor::ValidatePaymentForm()
+22:39:34.871 [I] [8000074a0005fc00b63f84710c7967bb] WindcavePaymentProcessor::GetPaymentInfo()
+22:39:39.762 [I] [8000074c0005fc00b63f84710c7967bb] WindcavePaymentProcessor::PostProcessPayment()
+22:39:39.762 [I] [8000074c0005fc00b63f84710c7967bb] WindcavePaymentProcessor.SessionExists(17)
+22:39:39.914 [I] [8000074c0005fc00b63f84710c7967bb] WindcavePaymentProcessor.GetXID()
+22:39:39.915 [I] [8000074c0005fc00b63f84710c7967bb] WindcavePaymentProcessor.GetXID generated:17cd81568aa5723d6e2d86f78e130211-0001-00000017-purchase
+22:39:39.930 [I] [8000074c0005fc00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession(17, 17cd81568aa5723d6e2d86f78e130211-0001-00000017-purchase, 0, <?xml version="1.0" encoding="utf-16"?><DictionarySerializer><item><key>Save card details</key><value>False</value></item><item><key>Use previously saved card</key><value>False</value></item></DictionarySerializer>)
+22:39:39.932 [I] [8000074c0005fc00b63f84710c7967bb] WindcaveHelper::GetTransactionObjFromOrderObj()
+22:39:40.016 [I] [8000074c0005fc00b63f84710c7967bb] WindcaveHelper.GetPluginVersion()
+22:39:40.016 [I] [8000074c0005fc00b63f84710c7967bb] WindcaveRestClient.GetPostResponseBodyAsync()
+22:39:40.017 [I] [8000074c0005fc00b63f84710c7967bb] WindcaveRestClient.DoPostAsync(https://sec.windcave.com/, api/v1/sessions, RmVuY2h1cmNoTGlxdW9yUkVTVF9EZXY6YTAxNTVhNTNjNGI0MDE3NDUwMGRmNmI4OTNmZDRiY2RjMzRkZDA4ODQ3ZjU1NTkxOTMxMmRiYWE1NTE0OGJlMg==, {"amount":"30.00","callbackUrls":{"approved":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleApproved","cancelled":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleCancelled","declined":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleDeclined"},"cardId":null,"currency":"NZD","customer":{"account":"12","billing":{"address1":null,"address2":null,"city":null,"countryCode":null,"name":"Thantrige Hemantha","phoneNumber":null,"postalCode":null,"state":null},"email":"rasika.2000@yahoo.com","firstName":"Thantrige","lastName":"Hemantha","phoneNumber":null,"shipping":{"address1":null,"address2":null,"city":null,"countryCode":null,"name":"Thantrige Hemantha","phoneNumber":null,"postalCode":null,"state":null}},"expires":null,"language":"en-US","merchantReference":"17","methods":[],"notificationUrl":"http:\/\/localhost:15536\/Payments\/Windcave\/HandleNotificationCallback","storeCard":false,"storeCustomer":false,"storedCardIndicator":null,"type":"purchase"}, Nop.Core.Domain.Orders.Order, 17cd81568aa5723d6e2d86f78e130211-0001-00000017-purchase)
+22:39:40.018 [I] [8000074c0005fc00b63f84710c7967bb] WindcaveRestClient.SetClientProps()
+22:39:40.356 [I] [8000074c0005fc00b63f84710c7967bb] WindcavePaymentProcessor.AddAuthErrorNoteToOrder(17, Response. StatusCode:400 Body:{
+    "requestId" : "278674462",
+    "timestampUtc" : "2020-08-20T10:39:40Z",
+    "errors" : [
+        {
+            "target" : "shipping/address1",
+            "message" : "Address1 is required"
+        },
+        {
+            "target" : "billing/address1",
+            "message" : "Address1 is required"
+        }
+    ]
+})
+22:39:40.376 [I] [8000074c0005fc00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession. Request Fails: 400 BadRequest
+22:39:40.377 [I] [8000074c0005fc00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession. Error Field: shipping/address1 | Error: Address1 is required
+22:39:40.377 [I] [8000074c0005fc00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession. Error Field: billing/address1 | Error: Address1 is required
+22:39:40.455 [I] [800001330005fe00b63f84710c7967bb] WindcavePaymentProcessingController.HandleApiError()
+22:39:40.455 [E] [800001330005fe00b63f84710c7967bb] WindcavePaymentProcessingController.HandleApiError(17, 400)

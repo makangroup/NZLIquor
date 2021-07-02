@@ -1,0 +1,243 @@
+﻿@model CategoryNavigationModel
+@if (Model.Categories.Count > 0)
+{
+<div class="block block-category-navigation" style=" border: 1px lightgray solid;">
+    <div class="title">
+        <strong>@T("Categories")</strong>
+    </div>
+    @*<div class="listbox">
+            <div class="list">
+             @foreach (var category in Model.Categories)
+             {
+                 var categoryLineModel = new CategoryNavigationModel.CategoryLineModel
+                 {
+                     CurrentCategoryId = Model.CurrentCategoryId,
+                     Category = category
+                 };
+                 @await Html.PartialAsync("_CategoryLine.Navigation", categoryLineModel)
+             }
+         </div>
+        </div>*@
+    <div class="listbox">
+        <div class="list">
+
+
+            @foreach (var category in Model.Categories)
+            {
+                <div class="category-block">
+                    <div class="header2">
+                        <a style="display: list-item;" href=@category.SeName>
+                            @category.Name
+                            @if (category.NumberOfProducts.HasValue)
+                            {
+                                @T("Categories.TotalProducts", category.NumberOfProducts.Value)
+                            }
+                            @if (category.SubCategories.Count > 0)
+                            {
+                                <i onclick="showSub(event)" class="fa fa-caret-down"></i>
+                            }
+                        </a>
+                    </div>
+                    @if (category.SubCategories.Count > 0)
+                    {
+                        int b = 0;
+                        <div class="category-list show1 category-block1">
+
+                            @foreach (var categorissub in category.SubCategories)
+                            {
+                                b += 1;
+                                <div class="header1">
+                                    <a style="display: list-item;" href=@categorissub.SeName>
+                                        @categorissub.Name
+                                        @if (categorissub.NumberOfProducts.HasValue)
+                                        {
+                                            @T("Categories.TotalProducts", categorissub.NumberOfProducts.Value)
+                                        }
+                                        @if (categorissub.SubCategories.Count > 0)
+                                        {
+                                            @if (categorissub.Name == "Whiskies" || categorissub.Name == "Red" || categorissub.Name == "Food & Snacks")
+                                            {
+                                                <i onclick="showSub1(event)" class="fa fa-caret-down"></i>
+                                            }
+                                            else if (categorissub.Name == "Rums" || categorissub.Name == "White" || categorissub.Name == "Non-alcoholic Drinks")
+                                            {
+                                                <i onclick="showSub2(event)" class="fa fa-caret-down"></i>
+                                            }
+                                            else if (categorissub.Name == "Liqueurs" || categorissub.Name == "Sparkling")
+                                            {
+                                                <i onclick="showSub3(event)" class="fa fa-caret-down"></i>
+                                            }
+                                            else if (categorissub.Name == "Tequilas" || categorissub.Name == "Port")
+                                            {
+                                                <i onclick="showSub4(event)" class="fa fa-caret-down"></i>
+                                            }
+                                            else if (categorissub.Name == "Vodkas" || categorissub.Name == "Sherry")
+                                            {
+                                                <i onclick="showSub5(event)" class="fa fa-caret-down"></i>
+                                            }
+                                            else if (categorissub.Name == "Gins" || categorissub.Name == "Rose")
+                                            {
+                                                <i onclick="showSub6(event)" class="fa fa-caret-down"></i>
+                                            }
+                                            else if (categorissub.Name == "Brandies" || categorissub.Name == "Dessert")
+                                            {
+                                                <i onclick="showSub7(event)" class="fa fa-caret-down"></i>
+                                            }
+                                        }
+                                    </a>
+                                </div>
+                                @if (categorissub.SubCategories.Count > 0)
+                                {
+                                    <div class="category-list show1 category-block2 ">
+                                        @foreach (var categorissub1 in categorissub.SubCategories)
+                                        {
+                                            <div class="header3">
+                                                <a style="display: list-item;" href=@categorissub1.SeName>
+                                                    @categorissub1.Name
+                                                    @if (categorissub1.NumberOfProducts.HasValue)
+                                                    {
+                                                        @T("Categories.TotalProducts", categorissub1.NumberOfProducts.Value)
+                                                    }
+                                                    @if (categorissub1.SubCategories.Count > 0)
+                                                    {
+                                                        <i onclick="showSub(event)" class="fa fa-caret-down"></i>
+                                                    }
+                                                </a>
+                                            </div>
+                                        }
+                                    </div>
+                                }
+
+                            }
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+</div>
+}
+<script>
+    function showSub() {
+        //var ele = document.getElementsByClassName("category-list");
+        var blocks = document.getElementsByClassName("category-block");
+        for (var i in blocks) {
+            blocks[i].getElementsByClassName("header2")[0]
+                .addEventListener("click", showSub);
+        }
+
+        function showSub(e) {
+            e.preventDefault();
+
+            // <a> child is the target
+            var div = e.target.parentNode.parentNode.nextElementSibling;
+            div.style.display = div.style.display == 'none' ? 'block' : 'none';
+        }
+    }
+    function showSub1() {
+        //var ele = document.getElementsByClassName("category-list");
+        var blocks = document.getElementsByClassName("category-block1");
+        for (var i in blocks) {
+            blocks[i].getElementsByClassName("header1")[0]
+                .addEventListener("click", showSub1);
+        }
+
+        function showSub1(e) {
+            e.preventDefault();
+
+            // <a> child is the target
+            var div = e.target.parentNode.parentNode.nextElementSibling;
+            div.style.display = div.style.display == 'none' ? 'block' : 'none';
+        }
+    }
+
+
+
+    function showSub2() {
+        //var ele = document.getElementsByClassName("category-list");
+        var blocks = document.getElementsByClassName("category-block1");
+        for (var i in blocks) {
+            blocks[i].getElementsByClassName("header1")[1]
+                .addEventListener("click", showSub2);
+        }
+        function showSub2(e) {
+            e.preventDefault();
+
+            // <a> child is the target
+            var div = e.target.parentNode.parentNode.nextElementSibling;
+            div.style.display = div.style.display == 'none' ? 'block' : 'none';
+        }
+    }
+    function showSub3() {
+        //var ele = document.getElementsByClassName("category-list");
+        var blocks = document.getElementsByClassName("category-block1");
+        for (var i in blocks) {
+            blocks[i].getElementsByClassName("header1")[2]
+                .addEventListener("click", showSub3);
+        }
+
+        function showSub3(e) {
+            e.preventDefault();
+
+            // <a> child is the target
+            var div = e.target.parentNode.parentNode.nextElementSibling;
+            div.style.display = div.style.display == 'none' ? 'block' : 'none';
+        }
+    }
+    function showSub4() {
+        //var ele = document.getElementsByClassName("category-list");
+        var blocks = document.getElementsByClassName("category-block1");
+        for (var i in blocks) {
+            blocks[i].getElementsByClassName("header1")[3]
+                .addEventListener("click", showSub4);
+        }
+
+        function showSub4(e) {
+            e.preventDefault();
+
+            // <a> child is the target
+            var div = e.target.parentNode.parentNode.nextElementSibling;
+            div.style.display = div.style.display == 'none' ? 'block' : 'none';
+        }
+    }
+    function showSub5() {
+        //var ele = document.getElementsByClassName("category-list");
+        var blocks = document.getElementsByClassName("category-block1");
+        for (var i in blocks) {
+            blocks[i].getElementsByClassName("header1")[4]
+                .addEventListener("click", showSub5);
+        }
+
+        function showSub5(e) {
+            e.preventDefault();
+            var div = e.target.parentNode.parentNode.nextElementSibling;
+            div.style.display = div.style.display == 'none' ? 'block' : 'none';
+        }
+    }
+    function showSub6() {
+        //var ele = document.getElementsByClassName("category-list");
+        var blocks = document.getElementsByClassName("category-block1");
+        for (var i in blocks) {
+            blocks[i].getElementsByClassName("header1")[5]
+                .addEventListener("click", showSub6);
+        }
+        function showSub6(e) {
+            e.preventDefault();
+            var div = e.target.parentNode.parentNode.nextElementSibling;
+            div.style.display = div.style.display == 'none' ? 'block' : 'none';
+        }
+    }
+    function showSub7() {
+        //var ele = document.getElementsByClassName("category-list");
+        var blocks = document.getElementsByClassName("category-block1");
+        for (var i in blocks) {
+            blocks[i].getElementsByClassName("header1")[6]
+                .addEventListener("click", showSub7);
+        }
+        function showSub7(e) {
+            e.preventDefault();
+            var div = e.target.parentNode.parentNode.nextElementSibling;
+            div.style.display = div.style.display == 'none' ? 'block' : 'none';
+        }
+    }
+</script>

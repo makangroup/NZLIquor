@@ -1,0 +1,70 @@
+﻿@using Fenchurch.Web.Areas.Admin.Models.CorporateCustomers
+@model ProfitMarkupsModel
+
+@{
+    ViewBag.PageTitle = "Add a new corporate customer profit markup";
+    //active menu item (system name)
+    Html.SetActiveMenuItemSystemName("Corporate Profit Markups");
+}
+
+<form asp-controller="CorporateCustomer" asp-action="CreateProfitMarkup" method="post">
+    <div class="content-header clearfix">
+        <h1 class="pull-left">
+            Add a new corporate customer profit markup
+            <small>
+                <i class="fa fa-arrow-circle-left"></i>
+                <a asp-action="List">back to profit markup</a>
+            </small>
+        </h1>
+        <div class="pull-right">
+            <button type="submit" name="save" class="btn bg-blue">
+                <i class="fa fa-floppy-o"></i>
+                @T("Admin.Common.Save")
+            </button>
+            @await Component.InvokeAsync("AdminWidget", new { widgetZone = AdminWidgetZones.EmailAccountDetailsButtons })
+        </div>
+    </div>
+
+    <div asp-validation-summary="ModelOnly"></div>
+    <input asp-for="Id" type="hidden" />
+
+    <div class="content">
+        <div class="form-horizontal">
+            <div class="panel-group">
+                @await Component.InvokeAsync("AdminWidget", new { widgetZone = AdminWidgetZones.EmailAccountDetailsTop, additionalData = Model })
+                @Html.HiddenFor(m => m.CorporateCustomerId)
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                <nop-label asp-for="CorporateCustomerType" />
+                            </div>
+                            <div class="col-md-9">
+                                <nop-select asp-for="CorporateCustomerType" asp-items="Model.CorporateCustomerTypes" />
+                                <span asp-validation-for="CorporateCustomerType"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                <nop-label asp-for="CategoryId" />
+                            </div>
+                            <div class="col-md-9">
+                                <nop-select asp-for="CategoryId" asp-items="Model.ProductCategories" />
+                                <span asp-validation-for="CategoryId"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                <nop-label asp-for="ProfitMarkup" />
+                            </div>
+                            <div class="col-md-9">
+                                <nop-editor asp-for="ProfitMarkup" asp-required="true" />
+                                <span asp-validation-for="ProfitMarkup"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

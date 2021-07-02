@@ -1,0 +1,11 @@
+﻿{
+  "Group": "Payment methods",
+  "FriendlyName": "Pay in Store",
+  "SystemName": "Payments.PayInStore",
+  "Version": "1.0",
+  "SupportedVersions": [ "4.30" ],
+  "Author": "Rasika Hemantha",
+  "DisplayOrder": 1,
+  "FileName": "Nop.Plugin.Payments.PayInStore.dll",
+  "Description": "This plugin enables customers to pay in the store"
+}

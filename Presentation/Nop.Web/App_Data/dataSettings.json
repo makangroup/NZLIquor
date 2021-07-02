@@ -1,0 +1,5 @@
+﻿{
+  "DataConnectionString": "Server=tcp:fenchurch-db.database.windows.net,1433;Initial Catalog=NZLiqour;Persist Security Info=False;User ID=fenchurch-admin;Password=890churcH;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;",
+  "DataProvider": "sqlserver",
+  "RawDataSettings": {}
+}

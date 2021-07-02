@@ -1,0 +1,1023 @@
+﻿@model Fenchurch.Web.Models.Customer.CorporateCustomerRegistrationModel
+
+@{
+    Layout = "_ColumnsOne";
+
+    //title
+    Html.AddTitleParts(T("PageTitle.Register").Text);
+    //page class
+    Html.AppendPageCssClassParts("html-registration-page");
+}
+
+<div class="page registration-page paddingofcategoriespage">
+    <div class="page-title">
+        <h1>Credit Account Application</h1>
+    </div>
+    <div class="page-body">
+        <form asp-route="CorporateCustomerRegistration" method="post" autocomplete="off" id="frmCorporateCustomer">
+            <div asp-validation-summary="ModelOnly" class="message-error"></div>
+            <div class="fieldset" id="DivNonIndividual">
+                <div class="title">
+                    <strong>Business Details</strong><p class="frm-text-sm">(Please complete if you are a Sole Trade, Trust, Partnership, Company or Other as Specified)</p>
+                </div>
+                <div class="clearfix">&nbsp;</div>
+                <div class="clearfix">&nbsp;</div>
+                <div class="row">
+                    <div class="col-md-6 row1">
+                        <div class="inputs">
+                            <label asp-for="@Model.CorporateCustomer.CompanyNo"> NZBN/Business Number: </label>
+                            <input asp-for="@Model.CorporateCustomer.CompanyNo" />
+                            <nop-required />
+                            <span asp-validation-for="@Model.CorporateCustomer.CompanyNo"></span>
+                        </div>
+                        <div class="inputs">
+                            <label asp-for="@Model.CorporateCustomer.NatureOfBusiness" asp-postfix=":"> Business Entity Name</label>
+                            <input asp-for="@Model.CorporateCustomer.NatureOfBusiness" />
+                            <nop-required />
+                            <span asp-validation-for="@Model.CorporateCustomer.NatureOfBusiness"></span>
+                        </div>
+                        <div class="inputs">
+                            <label asp-for="@Model.Customer.Company"> Trading Name: </label>
+                            <input asp-for="@Model.Customer.Company" />
+                            <nop-required />
+                            <span asp-validation-for="@Model.Customer.Company"></span>
+                        </div>
+                        <div class="inputs">
+                            <label asp-for="@Model.CorporateCustomer.DateIncorporated" asp-postfix=":"> Date of Opening/Takeover</label>
+                            <input asp-for="@Model.CorporateCustomer.DateIncorporated" type="date" />
+                            <nop-required />
+                            <span asp-validation-for="@Model.CorporateCustomer.DateIncorporated"></span>
+                        </div>
+                        <div class="inputs">
+                            <label asp-for="@Model.CorporateCustomer.GSTNo" asp-postfix=":"></label>
+                            <input asp-for="@Model.CorporateCustomer.GSTNo" />
+                            <nop-required />
+                            <span asp-validation-for="@Model.CorporateCustomer.GSTNo"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 row1">
+                        <div class="inputs">
+                            <label asp-for="@Model.CorporateCustomer.PaidUpCapital" asp-postfix=":"></label>
+                            <input asp-for="@Model.CorporateCustomer.PaidUpCapital" />
+                            <nop-required />
+                            <span asp-validation-for="@Model.CorporateCustomer.PaidUpCapital"></span>
+                        </div>
+
+                        <div class="inputs">
+                            <label asp-for="@Model.CorporateCustomer.EstimatedMonthlyPurchase" asp-postfix=":"></label>
+                            <input asp-for="@Model.CorporateCustomer.EstimatedMonthlyPurchase" />
+                            <nop-required />
+                            <span asp-validation-for="@Model.CorporateCustomer.EstimatedMonthlyPurchase"></span>
+                        </div>
+
+                        <div class="inputs">
+                            <label asp-for="@Model.CorporateCustomer.CreditLimtRequired" asp-postfix=":"></label>
+                            <input asp-for="@Model.CorporateCustomer.CreditLimtRequired" />
+                            <nop-required />
+                            <span asp-validation-for="@Model.CorporateCustomer.CreditLimtRequired"></span>
+                        </div>
+
+                        <div class="inputs">
+                            @Html.Label("Principal Place of Business:")
+                            <div id="gender" class="gender">
+                                <span>
+                                    <label>
+                                        @Html.RadioButtonFor(x => x.CorporateCustomer.PrincipalPlaceOfBusinessEnum, 1)
+                                        Rented
+                                    </label>
+                                </span>
+                                <span>
+                                    <label>
+                                        @Html.RadioButtonFor(x => x.CorporateCustomer.PrincipalPlaceOfBusinessEnum, 2)
+                                        Owned
+                                    </label>
+                                </span>
+                                <span>
+                                    <label>
+                                        @Html.RadioButtonFor(x => x.CorporateCustomer.PrincipalPlaceOfBusinessEnum, 3)
+                                        Mortgaged
+                                    </label>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="inputs">
+                            @Html.Label("Customer Type :")
+                            <div id="gender" class="gender">
+                                <span>
+                                    <label>
+                                        @Html.RadioButtonFor(x => x.CorporateCustomer.CustomerTypeEnum, 1, new { @class = "CustomerTypeEnum" })
+                                        Bars And Resturants
+                                    </label>
+                                </span>
+                                <span>
+                                    <label>
+                                        @Html.RadioButtonFor(x => x.CorporateCustomer.CustomerTypeEnum, 2, new { @class = "CustomerTypeEnum" })
+                                        Sports Clubs
+                                    </label>
+                                </span>
+
+                            </div>
+                        </div>
+                        <div class="inputs">
+                            @Html.Label("  ")
+                            <div id="gender" class="gender">
+                                <span>
+                                    <label>
+                                        @Html.RadioButtonFor(x => x.CorporateCustomer.CustomerTypeEnum, 4, new { @class = "CustomerTypeEnum" })
+                                        Wholesaler
+                                    </label>
+                                </span>
+                                <span>
+                                    <label>
+                                        @Html.RadioButtonFor(x => x.CorporateCustomer.CustomerTypeEnum, 3, new { @class = "CustomerTypeEnum" })
+                                        Distributor
+                                    </label>
+                                </span>
+                            </div>
+                        </div>
+                        <span asp-validation-for="@Model.CorporateCustomer.CustomerTypeEnum"></span>
+                    </div>
+                    </div>
+                <div style="position: relative; border-top: 1px solid #e6e6e6; background-color: #f9f9f9; padding: 30px 15px;  border: 1px ridge;">
+                        <div class="title">
+                            <div class="clearfix">&nbsp;</div>
+                            <strong> Director Details </strong>
+                            <div class="clearfix">&nbsp;</div>
+                        </div>
+                        <hr />
+                        <div class="clearfix">&nbsp;</div>
+                        <div class="clearfix">&nbsp;</div>
+                        <div class="table-responsive no-more-tables registercorporate2">
+                            <table id="TableOwneres" class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="thwidth">Name</th>
+                                        <th class="thwidth">DOB</th>
+                                        <th class="thwidth">Address</th>
+                                        <th class="thwidth">Postcode</th>
+                                        <th class="thwidth">Licence No</th>
+                                        <th class="thwidth">Phone</th>
+                                        <th class="thwidth">Mobile</th>
+                                        <th class="thwidth">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="TblBodyOwners">
+                                    <tr>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="clearfix">&nbsp;</div>
+                        <div class="clearfix">&nbsp;</div>
+                        <div class="clearfix">&nbsp;</div>
+                        <div class="clearfix">&nbsp;</div>
+                        <div class="clearfix">&nbsp;</div>
+                        <div class="inputs">
+                            <input type="button" id="Owners-popup-show" value="Add Owners" class="button-1 register-next-step-button" />
+                        </div>
+                    </div>
+                <div class="title">
+                            <div class="clearfix">&nbsp;</div>
+                            <strong>Contact Person Details </strong>
+                            <div class="clearfix">&nbsp;</div>
+               </div>
+                     <div class="row">
+                   <div class="col-md-6 row1" style="padding-top: 20px; position: relative;  border-top: 1px solid #e6e6e6; background-color: #f9f9f9;border: 1px ridge;">
+                        <div class="inputs">
+                            <label asp-for="@Model.Customer.FirstName" asp-postfix=":"></label>
+                            <input asp-for="@Model.Customer.FirstName" />
+
+                            <nop-required />
+
+                            <span asp-validation-for="@Model.Customer.FirstName"></span>
+                        </div>
+
+
+                        <div class="inputs">
+                            <label asp-for="@Model.Customer.LastName" asp-postfix=":"></label>
+                            <input asp-for="@Model.Customer.LastName" />
+
+                            <nop-required />
+
+                            <span asp-validation-for="@Model.Customer.LastName"></span>
+                        </div>
+                        <div class="inputs">
+                            <label for="gender">@T("Account.Fields.Gender"):</label>
+                            <div id="gender" class="gender">
+                                <span class="male">
+                                    <input type="radio" asp-for="@Model.Customer.Gender" value="M" checked="@(Model.Customer.Gender == "M")" id="gender-male" />
+                                    <label class="forcheckbox" for="gender-male">@T("Account.Fields.Gender.Male")</label>
+                                </span>
+                                <span class="female">
+                                    <input type="radio" asp-for="@Model.Customer.Gender" value="F" checked="@(Model.Customer.Gender == "F")" id="gender-female" />
+                                    <label class="forcheckbox" for="gender-female">@T("Account.Fields.Gender.Female")</label>
+                                </span>
+                                <span class="nottosay">
+                                    <input type="radio" asp-for="@Model.Customer.Gender" value="N" checked="@(@Model.Customer.Gender == "N")" id="gender-nottosay" />
+                                    <label class="forcheckbox" for="gender-nottosay">@T("Account.Fields.Gender.NotToSay")</label>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="inputs date-of-birth">
+                            <label>@T("Account.Fields.DateOfBirth"):</label>
+                            <nop-date-picker asp-day-name="@Html.NameFor(x => x.Customer.DateOfBirthDay)"
+                                             asp-month-name="@Html.NameFor(x => x.Customer.DateOfBirthMonth)"
+                                             asp-year-name="@Html.NameFor(x => x.Customer.DateOfBirthYear)"
+                                             asp-begin-year="@(DateTime.Now.Year - 110)"
+                                             asp-end-year="@(DateTime.Now.Year)"
+                                             asp-selected-day="@Model.Customer.DateOfBirthDay"
+                                             asp-selected-month="@Model.Customer.DateOfBirthMonth"
+                                             asp-selected-year="@Model.Customer.DateOfBirthYear" />
+
+                            <nop-required />
+
+                            <span asp-validation-for="@Model.Customer.DateOfBirthDay"></span>
+                            <span asp-validation-for="@Model.Customer.DateOfBirthMonth"></span>
+                            <span asp-validation-for="@Model.Customer.DateOfBirthYear"></span>
+                        </div>
+
+                        <div class="inputs">
+                            <label asp-for="@Model.Customer.Email" asp-postfix=":"></label>
+                            <input asp-for="@Model.Customer.Email" />
+                            <nop-required />
+                            <span asp-validation-for="@Model.Customer.Email"></span>
+                        </div>
+                        <div class="inputs">
+                            <label asp-for="@Model.Customer.Password" asp-postfix=":"></label>
+                            <input asp-for="@Model.Customer.Password" />
+                            <nop-required />
+                            <span asp-validation-for="@Model.Customer.Password"></span>
+                        </div>
+                        <div class="inputs">
+                            <label asp-for="@Model.Customer.ConfirmPassword" asp-postfix=":"></label>
+                            <input asp-for="@Model.Customer.ConfirmPassword" />
+                            <nop-required />
+                            <span asp-validation-for="@Model.Customer.ConfirmPassword"></span>
+                        </div>
+                    </div>
+                   <div class="col-md-6 row1" style="position: relative; border-top: 1px solid #e6e6e6; background-color: #f9f9f9;border: 1px ridge;">
+                        <div class="title" style=" padding-top: 15px;">
+                            <strong>@T("Account.YourAddress")</strong>
+                        </div>
+                            <div class="inputs">
+                                <label asp-for="@Model.Customer.StreetAddress" asp-postfix=":"></label>
+                                <input asp-for="@Model.Customer.StreetAddress" />
+
+                                <nop-required />
+
+                                <span asp-validation-for="@Model.Customer.StreetAddress"></span>
+                            </div>
+
+
+                            <div class="inputs">
+                                <label asp-for="@Model.Customer.StreetAddress2" asp-postfix=":"></label>
+                                <input asp-for="@Model.Customer.StreetAddress2" />
+
+                                <nop-required />
+
+                                <span asp-validation-for="@Model.Customer.StreetAddress2"></span>
+                            </div>
+
+
+                            <div class="inputs">
+                                <label asp-for="@Model.Customer.ZipPostalCode" asp-postfix=":"></label>
+                                <input asp-for="@Model.Customer.ZipPostalCode" />
+
+                                <nop-required />
+
+                                <span asp-validation-for="@Model.Customer.ZipPostalCode"></span>
+                            </div>
+                            <div class="inputs">
+                                <label asp-for="@Model.Customer.City" asp-postfix=":"></label>
+                                <input asp-for="@Model.Customer.City" />
+                                <nop-required />
+                                <span asp-validation-for="@Model.Customer.City"></span>
+                            </div>
+                        <div class="title">
+                            <strong>@T("Account.YourContactInformation")</strong>
+                        </div>
+                         <div class="inputs">
+                                <label asp-for="@Model.Customer.Phone" asp-postfix=":"></label>
+                                <input asp-for="@Model.Customer.Phone" />
+                                <nop-required />
+                                <span asp-validation-for="@Model.Customer.Phone"></span>
+                            </div>
+                    </div>
+                </div>
+                  <div class="title">
+                            <div class="clearfix">&nbsp;</div>
+                            <strong> Liquor Licence Details </strong>
+                            <div class="clearfix">&nbsp;</div>
+                   </div>
+                   <div class="row">
+                  <div class="col-md-6 row1">
+                     <div class="inputs">
+                        <label asp-for="@Model.CorporateCustomer.LiquoredFullNameLicensee"> Licensee Full Name: </label>
+                        <input asp-for="@Model.CorporateCustomer.LiquoredFullNameLicensee" />
+                        <nop-required />
+                        <span asp-validation-for="@Model.CorporateCustomer.LiquoredFullNameLicensee"></span>
+                    </div>
+                        <div class="inputs">
+                        <label asp-for="@Model.CorporateCustomer.LiquoredCompanyNo"> Liquor Licence Number: </label>
+                        <input asp-for="@Model.CorporateCustomer.LiquoredCompanyNo" />
+                        <nop-required />
+                        <span asp-validation-for="@Model.CorporateCustomer.LiquoredCompanyNo"></span>
+                    </div>
+                      <div class="inputs">
+                        <label asp-for="@Model.CorporateCustomer.LiquoredLicenceNo"> Company Number: </label>
+                        <input asp-for="@Model.CorporateCustomer.LiquoredLicenceNo" />
+                        <nop-required />
+                        <span asp-validation-for="@Model.CorporateCustomer.LiquoredLicenceNo"></span>
+                    </div>
+                     <div class="inputs">
+                        <label asp-for="@Model.CorporateCustomer.LiquoredLicenceExpiryDate" asp-postfix=":"> </label>
+                        <input asp-for="@Model.CorporateCustomer.LiquoredLicenceExpiryDate" type="date" />
+                        <nop-required />
+                    </div>
+                    <div class="inputs">
+                        <label asp-for="@Model.CorporateCustomer.LiquoredStreet" asp-postfix=":"></label>
+                        <input asp-for="@Model.CorporateCustomer.LiquoredStreet" />
+                        <nop-required />
+                        <span asp-validation-for="@Model.CorporateCustomer.LiquoredStreet"></span>
+                    </div>
+                      
+                    <div class="inputs">
+                        <label asp-for="@Model.CorporateCustomer.LiquoredSuburb" asp-postfix=":"></label>
+                        <input asp-for="@Model.CorporateCustomer.LiquoredSuburb" />
+                        <nop-required />
+                        <span asp-validation-for="@Model.CorporateCustomer.LiquoredSuburb"></span>
+                    </div>
+                   <div class="inputs">
+                        <label asp-for="@Model.CorporateCustomer.LiquoredPostCode" asp-postfix=":"></label>
+                        <input asp-for="@Model.CorporateCustomer.LiquoredPostCode" />
+                        <nop-required />
+                        <span asp-validation-for="@Model.CorporateCustomer.LiquoredPostCode"></span>
+                    </div>
+                   <div class="inputs">
+                        <label asp-for="@Model.CorporateCustomer.LiquoredPhone" asp-postfix=":"></label>
+                        <input asp-for="@Model.CorporateCustomer.LiquoredPhone" />
+                        <nop-required />
+                        <span asp-validation-for="@Model.CorporateCustomer.LiquoredPhone"></span>
+                    </div>
+                      <div class="inputs">
+                        <label asp-for="@Model.CorporateCustomer.LiquoredFacsimilieNumber" asp-postfix=":"></label>
+                        <input asp-for="@Model.CorporateCustomer.LiquoredFacsimilieNumber" />
+                        <span asp-validation-for="@Model.CorporateCustomer.LiquoredFacsimilieNumber"></span>
+                    </div>
+                    <div class="inputs">
+                        <label asp-for="@Model.CorporateCustomer.LiquoredLandlordName" asp-postfix=":"></label>
+                        <input asp-for="@Model.CorporateCustomer.LiquoredLandlordName" />
+                        <span asp-validation-for="@Model.CorporateCustomer.LiquoredLandlordName"></span>
+                    </div>
+                  <div class="inputs">
+                        <label asp-for="@Model.CorporateCustomer.LiquoredPreviousLicenceDetails" asp-postfix=":"></label>
+                        <input asp-for="@Model.CorporateCustomer.LiquoredPreviousLicenceDetails" />
+                        <span asp-validation-for="@Model.CorporateCustomer.LiquoredPreviousLicenceDetails"></span>
+                    </div>
+                  </div>
+                    <div class="col-md-6 row1">
+                           <div class="inputs">
+                        <label asp-for="@Model.CorporateCustomer.LiquoredDateLeasedFrom"> Liquored Date Leased From:</label>
+                        <input asp-for="@Model.CorporateCustomer.LiquoredDateLeasedFrom" type="date" />
+                    </div>
+
+                    <div class="inputs">
+                        <label asp-for="@Model.CorporateCustomer.LiquoredDateLeasedTo" asp-postfix=":"></label>
+                        <input asp-for="@Model.CorporateCustomer.LiquoredDateLeasedTo" type="date" />
+                    </div>
+                         <div class="inputs">
+                        @Html.Label("Account Terms:")
+                        <div id="gender" class="gender">
+                            <span>
+                                <label>
+                                    @Html.RadioButtonFor(x => x.CorporateCustomer.AccountTermsEnum, 1)
+                                    20 Days
+                                </label>
+                            </span>
+                            <span>
+                                <label>
+                                    @Html.RadioButtonFor(x => x.CorporateCustomer.AccountTermsEnum, 2)
+                                    COD
+                                </label>
+                            </span>
+                            <span>
+                                <label>
+                                    @Html.RadioButtonFor(x => x.CorporateCustomer.AccountTermsEnum, 3)
+                                    other
+                                </label>
+                            </span>
+                        </div>
+                        <span asp-validation-for="@Model.CorporateCustomer.AccountTermsEnum"></span>
+                      </div>
+                          <div class="inputs">
+                        @Html.Label("Purchase Order Required?:")
+                        <div id="gender" class="gender">
+                            <span>
+                                <label>
+                                    @Html.RadioButtonFor(x => x.CorporateCustomer.PurchaseOrderRequired, true)
+                                    Yes
+                                </label>
+                            </span>
+                            <span>
+                                <label>
+                                    @Html.RadioButtonFor(x => x.CorporateCustomer.PurchaseOrderRequired, false)
+                                    No
+                                </label>
+                            </span>
+                        </div>
+                        <span asp-validation-for="@Model.CorporateCustomer.PurchaseOrderRequired"></span>
+                    </div>
+                            <div class="inputs">
+                        @Html.Label("Account to be emailed?:")
+                        <div id="gender" class="gender">
+                            <span>
+                                <label>
+                                    @Html.RadioButtonFor(x => x.CorporateCustomer.AccountsToBeEmailed, true)
+                                    Yes
+                                </label>
+                            </span>
+                            <span>
+                                <label>
+                                    @Html.RadioButtonFor(x => x.CorporateCustomer.AccountsToBeEmailed, false)
+                                    No
+                                </label>
+                            </span>
+                        </div>
+                        <span asp-validation-for="@Model.CorporateCustomer.AccountsToBeEmailed"></span>
+                    </div>
+                      <div class="inputs">
+                        <label asp-for="@Model.CorporateCustomer.AccountsEmailAddress" asp-postfix=":"></label>
+                        <input asp-for="@Model.CorporateCustomer.AccountsEmailAddress" />
+                        <nop-required />
+                        <span asp-validation-for="@Model.CorporateCustomer.AccountsEmailAddress"></span>
+                    </div>
+
+                    <div class="inputs">
+                        <label asp-for="@Model.CorporateCustomer.AccountsContact" asp-postfix=":"></label>
+                        <input asp-for="@Model.CorporateCustomer.AccountsContact" />
+                        <nop-required />
+                        <span asp-validation-for="@Model.CorporateCustomer.AccountsContact"></span>
+                    </div>
+
+                    <div class="inputs">
+                        <label asp-for="@Model.CorporateCustomer.Bank" asp-postfix=":"></label>
+                        <input asp-for="@Model.CorporateCustomer.Bank" />
+                        <nop-required />
+                        <span asp-validation-for="@Model.CorporateCustomer.Bank"></span>
+                    </div>
+
+
+                    <div class="inputs">
+                        <label asp-for="@Model.CorporateCustomer.Branch" asp-postfix=":"></label>
+                        <input asp-for="@Model.CorporateCustomer.Branch" />
+                        <nop-required />
+                        <span asp-validation-for="@Model.CorporateCustomer.Branch"></span>
+                    </div>
+
+                    <div class="inputs">
+                        <label asp-for="@Model.CorporateCustomer.AccountNo" asp-postfix=":"></label>
+                        <input asp-for="@Model.CorporateCustomer.AccountNo" />
+                        <nop-required />
+                        <span asp-validation-for="@Model.CorporateCustomer.AccountNo"></span>
+                    </div>
+
+                    <div class="inputs">
+                        <label asp-for="@Model.CorporateCustomer.PhoneNo" asp-postfix=":"></label>
+                        <input asp-for="@Model.CorporateCustomer.PhoneNo" />
+                        <nop-required />
+                        <span asp-validation-for="@Model.CorporateCustomer.PhoneNo"></span>
+                    </div>
+                    </div>
+                </div>
+                <div style="position: relative; border-top: 1px solid #e6e6e6; background-color: #f9f9f9;border: 1px ridge;">
+                    <input type="hidden" asp-for="@Model.CorporateCustomer.CorporateReferences" />
+                    <input type="hidden" asp-for="@Model.CorporateCustomer.CorporateOwners" />
+                    @*<nop-captcha />*@
+                      <div class="title">
+                            <div class="clearfix">&nbsp;</div>
+                            <strong> References Details </strong>
+                            <div class="clearfix">&nbsp;</div>
+                        </div>
+                        <hr />
+                        <div class="clearfix">&nbsp;</div>
+                        <div class="clearfix">&nbsp;</div>
+                    @Html.Raw(Html.GenerateHoneypotInput())
+                    <div class="table-responsive table-responsive clearfix no-more-tables registercorporate3">
+                        <table id="TableReferences" class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Address</th>
+                                    <th>Contact</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="TblBodyreference">
+                                <tr>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="clearfix">&nbsp;</div>
+                    <div class="clearfix">&nbsp;</div>
+                    <div class="clearfix">&nbsp;</div>
+                    <div class="clearfix">&nbsp;</div>
+                    <div class="clearfix">&nbsp;</div>
+                    <div class="inputs">
+                        <input type="button" id="reference-popup-show" value="Add References" class="button-1 register-next-step-button" />
+                    </div>
+                </div>
+               <div class="inputs accept-consent">
+                        <input id="accept-consent" type="checkbox" name="accept-consent" />
+                        <label for="accept-consent">@T("Account.Fields.AcceptPrivacyPolicy")</label>
+                        @if (Model.Customer.AcceptPrivacyPolicyPopup)
+                        {
+                            <span class="read" id="read-privacyinfo">@T("Account.Fields.AcceptPrivacyPolicy.Read")</span>
+                            <script asp-location="Footer">
+                                    $(document).ready(function() {
+                                        $('#read-privacyinfo').on('click',
+                                            function(e) {
+                                                displayPopupContentFromUrl(
+                                                    '@Url.RouteUrl("TopicPopup", new {SystemName = "privacyinfo"})',
+                                                    '@T("Account.Fields.AcceptPrivacyPolicy")');
+                                            });
+                                    });
+                            </script>
+                        }
+                        else
+                        {
+                            <a class="read" id="read-privacyinfo" href="@Url.RouteUrl("Topic", new {SeName = Html.GetTopicSeName("privacyinfo") })">@T("Account.Fields.AcceptPrivacyPolicy.Read")</a>
+                        }
+                    </div>
+              <div class="buttons">
+                <input type="submit" id="register-button" class="button-1 register-next-step-button" value="@T("Account.Register.Button")" name="register-button" />
+            </div>
+            </div>
+                 <script asp-location="Footer">
+                                $(document).ready(function() {
+                                    $('#register-button').on('click', function () {
+                                        var IsReferenceEmpty = $("#TblBodyreference > tbody > tr, #TblBodyreference > tr").is(':empty');
+                                        if ($('#accept-consent').is(':checked') & IsReferenceEmpty == false) {
+                                            //do some stuff
+                                            return true;
+                                        } else {
+
+                                            if (IsReferenceEmpty == true) {
+                                                alert("At least one reference is required.");
+
+                                            } else {
+                                                //just show validation errors, don't post
+                                            alert('@Html.Raw(JavaScriptEncoder.Default.Encode(T("Account.Fields.AcceptPrivacyPolicy.Required").Text))');
+                                            }
+                                            return false;
+                                        }
+                                    });
+
+
+
+                                    //Displying the relevent Fields for Individual or NonIndividual
+
+                                    /*$('.CustomerTypeEnum').on('change', function () {
+                                        if ($("input[name='CorporateCustomer.CustomerTypeEnum'][value='1']").prop("checked")) {
+                                            $('#DivIndividual').show();
+                                            $('#DivNonIndividual').hide();
+                                        } else {
+                                            $('#DivIndividual').hide();
+                                            $('#DivNonIndividual').show();
+                                        }
+                                    });*/
+
+                                    $('#reference-popup-show').on('click', function () {
+                                        ClearReferenceForm();
+                                        $('#ReferencesModal').show();
+                                        $(this).hide();
+                                    })
+
+                                    $('#reference-popup-close').on('click', function () {
+                                        $('#ReferencesModal').hide();
+                                        $('#reference-popup-show').show();
+                                    })
+
+                                    function ClearReferenceForm() {
+                                        $("#CorporateCustomerTradeReferences_Name").val("");
+                                        $("#CorporateCustomerTradeReferences_PhoneFaxEmail").val("");
+                                        $("#CorporateCustomerTradeReferences_Address").val("");
+                                    }
+
+                                    function FillReferenceGrid(Referencedata) {
+                                        $('#TblBodyreference').empty();
+                                        for (var i in Referencedata) {
+                                            if (Referencedata[i].ReferenceId != undefined) {
+                                                var EditReference = $("<input type=\"button\" class=\"button-1 register-next-step-button btn btn-sm\" value=\"Edit\" Id=\"Edit-Reference\" Name=\"Edit-Reference\" data-referenceId=" + Referencedata[i].ReferenceId + " />");
+                                                var DeleteReference = $("<input type=\"button\" class=\"button-1 register-next-step-button btn btn-sm\" value=\"Delete\" Id=\"Delete-Reference\" Name=\"Delete-Reference\" data-referenceId=" + Referencedata[i].ReferenceId + " />");
+                                                $('#TblBodyreference').append($('<tr>')
+                                                    .append($('<td data-title=\'Name\'>').append(Referencedata[i].Name))
+                                                    .append($('<td data-title=\'Address\'>').append(Referencedata[i].Address))
+                                                    .append($('<td data-title=\'Contact\'>').append(Referencedata[i].Contact))
+                                                    .append($('<td data-title=\'Edit Action\'>').append(EditReference))
+                                                    .append($('<td data-title=\'Delete Action\'>').append(DeleteReference)))
+                                            }
+                                        }
+                                    }
+
+                                    //Sort Json Array
+                                    Array.prototype.sortBy = function (p) {
+                                        return this.slice(0).sort(function (a, b) {
+                                            return (a[p] > b[p]) ? 1 : (a[p] < b[p]) ? -1 : 0;
+                                        });
+                                    }
+
+                                    //Get Json Objects with Key
+                                    function getObjects(obj, key, val) {
+                                        var objects = [];
+                                        for (var i in obj) {
+                                            if (!obj.hasOwnProperty(i)) continue;
+                                            if (typeof obj[i] == 'object') {
+                                                objects = objects.concat(getObjects(obj[i], key, val));
+                                            } else if (i == key && obj[key] == val) {
+                                                objects.push(obj);
+                                            }
+                                        }
+                                        return objects;
+                                    }
+
+
+
+                                    var Referencedata = [];
+                                    //Fill the References if error occured
+                                    if ($('.validation-summary-errors').length > 0) {
+                                        Referencedata = JSON.parse($("#CorporateCustomer_CorporateReferences").val());
+                                        var ReferenceModeldata = [];
+                                        var Refid=1;
+                                        Referencedata.forEach(function (item) {
+                                            var ReferenceModelItem = {
+                                                ReferenceId: Refid,
+                                                Name: item.Name,
+                                                Address: item.Address,
+                                                Contact: item.PhoneFaxEmail
+                                            };
+                                            ReferenceModeldata.push(ReferenceModelItem);
+                                            Refid = Refid + 1;
+                                        })
+                                        FillReferenceGrid(ReferenceModeldata);
+                                        Referencedata = ReferenceModeldata;
+
+                                        //$('.CustomerTypeEnum').change();
+                                    }
+                                    else
+                                    {
+                                        Referencedata = [];
+                                    }
+                                    $('#SaveReferences').on('click', function () {
+                                        if ($('#frmReferences').valid()) {
+                                            if (parseInt($('#frmReferenceId').val()) > 0) {
+                                                var res = getObjects(Referencedata, "ReferenceId", $('#frmReferenceId').val());
+                                                var index = Referencedata.indexOf(res[0]);
+                                                Referencedata.splice(index, 1);
+                                                $('#frmReferenceId').val(0);
+                                            }
+                                            var RefId = 1;
+                                            if (Referencedata.length > 0) {
+                                                RefId = Referencedata.length + 1;
+                                            }
+                                            var ReferenceItem = { ReferenceId: RefId, Name: $("#CorporateCustomerTradeReferences_Name").val(), Contact: $("#CorporateCustomerTradeReferences_PhoneFaxEmail").val(), Address: $("#CorporateCustomerTradeReferences_Address").val() };
+
+                                            Referencedata.push(ReferenceItem);
+                                            FillReferenceGrid(Referencedata);
+                                            console.log(Referencedata);
+                                            ClearReferenceForm();
+                                        }
+                                    })
+
+
+                                    $('#Owners-popup-show').on('click', function () {
+                                        ClearOwnersForm();
+                                        $('#OwnersModal').show();
+                                        $(this).hide();
+                                    })
+
+                                    $(document).on("click", "#Edit-Reference", function () {
+                                        var res = getObjects(Referencedata, "ReferenceId", $(this).attr("data-referenceId"));
+                                        $('#ReferencesModal').show();
+                                        $("#CorporateCustomerTradeReferences_Name").val(res[0].Name);
+                                        $("#CorporateCustomerTradeReferences_PhoneFaxEmail").val(res[0].Contact);
+                                        $("#CorporateCustomerTradeReferences_Address").val(res[0].Address);
+                                        $('#frmReferenceId').val($(this).attr("data-referenceId"));
+                                    });
+
+                                    $(document).on("click", "#Delete-Reference", function () {
+                                        if (confirm("Are you sure do you want to delete the Reference?")) {
+                                            var res = getObjects(Referencedata, "ReferenceId", $(this).attr("data-referenceId"));
+                                            var index = Referencedata.indexOf(res[0]);
+                                            Referencedata.splice(index, 1);
+                                            FillReferenceGrid(Referencedata);
+                                        }
+                                        return false;
+                                    });
+
+                                    function FillOwnersGrid(Ownersdata) {
+                                        $('#TblBodyOwners').empty();
+                                        for (var i in Ownersdata) {
+                                            console.log(Ownersdata[i].OwnerId);
+                                            if (Ownersdata[i].OwnerId != undefined) {
+                                                var EditOwner = $("<button type=\"button\" class=\"edit1\" Id=\"Edit-Owner\" Name=\"Edit-Owner\" data-OwnerId=" + Ownersdata[i].OwnerId + "><i class=\"fa fa-edit\"></i> </button>");
+                                                var DeleteOwner = $("<button type=\"button\" class=\"delete1\" Id=\"Delete-Owner\" Name=\"Delete-Owner\" data-OwnerId=" + Ownersdata[i].OwnerId + "> <i class=\"fa fa-trash\"></i> </button>");
+                                                $('#TblBodyOwners').append($('<tr>')
+                                                    .append($('<td data-title=\'Full Name\'>').append(Ownersdata[i].OwnerFullName))
+                                                    .append($('<td data-title=\'Date Of Birth\'>').append(Ownersdata[i].OwnerDateOfBirth))
+                                                    .append($('<td data-title=\'Full Address\'>').append(Ownersdata[i].OwnerFullAddress))
+                                                    .append($('<td data-title=\'Post Code\'>').append(Ownersdata[i].OwnerPostCode))
+                                                    .append($('<td data-title=\'Drivers Licence No\'>').append(Ownersdata[i].OwnerDriversLicenceNo))
+                                                    .append($('<td data-title=\'Phone No\'>').append(Ownersdata[i].OwnerPhoneNo))
+                                                    .append($('<td data-title=\'Mobile No\'>').append(Ownersdata[i].OwnerMobileNo))
+                                                    .append($('<td data-title=\'Edit Action\'>').append(EditOwner).append(DeleteOwner)))
+                                                    //.append($('<td data-title=\'Delete Action\'>').append(DeleteOwner)))
+                                            }
+                                        }
+                                    }
+
+                                    $('#owners-popup-close').on('click', function () {
+                                        $('#OwnersModal').hide();
+                                        $('#Owners-popup-show').show();
+                                    })
+
+                                    function ClearOwnersForm() {
+                                        $("#CorporateCustomerCompanyOwners_FullName").val("");
+                                        $("#CorporateCustomerCompanyOwners_DateOfBirth").val("");
+                                        $("#CorporateCustomerCompanyOwners_PrivateAddress").val("");
+                                        $("#CorporateCustomerCompanyOwners_Postcode").val("");
+                                        $("#CorporateCustomerCompanyOwners_DriversLicenceNo").val("");
+                                        $("#CorporateCustomerCompanyOwners_PhoneNo").val("");
+                                        $("#CorporateCustomerCompanyOwners_MobileNo").val("");
+                                    }
+                                    var Ownersdata = [];
+                                    //Fill the Owners if error occured
+                                    if ($('.validation-summary-errors').length > 0) {
+                                        //alert("owners");
+                                        Ownersdata = JSON.parse($("#CorporateCustomer_CorporateOwners").val());
+
+                                        var OwnersModeldata = [];
+                                        var oid = 1;
+                                        Ownersdata.forEach(function (item) {
+                                            var OwnerModelItem = {
+                                                OwnerId: oid,
+                                                OwnerFullName: item.FullName,
+                                                OwnerDateOfBirth: item.DateOfBirth,
+                                                OwnerFullAddress: item.PrivateAddress,
+                                                OwnerPostCode: item.Postcode,
+                                                OwnerDriversLicenceNo: item.DriversLicenceNo,
+                                                OwnerPhoneNo: item.PhoneNo,
+                                                OwnerMobileNo: item.MobileNo
+                                            };
+                                            OwnersModeldata.push(OwnerModelItem);
+                                            oid = oid + 1;
+                                        })
+
+                                        FillOwnersGrid(OwnersModeldata);
+
+                                        Ownersdata = OwnersModeldata;
+                                    } else {
+                                        Ownersdata = [];
+                                    }
+                                    $('#SaveOwners').on('click', function () {
+                                        if ($('#frmSaveOwners').valid()) {
+
+                                            if (parseInt($('#frmOwnerId').val()) > 0) {
+                                                var res = getObjects(Ownersdata, "OwnerId", $('#frmOwnerId').val());
+                                                var index = Ownersdata.indexOf(res[0]);
+                                                Ownersdata.splice(index, 1);
+                                                $('#frmOwnerId').val(0);
+                                            }
+                                            var OwnId = 1;
+                                            if (Ownersdata.length > 0) {
+                                                OwnId = Ownersdata.length + 1;
+                                            }
+
+                                            var OwnerItem = { OwnerId: OwnId, OwnerFullName: $("#CorporateCustomerCompanyOwners_FullName").val(), OwnerDateOfBirth: $("#CorporateCustomerCompanyOwners_DateOfBirth").val(), OwnerFullAddress: $("#CorporateCustomerCompanyOwners_PrivateAddress").val(), OwnerPostCode: $("#CorporateCustomerCompanyOwners_Postcode").val(), OwnerDriversLicenceNo: $("#CorporateCustomerCompanyOwners_DriversLicenceNo").val(), OwnerPhoneNo: $("#CorporateCustomerCompanyOwners_PhoneNo").val(), OwnerMobileNo: $("#CorporateCustomerCompanyOwners_MobileNo").val() };
+                                            Ownersdata.push(OwnerItem);
+                                            FillOwnersGrid(Ownersdata);
+                                            ClearOwnersForm();
+                                        }
+                                    })
+
+                                    $(document).on("click", "#Edit-Owner", function () {
+                                        var res = getObjects(Ownersdata, "OwnerId", $(this).attr("data-OwnerId"));
+                                        $('#OwnersModal').show();
+                                        $("#CorporateCustomerCompanyOwners_FullName").val(res[0].OwnerFullName);
+                                        $("#CorporateCustomerCompanyOwners_DateOfBirth").val(res[0].OwnerDateOfBirth);
+                                        $("#CorporateCustomerCompanyOwners_PrivateAddress").val(res[0].OwnerFullAddress);
+                                        $("#CorporateCustomerCompanyOwners_Postcode").val(res[0].OwnerPostCode);
+                                        $("#CorporateCustomerCompanyOwners_DriversLicenceNo").val(res[0].OwnerDriversLicenceNo);
+                                        $("#CorporateCustomerCompanyOwners_PhoneNo").val(res[0].OwnerPhoneNo);
+                                        $("#CorporateCustomerCompanyOwners_MobileNo").val(res[0].OwnerMobileNo);
+                                        $('#frmOwnerId').val($(this).attr("data-OwnerId"));
+                                    });
+
+                                    $(document).on("click", "#Delete-Owner", function () {
+                                        if (confirm("Are you sure do you want to delete the Owner?")) {
+                                            var res = getObjects(Ownersdata, "OwnerId", $(this).attr("data-OwnerId"));
+                                            var index = Ownersdata.indexOf(res[0]);
+                                            Ownersdata.splice(index, 1);
+                                            FillOwnersGrid(Ownersdata);
+                                        }
+                                        return false;
+                                    });
+
+                                    $('#frmCorporateCustomer').submit(function () {
+
+                                        var ReferenceModeldata = [];
+                                        Referencedata.forEach(function (item) {
+                                            var ReferenceModelItem = {
+                                                CorporateCustomer_Id: 0,
+                                                Name: item.Name,
+                                                Address: item.Address,
+                                                PhoneFaxEmail: item.Contact
+                                            };
+                                            ReferenceModeldata.push(ReferenceModelItem);
+                                        })
+
+                                        var OwnersModeldata = [];
+                                        Ownersdata.forEach(function (item) {
+                                            var OwnerModelItem = {
+                                                CorporateCustomer_Id: 0,
+                                                FullName: item.OwnerFullName,
+                                                DateOfBirth: item.OwnerDateOfBirth,
+                                                PrivateAddress: item.OwnerFullAddress,
+                                                Postcode: item.OwnerPostCode,
+                                                DriversLicenceNo: item.OwnerDriversLicenceNo,
+                                                PhoneNo: item.OwnerPhoneNo,
+                                                MobileNo: item.OwnerMobileNo
+                                            };
+                                            OwnersModeldata.push(OwnerModelItem);
+                                        })
+                                        $("#CorporateCustomer_CorporateOwners").val(JSON.stringify(OwnersModeldata));
+                                        $("#CorporateCustomer_CorporateReferences").val(JSON.stringify(ReferenceModeldata));
+                                        console.log(OwnersModeldata);
+                                        console.log(ReferenceModeldata);
+                                        $.ajax({
+                                            url: '/Customer/CorporateCustomerRegistration',
+                                            type: "POST",
+                                            contentType: 'application/json;',
+                                            dataType: 'json',
+                                            data: {
+                                                model: JSON.parse($('#frmCorporateCustomer').serialize())
+                                            },
+                                            success: function (result) {
+
+                                                alert("success");
+                                            },
+                                            error: function (result) {
+                                                alert("Something went wrong.");
+                                            }
+                                        });
+                                        return false;
+                                    });
+
+
+                    });
+                    </script>
+                   @if (Model.Customer.GdprConsents.Count > 0)
+                    {
+                        foreach (var consent in Model.Customer.GdprConsents)
+                        {
+                            if (consent.IsRequired)
+                            {
+                                <script asp-location="Footer">
+                                    $(document).ready(function() {
+                                        $('#register-button').on('click', function() {
+                                            if ($('#consent@(consent.Id)').is(':checked')) {
+                                                    //do some stuff
+                                                    return true;
+                                                } else {
+                                                    //just show validation errors, don't post
+                                               alert('@Html.Raw(JavaScriptEncoder.Default.Encode(consent.RequiredMessage))');
+                                                    return false;
+                                                }
+                                            });
+                                    });
+                                </script>
+                            }
+                            <div class="inputs accept-consent">
+                                <input id="consent@(consent.Id)" type="checkbox" name="consent@(consent.Id)" checked="@consent.Accepted" />
+                                <label for="consent@(consent.Id)">@consent.Message</label>
+                            </div>
+                        }
+
+                    }
+              
+           
+        </form>
+
+
+
+        <div id="ReferencesModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span id="reference-popup-close" class="close">&times;</span>
+                    <h5>Add/Edit References</h5>
+                </div>
+                <div class="modal-body">
+                    <form method="post" autocomplete="off" id="frmReferences">
+                        <div class="inputs">
+                            <input type="hidden" id="frmReferenceId" name="frmReferenceId" value="0" />
+                            <label asp-for="@Model.CorporateCustomerTradeReferences.Name" asp-postfix=":"></label>
+                            <input asp-for="@Model.CorporateCustomerTradeReferences.Name" />
+                            <nop-required />
+                            <span asp-validation-for="@Model.CorporateCustomerTradeReferences.Name"></span>
+                        </div>
+                        <div class="inputs">
+                            <label asp-for="@Model.CorporateCustomerTradeReferences.Address" asp-postfix=":"></label>
+                            <input asp-for="@Model.CorporateCustomerTradeReferences.Address" />
+                            <nop-required />
+                            <span asp-validation-for="@Model.CorporateCustomerTradeReferences.Address"></span>
+                        </div>
+                        <div class="inputs">
+                            <label asp-for="@Model.CorporateCustomerTradeReferences.PhoneFaxEmail" asp-postfix=":"></label>
+                            <input asp-for="@Model.CorporateCustomerTradeReferences.PhoneFaxEmail" />
+                            <nop-required />
+                            <span asp-validation-for="@Model.CorporateCustomerTradeReferences.PhoneFaxEmail"></span>
+                        </div>
+                        <div class="inputs" style="text-align:center;"><button id="SaveReferences" type="button" class="button-1 register-next-step-button">Save</button></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="OwnersModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span id="owners-popup-close" class="close">&times;</span>
+                    <h5>Add/Edit Owners</h5>
+                </div>
+                <div class="modal-body">
+                    <form method="post" autocomplete="off" id="frmSaveOwners">
+
+                        <div class="inputs">
+                            <input type="hidden" id="frmOwnerId" name="frmOwnerId" value="0" />
+                            <label asp-for="@Model.CorporateCustomerCompanyOwners.FullName" asp-postfix=":"></label>
+                            <input asp-for="@Model.CorporateCustomerCompanyOwners.FullName" />
+                            <nop-required />
+                            <span asp-validation-for="@Model.CorporateCustomerCompanyOwners.FullName"></span>
+                        </div>
+                        <div class="inputs">
+
+                            <label asp-for="@Model.CorporateCustomerCompanyOwners.DateOfBirth" asp-postfix=":"></label>
+                            <input asp-for="@Model.CorporateCustomerCompanyOwners.DateOfBirth" type="date" />
+                            <nop-required />
+                            <span asp-validation-for="@Model.CorporateCustomerCompanyOwners.DateOfBirth"></span>
+                        </div>
+                        <div class="inputs">
+
+                            <label asp-for="@Model.CorporateCustomerCompanyOwners.PrivateAddress" asp-postfix=":"></label>
+                            <input asp-for="@Model.CorporateCustomerCompanyOwners.PrivateAddress" />
+                            <nop-required />
+                            <span asp-validation-for="@Model.CorporateCustomerCompanyOwners.PrivateAddress"></span>
+                        </div>
+                        <div class="inputs">
+
+
+                            <label asp-for="@Model.CorporateCustomerCompanyOwners.Postcode." asp-postfix=":"></label>
+                            <input asp-for="@Model.CorporateCustomerCompanyOwners.Postcode" />
+                            <nop-required />
+                            <span asp-validation-for="@Model.CorporateCustomerCompanyOwners.Postcode"></span>
+                        </div>
+                        <div class="inputs">
+
+
+                            <label asp-for="@Model.CorporateCustomerCompanyOwners.DriversLicenceNo" asp-postfix=":"></label>
+                            <input asp-for="@Model.CorporateCustomerCompanyOwners.DriversLicenceNo" />
+                            <nop-required />
+                            <span asp-validation-for="@Model.CorporateCustomerCompanyOwners.DriversLicenceNo"></span>
+                        </div>
+                        <div class="inputs">
+
+
+                            <label asp-for="@Model.CorporateCustomerCompanyOwners.PhoneNo" asp-postfix=":"></label>
+                            <input asp-for="@Model.CorporateCustomerCompanyOwners.PhoneNo" />
+                            <nop-required />
+                            <span asp-validation-for="@Model.CorporateCustomerCompanyOwners.PhoneNo"></span>
+                        </div>
+                        <div class="inputs">
+
+                            <label asp-for="@Model.CorporateCustomerCompanyOwners.MobileNo" asp-postfix=":"></label>
+                            <input asp-for="@Model.CorporateCustomerCompanyOwners.MobileNo" />
+                            <nop-required />
+                            <span asp-validation-for="@Model.CorporateCustomerCompanyOwners.MobileNo"></span>
+                        </div>
+                        <div class="inputs" style="text-align:center;">
+                            <button id="SaveOwners" type="button" class="button-1 register-next-step-button">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="external-authentication">
+            @await Component.InvokeAsync("ExternalMethods", "ExternalAuthentication")
+        </div>
+    </div>
+</div>

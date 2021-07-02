@@ -1,0 +1,56 @@
+﻿@model HeaderLinksModel
+@inject Nop.Core.IWebHelper webHelper
+
+
+    @if (Model.AllowPrivateMessages)
+    {        <a  href="@Url.RouteUrl("PrivateMessages", new { tab = "" })" class="ico-inbox Wishcart-a wishcart-paddingleft">
+            @*<span class="inbox-label">@T("PrivateMessages.Inbox")</span>*@
+            <span class="inbox-unread">@Model.UnreadPrivateMessages</span>
+        </a>
+    }
+    @if (Model.WishlistEnabled)
+    {
+        <a id="topwishlink" href="@Url.RouteUrl("Wishlist")" class="ico-wishlist Wishcart-a wishcart-paddingleft" >
+            <img src="../Themes/FenchurchThemes/Content/images/shopping-wishlist.png" style=" height: 20px;"/>
+            @*<span class="wishlist-label">@T("Wishlist")</span>*@
+            <span class="wishlist-qty">@T("Wishlist.HeaderQuantity", Model.WishlistItems)</span>
+        </a>
+    }
+    @if (Model.ShoppingCartEnabled)
+    {
+<a id="topcartlink" href="@Url.RouteUrl("ShoppingCart")" class="ico-cart Wishcart-a">
+    <img src="../Themes/FenchurchThemes/Content/images/shopping-bag.png" style=" height: 20px;"/>
+    @*<span class="cart-label">@T("ShoppingCart")</span>*@
+    <span class="cart-qty" id="cart">@T("ShoppingCart.HeaderQuantity", Model.ShoppingCartItems)</span>
+</a>
+    }
+  
+@if (Model.AllowPrivateMessages && !string.IsNullOrEmpty(Model.AlertMessage))
+{
+    //new private message notification
+    <script asp-location="Footer">
+            $(document).ready(function () {
+                displayPopupNotification('@Html.Raw(JavaScriptEncoder.Default.Encode(Model.AlertMessage))', 'success', false);
+            });
+    </script>
+}
+@if (Model.ShoppingCartEnabled)
+{
+    <script asp-location="Footer">
+        $(document).ready(function () {
+            $('.header').on('mouseenter', '#topcartlink', function () {
+                $('#flyout-cart').addClass('active');
+            });
+            $('.header').on('mouseleave', '#topcartlink', function () {
+                $('#flyout-cart').removeClass('active');
+            });
+
+            $('.header').on('mouseenter', '#flyout-cart', function () {
+                $('#flyout-cart').addClass('active');
+            });
+            $('.header').on('mouseleave', '#flyout-cart', function () {
+                $('#flyout-cart').removeClass('active');
+            });
+        });
+    </script>
+}

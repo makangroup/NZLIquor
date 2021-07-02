@@ -1,0 +1,10 @@
+﻿@{
+    Layout = "";
+}
+@model Nop.Plugin.Payments.Windcave.Models.CustomerLinkModel
+@{
+    if (Model.SaveCardsEnabled)
+    {
+        <li><a href="/Payments/Windcave/SavedCards" class="inactive">Windcave Saved Cards</a></li>
+    }
+}

@@ -1,0 +1,111 @@
+﻿
+@{
+    Layout = "_ColumnsOne";
+
+    //title
+    Html.AddTitleParts(T("PageTitle.FeedBack").Text);
+    //page class
+    Html.AppendPageCssClassParts("html-feedback-page");
+}
+<div class="page feedback-page paddingofcategoriespage">
+    <div class="page-title">
+        <h1>@T("PageTitle.FeedBack")</h1>
+    </div>
+    <div class="page-body">
+        @await Component.InvokeAsync("TopicBlock", new { systemName = "FeedBack" })
+        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.FeedBackTop })
+        <div style="padding: 15px 0px 15px 0px; text-align: center; float: left; width: 100%; ">
+            <h2 style="padding: 15px 0px 5px 0px;">REAL TALK FROM OUR CUSTOMERS</h2>
+            <div class="home-customer-feedback">
+                This is a story of the prand we stock. Browse thousands of new, local, well-known and not-so-well-known products. Select your favorites, pick your local liquor store(s) and press that magical order button.
+            </div>
+            <table border="0">
+                <tr>
+                    <td>
+                        <a style="font-size: 40px; color: #EB1C22" class="feedback-prev" onclick="plusSlides(-1)">&#10094;</a>
+                    </td>
+                    <td align="center">
+                        <div class="feedback-slideshow-container">
+                            <div class="feedback-slides feedback-fade">
+                                <img src="~/images/web assets_Testimonials_image.jpg" class="feedback-slide-image">
+                                <div style="max-width: 600px; padding-top: 50px; display: table-cell; vertical-align: middle;">
+                                    <p>
+                                        Select your favorites, pick your local liquor store(s) and press that magical order button. This is a story of the prand we stock. Browse thousands of new, local, well-known and not-so-well-known products.
+                                    </p>
+                                    <br />
+                                    <h3>- LOREM IPSUM</h3>
+                                </div>
+                            </div>
+                            <div class="feedback-slides feedback-fade">
+                                <img src="~/images/web_assets_Testimonials_image2.jpg" class="feedback-slide-image">
+                                <div style="max-width: 600px; padding-top: 50px; display: table-cell; vertical-align: middle;">
+                                    <p>This is a story of the prand we stock. Browse thousands of new, local, well-known and not-so-well-known products. Select your favorites, pick your local liquor store(s) and press that magical order button.</p>
+                                    <br />
+                                    <h3>- LOREM IPSUM</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <a class="feedback-next" onclick="plusSlides(1)">&#10095;</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <div style="text-align:center; padding-top: 30px">
+                            <span class="feedback-dot" onclick="currentSlide(1)"></span>
+                            <span class="feedback-dot" onclick="currentSlide(2)"></span>
+                        </div>
+                    </td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+        <div style="margin: 0 0 50px;">
+            <div style="text-align: center; float: left; width: 100%; padding: 30px 0px 30px 0px; border-top: 1px solid #ddd; display: none;">
+                <a href="#">
+                    <img src="~/images/web assets_RECIPES.jpg" class="feedback-other-image" />
+                </a>
+                <a href="#">
+                    <img src="~/images/web assets_VINTAGE_ RARE.jpg" class="feedback-other-image" />
+                </a>
+                <a href="#">
+                    <img src="~/images/web assets_ACCESSORIES.jpg" class="feedback-other-image" />
+                </a>
+                <a href="#">
+                    <img src="~/images/web assets_GIFTS.jpg" class="feedback-other-image" />
+                </a>
+            </div>
+        </div>
+        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.FeedBackBottom })
+    </div>
+</div>
+<script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("feedback-slides");
+        var dots = document.getElementsByClassName("feedback-dot");
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" feedback-active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " feedback-active";
+    }
+</script>

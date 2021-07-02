@@ -1,0 +1,215 @@
+﻿@using Nop.Core
+@using Fenchurch.Web.Models.Customer
+@using Nop.Web.Framework.Models.DataTables
+
+@model CorporateCustomerPaymentsModel
+@inject Nop.Core.IWebHelper webHelper
+@{
+    Layout = "_ColumnsTwo";
+
+    //title
+    Html.AddTitleParts(T("PageTitle.Account").Text);
+    //page class
+    Html.AppendPageCssClassParts("html-account-page");
+    Html.AppendPageCssClassParts("html-customer-info-page");
+    Html.AddCssFileParts("~/lib/datatables/css/jquery.dataTables.min.css");
+    Html.AddCssFileParts("~/lib/datatables/css/rowReorder.dataTables.min.css");
+    Html.AddCssFileParts("~/lib/datatables/css/responsive.dataTables.min.css");
+    Html.AddCssFileParts("~/lib/bootstrap/min/bootstrap.min.css?id=1");
+    Html.AddScriptParts("~/lib/datatables/js/jquery.dataTables.min.js");
+    Html.AddScriptParts("~/lib/datatables/moment.min.js");
+    Html.AddScriptParts("~/lib/datatables/js/dataTables.responsive.min.js");
+    Html.AddScriptParts("~/lib/datatables/js/dataTables.rowReorder.min.js");
+
+}
+
+
+
+
+@section left
+{
+    @await Component.InvokeAsync("CustomerNavigation", new { selectedTabId = CustomerNavigationEnum.Info })
+
+}
+
+<div class="page account-page customer-info-page">
+    <div class="page-title">
+        <h1>My account - Payments</h1>
+    </div>
+    <div class="page-body">
+        <form id="creditOrderPayment" asp-controller="Customer" asp-action="Payments" method="post" 
+            asp-route-btnId="@Context.Request.Query["btnId"]"
+            asp-route-formId="@Context.Request.Query["formId"]">
+            <div class="payments-overview" style="float: left; color: #444; border-bottom: 1px solid #ddd; padding: 0 0 25px; min-height: 70px; width: 100%; display:flex; justify-content: center; flex-wrap: wrap;">
+                <div style="width:33.33%">
+                    <div style="text-align:center">
+                        Credit Limit
+                    </div>
+                    <div style="text-align:center; font-weight: bold; margin: 5px; font-size: 18px">
+                        @Model.CreditLimit.ToString("C")
+                    </div>
+                </div>
+                <div style="width:33.33%; border-left: 1px solid #ddd; border-right: 1px solid #ddd;">
+                    <div style="text-align:center">
+                        Amount Due
+                    </div>
+                    <div style="text-align:center; font-weight: bold; margin: 5px; font-size: 18px">
+                        @Model.AmountDue.ToString("C")
+                    </div>
+                </div>
+                <div style="width:33.33%">
+                    <div style="text-align:center">
+                        Available Limit
+                    </div>
+                    <div style="text-align:center; font-weight: bold; margin: 5px; font-size: 18px">
+                        @Model.AvailableLimit.ToString("C")
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix">&nbsp;</div>
+
+            <div class="clearfix">
+                <div>
+                    <div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-10" style="margin-bottom:5px;"><input asp-for="@Model.FromDate" type="date" format="DD/MM/YYYY" />&nbsp;<input asp-for="@Model.ToDate" type="date" format="DD/MM/YYYY" /></div>
+
+                            <div class="col-xs-12 col-sm-2"><input type="submit" value="Pay Now" class="button-1 add-address-button" id="CreditPayNow" name="CreditPayNow" /></div>
+                        </div>
+                    </div>
+                    <div class="clearfix">&nbsp;</div>
+                    <table id="PaymentList" class="display dt-responsive nowrap" style="width:100%;">
+                        <thead>
+                            <tr>
+                                <th class="all"> <input type="checkbox" id="SelectAllCheckbox" name="SelectAllCheckbox" /> </th>
+                                <th class="all">Order #</th>
+                                <th>Shipping Address</th>
+                                <th>Billing Address</th>
+                                <th>Date</th>
+                                <th class="all">Total</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th> &nbsp;</th>
+                                <th>Order #</th>
+                                <th>Shipping Address</th>
+                                <th>Billing Address</th>
+                                <th>Date</th>
+                                <th>Total</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+            @Html.HiddenFor(Model => Model.SelectedCreditPayments)
+        </form>
+    </div>
+    
+</div>
+    <script asp-location="Footer">
+        var paydbtable;
+        $(document).ready(function () {
+            LoadPaymentList();
+        });
+
+        $("#FromDate").on('change', function () {
+            LoadPaymentList();
+        });
+
+        $("#ToDate").on('change', function () {
+            LoadPaymentList();
+        });
+
+        $("#CreditPaymentSearch").on('click', function () {
+            LoadPaymentList();
+        });
+
+        
+
+        $("#SelectAllCheckbox").click(function () {
+            $('input:checkbox').not(this).prop('checked', this.checked);
+        });
+
+        function LoadPaymentList() {
+            var postData = {
+                FromDate: $('#FromDate').val(),
+                ToDate: $('#ToDate').val()
+            };
+            $('#PaymentList').DataTable().clear().destroy();
+            paydbtable = $('#PaymentList').DataTable({
+                "processing": true,
+                "serverSide": false,
+                "bFilter": false,
+                "lengthChange": false,
+                "bInfo": false,
+                "ajax": {
+                    "url": "/Customer/CreditPaymentList",
+                    "type": "POST",
+                    "data": { searchmodel: postData }
+                },
+                "columns": [
+                    { "data": "CustomOrderNumber", "width": "5%" },
+                    { "data": "CustomOrderNumber", "width": "11%" },
+                    {
+                        "data": "ShippingAddress",
+                        render: function (data, type, row, meta) {
+                            if (data.Address1 === null) {
+                                return "In Store Pick Up Order"
+                            }
+                            else {
+                                return data.Address1 + "<br>"
+                                    + data.Address2 + "<br>"
+                                    + data.City + "<br>"
+                                    + data.ZipPostalCode + "<br>"
+                                    + data.PhoneNumber + "<br>";
+                            }
+                        }
+                    },
+                    {
+                        "data": "BillingAddress",
+                        render: function (data, type, row, meta) {
+                            if (data.Address1 === null) {
+                                return "In Store Pick Up Order"
+                            }
+                            else {
+                                return data.Address1 + "<br>"
+                                    + data.Address2 + "<br>"
+                                    + data.City + "<br>"
+                                    + data.ZipPostalCode + "<br>"
+                                    + data.PhoneNumber + "<br>";
+                            }
+                        }
+                    },
+                    {
+                        "data": "CreatedOn", "width": "11%",
+                        render: function (data) {
+                            return moment(data).format('DD/MM/YYYY');
+                        }
+                    },
+                    { "data": "OrderTotal", "width": "11%" }
+                ], 'columnDefs': [{
+                    'targets': 0,
+                    'searchable': false,
+                    'orderable': false,
+                    'render': function (data, type, full, meta) {
+                        return "<input type=\"checkbox\" class=\"checkbox\" id=\"check"+ data +"\" name=\"check"+ data + "\" value="+ data + " />";
+                    }
+                }],
+            });
+
+
+
+            $("#CreditPayNow").on('click', function () {
+                //alert(paydbtable);
+                //var selectedIds = paydbtable.columns();
+                var selectedCreditPayments = [];
+                var selectedIds = $('#PaymentList').find('input[type=checkbox]:checked');
+                selectedIds.each(function () {
+                        selectedCreditPayments.push($(this).val());
+                    });
+                $('#SelectedCreditPayments').val(JSON.stringify(selectedCreditPayments));
+                document.forms['creditOrderPayment'].submit();
+            });
+        }
+    </script>

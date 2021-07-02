@@ -1,0 +1,98 @@
+﻿@model IList<ProductOverviewModel>
+    <div style="margin: 0 0 50px;">
+        @*<div class="home-page-container">
+            <img src="~/images/thumbs/wintage-1.JPG" style="width: 100%" />
+        </div>*@
+        <div class="home-page-container-wb">
+            <div class="topic-block-greating">
+                <div style="display: flex; justify-content: center; flex-wrap: wrap; max-width: 900px">
+                    <a href="/whiskies">
+                        <div class="home-brands-types">WHISKY</div>
+                    </a>
+                    <a href="#">
+                        <div class="home-brands-types">
+                            TEQUILA
+                        </div>
+                    </a>
+                    <a href="~/rum">
+                        <div class="home-brands-types">
+                            RUM
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="home-brands-types">
+                            LIQUEUR
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="home-brands-types">
+                            GIN
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="home-brands-types">
+                            MOONSHINE
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="home-brands-types">
+                            SCOTCH
+                        </div>
+                    </a>
+                    <a href="/vodka">
+                        <div class="home-brands-types">
+                            VODKA
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+        <div class="home-page-container" style="background-color: black;">
+            <h2 class="home-brands-title">BRANDS WE STOCK</h2>
+            <div class="home-brands-message">
+           Browse thousands of new, local, well-known and not-so-well-kown products. Select your favourites brand then click on the liquor which you like to order it.
+            </div>
+        </div>
+        <div style="text-align: center; float: left; width: 100%; padding: 20px 0px 40px 0px; border-bottom: 1px solid #ddd;">
+            <div class="row">
+                <ul id="itemslider">
+                    <li>
+                        <img src="~/images/web_assets_logo 1.jpg" />
+                    </li>
+                    <li>
+                        <img src="~/images/web_assets_logo 2.jpg" />
+                    </li>
+                    <li>
+                        <img src="~/images/web_assets_logo 3.jpg" />
+                    </li>
+                    <li>
+                        <img src="~/images/web_assets_logo 4.jpg" />
+                    </li>
+                    <li>
+                        <img src="~/images/web_assets_logo 5.jpg" />
+                    </li>
+                    <li>
+                        <img src="~/images/web_assets_logo 6.jpg" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <script asp-location="Footer">
+            $(document).ready(function () {     
+            $("#itemslider").rcbrand({
+                visibleItems: 4,
+                itemsToScroll: 1,
+                navigationTargetSelector: null,
+                autoPlay: {
+                    enable: true,
+                    interval: 3000,
+                    pauseOnHover: true
+                }
+            });
+        });
+        </script>
+
+    </div>
+

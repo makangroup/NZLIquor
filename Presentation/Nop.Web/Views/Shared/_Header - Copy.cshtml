@@ -1,0 +1,29 @@
+﻿<div class="header">
+    @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderBefore })
+    <div class="header-upper">
+        <div class="header-selectors-wrapper">
+            <b>Click and Collect Available</b>
+        </div>
+        <div class="header-selectors-wrapper">
+            <img src="~/icons/delivery-icon-transparent.png" />
+            <b>Nationwide Delivery</b>
+        </div>
+        <div class="header-selectors-wrapper">
+            <b>  Call us on <a href="tel:0108991341">01-0899 1341</a></b>
+        </div>
+    </div>
+    @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderMiddle })
+    <div class="header-lower">
+        <div class="header-logo">
+            @await Component.InvokeAsync("Logo")
+        </div>
+        <div class="search-box store-search-box">
+            @await Component.InvokeAsync("SearchBox")
+        </div>
+        <div class="header-links-wrapper">
+            @await Component.InvokeAsync("HeaderLinks")
+            @await Component.InvokeAsync("FlyoutShoppingCart")
+        </div>
+    </div>
+    @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderAfter })
+</div>

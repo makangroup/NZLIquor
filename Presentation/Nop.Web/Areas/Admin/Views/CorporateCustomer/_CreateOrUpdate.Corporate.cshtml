@@ -1,0 +1,106 @@
+@using Fenchurch.Web.Areas.Admin.Models.CorporateCustomers
+@model CorporateCustomerModel
+
+<div class="panel-body">
+    @await Html.PartialAsync("Table", new DataTablesModel
+    {
+    Name = "profitmarkup-grid",
+    UrlRead = new DataUrl("ProfitMarkupsList", "CorporateCustomer", new RouteValueDictionary { [nameof(Model.Id)] = Model.Id }),
+    UrlUpdate = new DataUrl("ProfitsMarkupUpdate", "CorporateCustomer", null),
+    UrlDelete = new DataUrl("ProfitsMarkupDelete", "CorporateCustomer", null),
+    Length = Model.ProfitMarkupsSearchModel.PageSize,
+    LengthMenu = Model.ProfitMarkupsSearchModel.AvailablePageSizes,
+    ColumnCollection = new List<ColumnProperty>
+        {                                
+                                new ColumnProperty(nameof(ProfitMarkupsModel.ProductCategorie))
+                                {
+                                    Title = T("Admin.Configuration.ProfitMarkups.ProductCategories").Text,
+                                    EditType = EditType.String
+                                },
+                                new ColumnProperty(nameof(ProfitMarkupsModel.ProfitMarkup))
+                                {
+                                    Title = T("Admin.Configuration.ProfitMarkups.Rates").Text,
+                                    Editable = true,
+                                    Width = "100",
+                                    EditType = EditType.Number
+                                },
+                                new ColumnProperty(nameof(ProfitMarkupsModel.Id))
+                                {
+                                    Title = T("Admin.Common.Edit").Text,
+                                    Width = "200",
+                                    ClassName =  NopColumnClassDefaults.Button,
+                                    Render = new RenderButtonsInlineEdit()
+                                },
+                                new ColumnProperty(nameof(ProfitMarkupsModel.Id))
+                                {
+                                    Title = T("Admin.Common.Delete").Text,
+                                    Width = "100",
+                                    Render = new RenderButtonRemove(T("Admin.Common.Delete").Text),
+                                    ClassName = NopColumnClassDefaults.Button
+                                }
+        }
+})
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        @T("Admin.Common.AddNewRecord")
+    </div>
+    <div class="panel-body">
+        <div class="form-group">
+            <div class="col-md-3">
+                <nop-label asp-for="ProfitMarkups.CategoryId" />
+            </div>
+            <div class="col-md-9">
+                <nop-select asp-for="ProfitMarkups.CategoryId" asp-items="Model.ProfitMarkups.ProductCategories" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-3">
+                <nop-label asp-for="ProfitMarkups.ProfitMarkup" />
+            </div>
+            <div class="col-md-9">
+                <nop-editor asp-for="ProfitMarkups.ProfitMarkup" asp-required="true" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-9 col-md-offset-3">
+                <button type="button" id="addProftMarkup" class="btn btn-primary">@T("Admin.Common.AddNewRecord")</button>
+            </div>
+        </div>
+        @Html.HiddenFor(model => model.ProfitMarkups.CorporateCustomerId)
+    </div>
+    <script>
+                            $(document).ready(function () {
+                                $('#addProftMarkup').click(function () {
+                                    $('#addProftMarkup').attr('disabled', true);
+                                    var postData = {
+                                        CorporateCustomerId: $("#@Html.IdFor(model => model.ProfitMarkups.CorporateCustomerId)").val(),
+                                        CategoryId: $("#@Html.IdFor(model => model.ProfitMarkups.CategoryId)").val(),
+                                        ProfitMarkup: $("#@Html.IdFor(model => model.ProfitMarkups.ProfitMarkup)").val()
+                                    };
+                                    addAntiForgeryToken(postData);
+                                    $.ajax({
+                                        cache: false,
+                                        type: "POST",
+                                        url: "@Html.Raw(Url.Action("CreateProfitMarkupFromCorporateCustomer", "CorporateCustomer", null))",
+                                        data: postData,
+                                        success: function (data, textStatus, jqXHR) {
+                                            if (data.Result) {
+                                                //reload grid
+                                                updateTable('#profitmarkup-grid');
+                                                //clear input value
+                                                $("#@Html.IdFor(model => model.ProfitMarkups.CategoryId)").val(476);
+                                                $("#@Html.IdFor(model => model.ProfitMarkups.ProfitMarkup)").data("kendoNumericTextBox").value(0);
+                                            } else {
+                                                //display errors if returned
+                                                display_nop_error(data);
+                                            }
+                                        },
+                                        complete: function (jqXHR, textStatus) {
+                                            $('#addProftMarkup').attr('disabled', false);
+                                        }
+                                    });
+                                });
+                            });
+    </script>
+</div>

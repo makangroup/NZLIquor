@@ -1,0 +1,110 @@
+﻿@model Nop.Core.Domain.CorporateCustomer.CorporateCustomer
+@{
+    Layout = "_ColumnsOne";
+
+    //title
+    Html.AddTitleParts(T("PageTitle.Register").Text);
+    //page class
+    Html.AppendPageCssClassParts("html-registration-result-page");
+}
+<form asp-route="RegisterResult" asp-route-returnurl="@Context.Request.Query["ReturnUrl"]" method="post" enctype="multipart/form-data">
+
+    <div class="page registration-result-page paddingofcategoriespage">
+        <div class="page-title">
+            <h1>Credit Application Step 2</h1>
+            <h4>Please click on Download button to download the credit application form which you have filled</h4>
+            <h4>Please print and sign the form you have downloaded and upload the signed form with your Liquore License below</h4>
+        </div>
+        <div asp-validation-summary="All" class="message-error"></div>
+        <div class="page-body">
+            <div class="result">
+                <input type="hidden" asp-for="Id" />
+                <button data-href="/customer/CorporateRegisterFileDownload?resultId=@(Model.Id)" type="button" id="DownloadFile" name="DownloadFile" class="button-1 register-continue-button">Download</button>
+            </div>
+            <div class="fieldset">
+                <div class="title">
+                    <strong>YOUR SIGNED CREDIT APPLICATION FORM</strong>
+                </div>
+                <div class="form-fields downloadfield">
+                    <div class="inputs">
+                        <label></label>
+                        <label>Please upload an image less than (5 MB)</label>
+                    </div>
+                    <div class="inputs">
+                        <label></label>
+                        <input id="uploadedFileCreditForm" name="uploadedFileCreditForm" onchange="ValidateSingleInput(this);" multiple type="file" accept="image/*,application/pdf" />
+                    </div>
+                    <div class="inputs">
+                        <span class="text-danger" id="ErruploadedFileCreditForm"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="fieldset">
+                <div class="title">
+                    <strong>YOUR LIQUOR LICENSE</strong>
+                </div>
+                <div class="form-fields downloadfield">
+                    <div class="inputs">
+                        <label></label>
+                        <label>Please upload an image less than (5 MB)</label>
+                    </div>
+                    <div class="inputs">
+                        <label></label>
+                        <input id="uploadedFileLiqorLicense" name="uploadedFileLiqorLicense" onchange="ValidateSingleInput(this);" type="file" accept="image/*,application/pdf" />
+                    </div>
+                    <div class="inputs">
+                        <span class="text-danger" id="ErruploadedFileLiqorLicense"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons">
+                <input type="submit" name="register-continue" class="button-1 register-continue-button" value="@T("Account.Register.Result.Continue")" />
+            </div>
+        </div>
+    </div>
+</form>
+<script asp-location="Footer">
+    $(document).ready(function () {
+        $('#DownloadFile').on('click', function () {
+            var url = $(this).attr('data-href');
+            window.open(url, '_blank');
+        });
+    });
+    var _validFileExtensions = [".pdf", ".jpg", ".jpeg", ".bmp", ".png", ".gif"];
+    function ValidateSingleInput(oInput) {
+
+        if (oInput.type == "file") {
+            var sFileName = oInput.value;
+            if (sFileName.length > 0) {
+                var fsize = sFileName.size;
+
+                if (fsize > 5048576) //do something if file size more than 1 mb (1048576)
+                {
+                    alert(fsize + " bites\nToo big!");
+                }
+                var blnValid = false;
+                for (var j = 0; j < _validFileExtensions.length; j++) {
+                    var sCurExtension = _validFileExtensions[j];
+                    if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+                        blnValid = true;
+
+                        break;
+
+                    }
+                }
+                var Message = "Sorry, file is invalid, allowed extensions are: " + _validFileExtensions.join(", ");
+                if (!blnValid) {
+                    if ($(oInput).attr("Id") == "uploadedFileLiqorLicense") {
+                        alert(Message);
+                    } else {
+                        alert(Message);
+                    }
+                    oInput.value = "";
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+</script>

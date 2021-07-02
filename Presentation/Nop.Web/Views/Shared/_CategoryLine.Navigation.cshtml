@@ -1,0 +1,120 @@
+﻿@model CategoryNavigationModel.CategoryLineModel
+
+@functions{
+    public bool BreadCrumbContainsCurrentCategoryId(CategorySimpleModel category)
+    {
+        if (Model.CurrentCategoryId == 0)
+            return false;
+
+        if (category.Id == Model.CurrentCategoryId)
+            return true;
+
+        foreach (var subCategory in category.SubCategories)
+        {
+            if (BreadCrumbContainsCurrentCategoryId(subCategory))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+}
+@{
+    var active = Model.Category.Id == Model.CurrentCategoryId || Model.Category.SubCategories.Count(BreadCrumbContainsCurrentCategoryId) > 0;
+    var last = Model.Category.Id == Model.CurrentCategoryId;
+    var liClass = active ? "active" : "inactive";
+
+    if (last)
+    {
+        liClass += " last";
+    }
+}
+<li class="@liClass">
+
+    <a onclick="setLocation('@Url.RouteUrl("Category", new { SeName = Model.Category.SeName })')">
+
+        @Model.Category.Name
+        @if (Model.Category.NumberOfProducts.HasValue)
+        {
+            <text> </text>@T("Categories.TotalProducts", Model.Category.NumberOfProducts.Value)
+        }
+
+    </a>
+    <button class="dropdown-btn btndropdown" id="@Url.RouteUrl("Category", new { SeName = Model.Category.SeName })">
+        @for (int i = 0; i < Model.Category.SubCategories.Count; i++)
+        {
+            if (Model.Category.SubCategories[i].SubCategories.Count != 0)
+            {
+                <i class="fa fa-caret-down"></i>
+             
+                @for (int j = 0; j < Model.Category.SubCategories[i].SubCategories.Count; j++)
+                {
+                    if (Model.Category.SubCategories[i].SubCategories[j].SubCategories.Count != 0)
+                    {
+                        <i class="fa fa-caret-down"></i>
+                    }
+                    else
+                    {
+                        <i class="fa fa-caret-down" style="display:none;"></i>
+                      
+                    }
+                }
+                break;
+            }
+            else
+            {
+                <i class="fa fa-caret-down"></i>
+                break;
+            }
+        }
+
+    </button>
+
+<div class="dropdown-container show1" >
+    <ul class="sublist" style="margin: 0px 0 0px;">
+        @foreach (var subCategory in Model.Category.SubCategories)
+        {
+            var categoryLineModel = new CategoryNavigationModel.CategoryLineModel
+            {
+                CurrentCategoryId = Model.CurrentCategoryId,
+                Category = subCategory
+            };
+
+            @await Html.PartialAsync("_CategoryLine.Navigation", categoryLineModel)
+        }
+    </ul>
+</div>
+
+</li>
+<script>
+
+
+    /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+    var dropdown = document.getElementsByClassName("dropdown-btn");
+   var i;
+
+
+    for (i = 0; i < dropdown.length; i++) {
+        dropdown[i].addEventListener("click", function () {
+            var dropdownContent = this.nextElementSibling;
+            //window.alert("hello");
+           
+           
+             if (dropdownContent.classList.contains('show1')) {
+                dropdownContent.classList.remove('show1');
+                dropdownContent.classList.add('show');
+            }
+            
+            else if (dropdownContent.classList.contains('show')) {
+                dropdownContent.classList.remove('show');
+                
+               }
+            else if (!dropdownContent.classList.contains('show1') && !dropdownContent.classList.contains('show')) {
+                dropdownContent.classList.add('show1');
+            }
+        
+        });
+    }
+
+</script>

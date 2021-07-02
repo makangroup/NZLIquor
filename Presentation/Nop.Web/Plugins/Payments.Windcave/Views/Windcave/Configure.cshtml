@@ -1,0 +1,115 @@
+﻿@model Nop.Plugin.Payments.Windcave.Models.ConfigurationModel
+@{
+    Layout = "_ConfigurePlugin";
+}
+<form asp-controller="Windcave" asp-action="Configure" method="post">
+    <div class="panel-group">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <nop-label asp-for="DescriptionText" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-textarea asp-for="DescriptionText" />
+                        <span asp-validation-for="DescriptionText"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <nop-label asp-for="ApiUrl" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="ApiUrl" />
+                        <span asp-validation-for="ApiUrl"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <nop-label asp-for="ApiUser" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="ApiUser" />
+                        <span asp-validation-for="ApiUser"></span>
+                    </div>
+                </div>
+                @if (!Model.ApiKey.Equals(string.Empty))
+                {
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            <nop-label asp-for="ApiKey" />
+                        </div>
+                        <div class="col-md-9">
+                            <div class="input-group input-group-required">
+                                <input class="form-control text-box single-line valid" type="text" name="ApiKey" value="@(new string('*', 12))" autocomplete="off">
+                            </div>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            <nop-label asp-for="ApiKey" />
+                        </div>
+                        <div class="col-md-9">
+                            <nop-editor asp-for="ApiKey" asp-required="true" />
+                            <span asp-validation-for="ApiKey"></span>
+                        </div>
+                    </div>
+                }
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <nop-override-store-checkbox asp-for="SetRefundedOrdersToCancelled" asp-input="SetRefundedOrdersToCancelled" />
+                        <nop-label asp-for="SetRefundedOrdersToCancelled" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="SetRefundedOrdersToCancelled" />
+                        <span asp-validation-for="SetRefundedOrdersToCancelled"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <nop-label asp-for="TransactionType" />
+                    </div>
+                    <div class="col-md-9">
+                        <select asp-for="TransactionType" asp-items="@Model.TransactionTypes" class="dropdownlists"></select>
+                        <span asp-validation-for="TransactionType"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <nop-label asp-for="Methods" />
+                    </div>
+                    <div class="col-md-9">
+                            <nop-select id="windcave-methods" asp-for="Methods" asp-items="@Model.SupportedMethods" asp-multiple="true" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <nop-override-store-checkbox asp-for="SaveCards" asp-input="SaveCards" />
+                        <nop-label asp-for="SaveCards" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="SaveCards" />
+                        <span asp-validation-for="SaveCards"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <nop-label asp-for="SessionTimeout" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="SessionTimeout" />
+                        <span asp-validation-for="SessionTimeout"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-9 col-md-offset-3">
+                        <input type="submit" name="save" class="btn btn-primary" value="@T("Admin.Common.Save")" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

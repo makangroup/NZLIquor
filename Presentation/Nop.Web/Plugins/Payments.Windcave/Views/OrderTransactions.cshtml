@@ -1,0 +1,303 @@
+﻿@model Nop.Plugin.Payments.Windcave.Models.WindcaveTransactionModel
+
+@{
+    const string hideWindcaveTransactionsBlockAttributeName = "OrderPage.HideWindcaveTransactionBlock";
+    var hideWindcaveTransactionsBlock = false;
+}
+
+@{
+    if (Model.Transactions.Count > 0)
+    {
+        <nop-panel asp-name="windcave-transactions" asp-icon="fa fa-th-list" asp-title="Windcave Transactions" asp-hide-block-attribute-name="@hideWindcaveTransactionsBlockAttributeName" asp-hide="@hideWindcaveTransactionsBlock" asp-advanced="true">
+            <div class="panel-body">
+                @foreach (var transaction in Model.Transactions)
+                {
+                    <div class="panel panel-default sub-panel">
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <div class="col-md-3">
+                                    <label>Transaction ID</label>
+                                </div>
+                                <div class="col-md-9">
+                                    @if (transaction.TransactionId.Contains("ID Pending"))
+                                    {
+                                        <div class="form-text-row">@transaction.TransactionId</div>
+                                    }
+                                    else
+                                    {
+                                        <div class="form-text-row">@transaction.TransactionId.Substring(0, ("ID Pending").Length)</div>
+                                    }
+                                </div>
+                            </div>
+                            @if (transaction.Type != null)
+                            {
+                                <div class="form-group">
+                                    <div class="col-md-3">
+                                        <label>Transaction Type</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="form-text-row">@transaction.Type</div>
+                                    </div>
+
+                                </div>
+                            }
+                            @if (transaction.Status != null)
+                            {
+                                <div class="form-group">
+                                    <div class="col-md-3">
+                                        <label>Status</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="form-text-row">@transaction.Status</div>
+                                    </div>
+
+                                </div>
+                            }
+                            @if (transaction.ParentTransactionId != null)
+                            {
+                                <div class="form-group">
+                                    <div class="col-md-3">
+                                        <label>Parent Transaction Id</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="form-text-row">@transaction.ParentTransactionId</div>
+                                    </div>
+
+                                </div>
+                            }
+                            @if (transaction.Amount != 0)
+                            {
+                                <div class="form-group">
+                                    <div class="col-md-3">
+                                        <label>Amount</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="form-text-row">@Model.Amounts[transaction.TransactionId]</div>
+                                    </div>
+
+                                </div>
+                            }
+                            @if (transaction.Currency != null)
+                            {
+                                <div class="form-group">
+                                    <div class="col-md-3">
+                                        <label>Currency</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="form-text-row">@transaction.Currency</div>
+                                    </div>
+
+                                </div>
+                            }
+                            @if (transaction.CompleteStatus != Model.PaymentSettings.CompleteNAStatus)
+                            {
+                                <div class="form-group">
+                                    <div class="col-md-3">
+                                        <label>Complete Status</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="form-text-row">@transaction.CompleteStatus</div>
+                                    </div>
+
+                                </div>
+                            }
+                            @if (transaction.VoidStatus != Model.PaymentSettings.VoidNAStatus)
+                            {
+                                <div class="form-group">
+                                    <div class="col-md-3">
+                                        <label>Void Status</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="form-text-row">@transaction.VoidStatus</div>
+                                    </div>
+
+                                </div>
+                            }
+                            @if (transaction.RefundStatus != Model.PaymentSettings.RefundNAStatus)
+                            {
+                                <div class="form-group">
+                                    <div class="col-md-3">
+                                        <label>Refund Status</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="form-text-row">@transaction.RefundStatus</div>
+                                    </div>
+
+                                </div>
+                            }
+                            @if (transaction.PaymentMethod != null)
+                            {
+                                <div class="form-group">
+                                    <div class="col-md-3">
+                                        <label>Payment Method</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="form-text-row">@transaction.PaymentMethod</div>
+                                    </div>
+
+                                </div>
+                            }
+                            @if (transaction.PaymentAuthentication != null)
+                            {
+                                <div class="form-group">
+                                    <div class="col-md-3">
+                                        <label>Payment Authentication</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="form-text-row">@transaction.PaymentAuthentication</div>
+                                    </div>
+
+                                </div>
+                            }
+                            @if (transaction.CardMask != null)
+                            {
+                                <div class="form-group">
+                                    <div class="col-md-3">
+                                        <label>Card Number</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="form-text-row">@transaction.CardMask</div>
+                                    </div>
+
+                                </div>
+                            }
+                            @if (transaction.CardholderName != null)
+                            {
+                                <div class="form-group">
+                                    <div class="col-md-3">
+                                        <label>Cardholder Name</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="form-text-row">@transaction.CardholderName</div>
+                                    </div>
+
+                                </div>
+                            }
+                            @if (transaction.ExpiryMonth != null && transaction.ExpiryYear != null)
+                            {
+                                <div class="form-group">
+                                    <div class="col-md-3">
+                                        <label>Expiry Date</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="form-text-row">@transaction.ExpiryMonth / @transaction.ExpiryYear</div>
+                                    </div>
+
+                                </div>
+                            }
+                            @if (transaction.CardType != null)
+                            {
+                                <div class="form-group">
+                                    <div class="col-md-3">
+                                        <label>Card Type</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="form-text-row">@transaction.CardType</div>
+                                    </div>
+
+                                </div>
+                            }
+                            @if (transaction.ResponseCode != null)
+                            {
+                                <div class="form-group">
+                                    <div class="col-md-3">
+                                        <label>Response Code</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="form-text-row">@transaction.ResponseCode</div>
+                                    </div>
+
+                                </div>
+                            }
+                            @if (transaction.ResponseText != null)
+                            {
+                                <div class="form-group">
+                                    <div class="col-md-3">
+                                        <label>Response Text</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="form-text-row">@transaction.ResponseText</div>
+                                    </div>
+
+                                </div>
+                            }
+                            @if (transaction.AuthCode != null)
+                            {
+                                <div class="form-group">
+                                    <div class="col-md-3">
+                                        <label>Auth Code</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="form-text-row">@transaction.AuthCode</div>
+                                    </div>
+
+                                </div>
+                            }
+                            @if (transaction.AvsResult != null)
+                            {
+                                <div class="form-group">
+                                    <div class="col-md-3">
+                                        <label>AVS Result</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="form-text-row">@transaction.AvsResult</div>
+                                    </div>
+
+                                </div>
+                            }
+                            @if (transaction.AvsAction != null)
+                            {
+                                <div class="form-group">
+                                    <div class="col-md-3">
+                                        <label>AVS Action</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="form-text-row">@transaction.AvsAction</div>
+                                    </div>
+
+                                </div>
+                            }
+                            @if (transaction.Cvc2Result != null)
+                            {
+                                <div class="form-group">
+                                    <div class="col-md-3">
+                                        <label>CVC2 Result</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="form-text-row">@transaction.Cvc2Result</div>
+                                    </div>
+
+                                </div>
+                            }
+                            @if (transaction.RiskAction != null)
+                            {
+                                <div class="form-group">
+                                    <div class="col-md-3">
+                                        <label>Risk Action</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="form-text-row">@transaction.RiskAction</div>
+                                    </div>
+
+                                </div>
+                            }
+                            @if (transaction.RiskSummaryText != null)
+                            {
+                                <div class="form-group">
+                                    <div class="col-md-3">
+                                        <label>Risk Summary Text</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="form-text-row">@transaction.RiskSummaryText</div>
+                                    </div>
+
+                                </div>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+
+        </nop-panel>
+    }
+}

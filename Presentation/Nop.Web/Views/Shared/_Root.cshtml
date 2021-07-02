@@ -1,0 +1,44 @@
+﻿@{
+    Layout = "_Root.Head";
+}
+@await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.BodyStartHtmlTagAfter })
+@await Html.PartialAsync("_Notifications")
+@await Html.PartialAsync("_JavaScriptDisabledWarning")
+@await Html.PartialAsync("_OldInternetExplorerWarning")
+
+@await Html.PartialAsync("_Header")
+@*@await Component.InvokeAsync("HeaderLinks")*@
+
+@*@await Component.InvokeAsync("TopMenu")*@
+
+
+@*<div class="search-box store-search-box">
+        @await Component.InvokeAsync("SearchBox")
+    </div>*@
+@*<div class="header-links-wrapper">
+        @await Component.InvokeAsync("HeaderLinks")
+        @await Component.InvokeAsync("FlyoutShoppingCart")
+    </div>*@
+@*<div class="header-menu masterwrapperpage" id="masterwrapperpage" style="position:fixed;">
+        @await Component.InvokeAsync("Logo")
+
+        @await Component.InvokeAsync("TopMenu")
+
+
+
+
+    </div>*@
+
+
+<div class="master-wrapper-content" id="masterpage">
+    <div class="master-column-wrapper">
+
+        @RenderBody()
+    </div>
+</div>
+@*@await Component.InvokeAsync("Footer")*@
+
+@await Component.InvokeAsync("EuCookieLaw")
+@await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.BodyEndHtmlTagBefore })
+
+

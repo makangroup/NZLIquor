@@ -1,0 +1,177 @@
+﻿@model CategoryModel
+@using Nop.Core.Domain.Common
+@using Nop.Core.Domain.Seo
+@inject Nop.Core.IWebHelper webHelper
+@inject SeoSettings seoSettings
+@inject CommonSettings commonSettings
+@{
+    Layout = "_ColumnsTwo";
+
+    //title
+    Html.AddTitleParts(!string.IsNullOrEmpty(Model.MetaTitle) ? Model.MetaTitle : Model.Name);
+    //meta
+    Html.AddMetaDescriptionParts(Model.MetaDescription);
+    Html.AddMetaKeywordParts(Model.MetaKeywords);
+    //page class
+    Html.AppendPageCssClassParts("html-category-page");
+
+    if (seoSettings.CanonicalUrlsEnabled)
+    {
+        var categoryUrl = Url.RouteUrl("Category", new { SeName = Model.SeName }, webHelper.CurrentRequestProtocol).ToLowerInvariant();
+        Html.AddCanonicalUrlParts(categoryUrl, seoSettings.QueryStringInCanonicalUrlsEnabled);
+    }
+
+    var breadcrumbDelimiter = commonSettings.BreadcrumbDelimiter;
+}
+@*category breadcrumb*@
+@section Breadcrumb
+    {
+    @if (Model.DisplayCategoryBreadcrumb)
+    {
+    <div>
+        &nbsp;
+    </div>
+    <div style="padding:20px 0px 5px 0px;  text-align: center;">
+        <div>
+            @*<div style="display:none; padding-top: 75px; padding-bottom: 60px; text-align: left;padding-left: 2vw; width: 100%; height: 40%; background-image: url('/images/category-background.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;">*@
+            <h2 style="color: black; margin: 0px;font-size: 30px;padding-bottom: 4px; border-bottom: 2px solid #d2a429; font-weight: 500; display: inline-block;">
+                <strong>@Html.Raw(@Model.Name)</strong>
+            </h2>
+        </div>
+
+        </div>
+        <div class="breadcrumb">
+            <ul itemscope itemtype="http://schema.org/BreadcrumbList" style="list-style: none; padding: 0px 0px 0px 0px; margin: 0px;">
+                <li>
+                    <a href="@Url.RouteUrl("Homepage")" title="@T("Categories.Breadcrumb.Top")">@T("Categories.Breadcrumb.Top")</a>
+                    <span class="delimiter">></span>
+                </li>
+                @{ int position = 1; }
+                @foreach (var cat in Model.CategoryBreadcrumb)
+                {
+                    var isLastCategory = cat.Id == Model.Id;
+                <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                    @if (isLastCategory)
+                        {
+                    <strong class="current-item" itemprop="name">@cat.Name</strong>
+                    <span itemprop="item" itemscope itemtype="http://schema.org/Thing"
+                          id="@Url.RouteUrl("Category", new {SeName = cat.SeName})">
+                    </span>
+                        }
+                        else
+                        {
+                    <a href="@Url.RouteUrl("Category", new { SeName = cat.SeName })" title="@cat.Name" itemprop="item">
+                        <span itemprop="name">@cat.Name</span>
+                    </a>
+                    <span class="delimiter">></span>
+                        }
+                    <meta itemprop="position" content="@position" />
+                </li>
+                    position++;
+                }
+            </ul>
+        </div>
+   
+
+    @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.CategoryDetailsAfterBreadcrumb, additionalData = Model })
+
+    @*subcategories*@
+    @if (Model.SubCategories.Count > 0)
+        {
+    <div class="category-grid sub-category-grid" style="padding-top: 25px; display:none;">
+        <div style="display: flex; justify-content: center; flex-wrap: wrap">
+            @foreach (var item in Model.SubCategories)
+                    {
+            <div class="home-brands-types">
+                <a href="@Url.RouteUrl("Category", new { SeName = item.SeName })" title="@item.PictureModel.Title">
+                    @item.Name
+                </a>
+            </div>
+                    }
+        </div>
+    </div>
+        }
+    @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.CategoryDetailsBeforeFeaturedProducts, additionalData = Model })
+    }
+}
+
+<div class="page category-page" style=" border: 1px lightgray solid;">
+    <div class="page-body">
+        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.CategoryDetailsTop, additionalData = Model })
+        @*description*@
+        @if (!string.IsNullOrWhiteSpace(Model.Description))
+        {
+        <div class="category-description">
+            @Html.Raw(Model.Description)
+        </div>
+        }
+        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.CategoryDetailsBeforeSubcategories, additionalData = Model })
+
+        @*featured products*@
+        @if (Model.FeaturedProducts.Count > 0)
+        {
+        <div class="product-grid featured-product-grid">
+            <div class="title">
+                <strong>@T("Products.FeaturedProducts")</strong>
+            </div>
+            <div class="item-grid">
+                @foreach (var item in Model.FeaturedProducts)
+                    {
+                <div class="item-box">
+                    @await Html.PartialAsync("_ProductBox", item)
+                </div>
+                    }
+            </div>
+        </div>
+        }
+        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.CategoryDetailsAfterFeaturedProducts, additionalData = Model })
+
+        @if (Model.Products.Count > 0)
+        {
+        @await Html.PartialAsync("_CatalogSelectors", Model.PagingFilteringContext)
+        }
+        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.CategoryDetailsBeforeFilters, additionalData = Model })
+
+        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.CategoryDetailsBeforeProductList, additionalData = Model })
+
+        @if (Model.Products.Count > 0)
+        {
+        <div class="@(Model.PagingFilteringContext.ViewMode == "list" ? "product-list" : "product-grid")" style="background-color: #ffff; padding-left: 0px; padding-right: 0px;">
+            <div class="item-grid" style="padding-left: 0px; padding-right: 0px;">
+                @foreach (var product in Model.Products)
+                    {
+                <div class="item-box">
+                    @await Html.PartialAsync("_ProductBox", product)
+                </div>
+                    }
+            </div>
+        </div>
+        }
+        @{
+            var pager = Html.Pager(Model.PagingFilteringContext).QueryParam("pagenumber");
+        }
+        @if (!pager.IsEmpty())
+        {
+        <div class="pager">
+            @pager
+        </div>
+        }
+        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.CategoryDetailsBottom, additionalData = Model })
+        <div style="margin: 0 0 50px;">
+            <div style="text-align: center; float: left; width: 100%; padding: 30px 0px 30px 0px; border-top: 1px solid #ddd; display:none;">
+                <a href="#">
+                    <img src="~/images/web assets_RECIPES.jpg" class="feedback-other-category-image" />
+                </a>
+                <a href="#">
+                    <img src="~/images/web assets_VINTAGE_ RARE.jpg" class="feedback-other-category-image" />
+                </a>
+                <a href="#">
+                    <img src="~/images/web assets_ACCESSORIES.jpg" class="feedback-other-category-image" />
+                </a>
+                <a href="#">
+                    <img src="~/images/web assets_GIFTS.jpg" class="feedback-other-category-image" />
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
