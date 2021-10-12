@@ -60,6 +60,7 @@
     <Content Remove="Themes\FenchurchThemes\Content\images\icon02 (1) (1).ico" />
     <Content Remove="Themes\FenchurchThemes\Content\images\instagram.png" />
     <Content Remove="Themes\FenchurchThemes\Content\images\minus.png" />
+    <Content Remove="Themes\FenchurchThemes\Content\images\NZLiquor-Licence.pdf" />
     <Content Remove="Themes\FenchurchThemes\Content\images\NZliquor.png" />
     <Content Remove="Themes\FenchurchThemes\Content\images\Off-Licence.pdf" />
     <Content Remove="Themes\FenchurchThemes\Content\images\search-icon.png" />

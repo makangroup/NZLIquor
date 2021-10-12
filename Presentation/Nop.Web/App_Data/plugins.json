@@ -16,10 +16,6 @@
       "Version": "3.26"
     },
     {
-      "SystemName": "Payments.Manual",
-      "Version": "1.53"
-    },
-    {
       "SystemName": "Payments.PayPalSmartPaymentButtons",
       "Version": "1.13"
     },

@@ -1,0 +1,394 @@
+17:21:26.805 [I] [8000002a0001fc00b63f84710c7967bb] WindcavePaymentProcessor::ValidatePaymentForm()
+17:21:26.808 [I] [8000002a0001fc00b63f84710c7967bb] WindcavePaymentProcessor::GetPaymentInfo()
+17:22:13.717 [I] [8000000c0002f900b63f84710c7967bb] WindcavePaymentProcessor::PostProcessPayment()
+17:22:13.820 [I] [8000000c0002f900b63f84710c7967bb] WindcavePaymentProcessor.SessionExists(73)
+17:22:17.182 [I] [8000000c0002f900b63f84710c7967bb] WindcavePaymentProcessor.GetXID()
+17:22:17.182 [I] [8000000c0002f900b63f84710c7967bb] WindcavePaymentProcessor.GetXID generated:70202d7a6ec5e07b28f39be479e9951f-0001-00000073-purchase
+17:22:17.226 [I] [8000000c0002f900b63f84710c7967bb] WindcavePaymentProcessor.CreateSession(73, 70202d7a6ec5e07b28f39be479e9951f-0001-00000073-purchase, 0, <?xml version="1.0" encoding="utf-16"?><DictionarySerializer><item><key>Save card details</key><value>False</value></item><item><key>Use previously saved card</key><value>False</value></item></DictionarySerializer>)
+17:22:17.229 [I] [8000000c0002f900b63f84710c7967bb] WindcaveHelper::GetTransactionObjFromOrderObj()
+17:22:17.370 [I] [8000000c0002f900b63f84710c7967bb] WindcaveHelper.GetPluginVersion()
+17:22:17.384 [I] [8000000c0002f900b63f84710c7967bb] WindcaveRestClient.GetPostResponseBodyAsync()
+17:22:17.386 [I] [8000000c0002f900b63f84710c7967bb] WindcaveRestClient.DoPostAsync(https://sec.windcave.com/, api/v1/sessions, TlpMaXF1b3I6YThjOThjNGRlM2FkMmIxZmQwNGE4NWU2MDA1OGFkMjJjZDIyYzc4YmQwMmFlNzJhZjdmMTMwOTU4M2ZjODM1MQ==, {"amount":"20.99","callbackUrls":{"approved":"https:\/\/localhost:44333\/Payments\/Windcave\/HandleApproved","cancelled":"https:\/\/localhost:44333\/Payments\/Windcave\/HandleCancelled","declined":"https:\/\/localhost:44333\/Payments\/Windcave\/HandleDeclined"},"cardId":null,"currency":"NZD","customer":{"account":"1","billing":{"address1":"43\/45 Fenchurch St,","address2":"ezfsx","city":"Glen Innes, Auckland","countryCode":"NZ","name":"Fenchurch Store","phoneNumber":"3254865","postalCode":"1072","state":null},"email":"fenchurch.nz@gmail.com","firstName":"Fenchurch","lastName":"Store","phoneNumber":"3254865","shipping":{"address1":"43\/45 Fenchurch St,","address2":"ezfsx","city":"Glen Innes, Auckland","countryCode":"NZ","name":"Fenchurch Store","phoneNumber":"3254865","postalCode":"1072","state":null}},"expires":null,"language":"en-NZ","merchantReference":"73","methods":["card","account2account"],"notificationUrl":"https:\/\/localhost:44333\/Payments\/Windcave\/HandleNotificationCallback","storeCard":false,"storeCustomer":false,"storedCardIndicator":null,"type":"purchase"}, Nop.Core.Domain.Orders.Order, 70202d7a6ec5e07b28f39be479e9951f-0001-00000073-purchase)
+17:22:17.387 [I] [8000000c0002f900b63f84710c7967bb] WindcaveRestClient.SetClientProps()
+17:22:18.108 [I] [8000000c0002f900b63f84710c7967bb] WindcavePaymentProcessor.AddAuthErrorNoteToOrder(73, Response. StatusCode:403 Body:{
+    "requestId" : "917289741",
+    "timestampUtc" : "2021-09-14T05:22:17Z",
+    "errors" : [
+        {
+            "message" : "This feature is disabled for the user"
+        }
+    ]
+})
+17:22:18.806 [I] [8000000c0002f900b63f84710c7967bb] WindcavePaymentProcessor.CreateSession. Request Fails: 403 Forbidden
+17:22:18.813 [I] [8000000c0002f900b63f84710c7967bb] WindcavePaymentProcessor.CreateSession. Error Field:  | Error: This feature is disabled for the user
+17:22:19.470 [I] [8000002c0001fc00b63f84710c7967bb] WindcavePaymentProcessingController.HandleApiError()
+17:22:19.473 [E] [8000002c0001fc00b63f84710c7967bb] WindcavePaymentProcessingController.HandleApiError(73, 403)
+17:33:31.460 [I] [800000730000fc00b63f84710c7967bb] WindcavePaymentProcessor::ValidatePaymentForm()
+17:33:31.558 [I] [800000730000fc00b63f84710c7967bb] WindcavePaymentProcessor::GetPaymentInfo()
+17:34:18.581 [I] [8000004e0007ff00b63f84710c7967bb] WindcavePaymentProcessor::PostProcessPayment()
+17:34:18.583 [I] [8000004e0007ff00b63f84710c7967bb] WindcavePaymentProcessor.SessionExists(74)
+17:34:24.788 [I] [8000004e0007ff00b63f84710c7967bb] WindcavePaymentProcessor.ContinueExistingSession(74)
+20:02:15.411 [I] [8000008f0000fc00b63f84710c7967bb] WindcavePaymentProcessor::ValidatePaymentForm()
+20:02:15.512 [I] [8000008f0000fc00b63f84710c7967bb] WindcavePaymentProcessor::GetPaymentInfo()
+20:02:49.487 [I] [8000001a0005fb00b63f84710c7967bb] WindcavePaymentProcessor::PostProcessPayment()
+20:02:49.605 [I] [8000001a0005fb00b63f84710c7967bb] WindcavePaymentProcessor.SessionExists(75)
+20:02:52.732 [I] [8000001a0005fb00b63f84710c7967bb] WindcavePaymentProcessor.GetXID()
+20:02:52.732 [I] [8000001a0005fb00b63f84710c7967bb] WindcavePaymentProcessor.GetXID generated:caf70ad5afa21cd98d78fb314ff68858-0001-00000075-purchase
+20:02:52.762 [I] [8000001a0005fb00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession(75, caf70ad5afa21cd98d78fb314ff68858-0001-00000075-purchase, 0, <?xml version="1.0" encoding="utf-16"?><DictionarySerializer><item><key>Save card details</key><value>False</value></item><item><key>Use previously saved card</key><value>False</value></item></DictionarySerializer>)
+20:02:52.765 [I] [8000001a0005fb00b63f84710c7967bb] WindcaveHelper::GetTransactionObjFromOrderObj()
+20:02:52.881 [I] [8000001a0005fb00b63f84710c7967bb] WindcaveHelper.GetPluginVersion()
+20:02:52.883 [I] [8000001a0005fb00b63f84710c7967bb] WindcaveRestClient.GetPostResponseBodyAsync()
+20:02:52.884 [I] [8000001a0005fb00b63f84710c7967bb] WindcaveRestClient.DoPostAsync(https://sec.windcave.com/api/v1, api/v1/sessions, TlpMaXF1b3I6YThjOThjNGRlM2FkMmIxZmQwNGE4NWU2MDA1OGFkMjJjZDIyYzc4YmQwMmFlNzJhZjdmMTMwOTU4M2ZjODM1MQ==, {"amount":"20.99","callbackUrls":{"approved":"https:\/\/localhost:44333\/Payments\/Windcave\/HandleApproved","cancelled":"https:\/\/localhost:44333\/Payments\/Windcave\/HandleCancelled","declined":"https:\/\/localhost:44333\/Payments\/Windcave\/HandleDeclined"},"cardId":null,"currency":"NZD","customer":{"account":"1","billing":{"address1":"43\/45 Fenchurch St,","address2":"ezfsx","city":"Glen Innes, Auckland","countryCode":"NZ","name":"Fenchurch Store","phoneNumber":"3254865","postalCode":"1072","state":null},"email":"fenchurch.nz@gmail.com","firstName":"Fenchurch","lastName":"Store","phoneNumber":"3254865","shipping":{"address1":"43\/45 Fenchurch St,","address2":"ezfsx","city":"Glen Innes, Auckland","countryCode":"NZ","name":"Fenchurch Store","phoneNumber":"3254865","postalCode":"1072","state":null}},"expires":null,"language":"en-NZ","merchantReference":"75","methods":["card","account2account"],"notificationUrl":"https:\/\/localhost:44333\/Payments\/Windcave\/HandleNotificationCallback","storeCard":false,"storeCustomer":false,"storedCardIndicator":null,"type":"purchase"}, Nop.Core.Domain.Orders.Order, caf70ad5afa21cd98d78fb314ff68858-0001-00000075-purchase)
+20:02:52.885 [I] [8000001a0005fb00b63f84710c7967bb] WindcaveRestClient.SetClientProps()
+20:02:53.576 [I] [8000001a0005fb00b63f84710c7967bb] WindcavePaymentProcessor.AddAuthErrorNoteToOrder(75, Response. StatusCode:404 Body:{
+    "requestId" : "381706628",
+    "timestampUtc" : "2021-09-14T08:02:53Z"
+})
+20:04:13.368 [I] [800000320001fc00b63f84710c7967bb] WindcavePaymentProcessor::ValidatePaymentForm()
+20:04:13.368 [I] [800000320001fc00b63f84710c7967bb] WindcavePaymentProcessor::GetPaymentInfo()
+20:04:29.058 [I] [8000001c0005fb00b63f84710c7967bb] WindcavePaymentProcessor::PostProcessPayment()
+20:04:29.059 [I] [8000001c0005fb00b63f84710c7967bb] WindcavePaymentProcessor.SessionExists(76)
+20:04:29.137 [I] [8000001c0005fb00b63f84710c7967bb] WindcavePaymentProcessor.GetXID()
+20:04:29.137 [I] [8000001c0005fb00b63f84710c7967bb] WindcavePaymentProcessor.GetXID generated:c30d2398be2302e84358c7a516229d5b-0001-00000076-purchase
+20:04:29.137 [I] [8000001c0005fb00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession(76, c30d2398be2302e84358c7a516229d5b-0001-00000076-purchase, 0, <?xml version="1.0" encoding="utf-16"?><DictionarySerializer><item><key>Save card details</key><value>False</value></item><item><key>Use previously saved card</key><value>False</value></item></DictionarySerializer>)
+20:04:29.137 [I] [8000001c0005fb00b63f84710c7967bb] WindcaveHelper::GetTransactionObjFromOrderObj()
+20:04:29.138 [I] [8000001c0005fb00b63f84710c7967bb] WindcaveHelper.GetPluginVersion()
+20:04:29.138 [I] [8000001c0005fb00b63f84710c7967bb] WindcaveRestClient.GetPostResponseBodyAsync()
+20:04:29.139 [I] [8000001c0005fb00b63f84710c7967bb] WindcaveRestClient.DoPostAsync(https://sec.windcave.com/api/v1, api/v1/sessions, TlpMaXF1b3I6YThjOThjNGRlM2FkMmIxZmQwNGE4NWU2MDA1OGFkMjJjZDIyYzc4YmQwMmFlNzJhZjdmMTMwOTU4M2ZjODM1MQ==, {"amount":"20.99","callbackUrls":{"approved":"https:\/\/localhost:44333\/Payments\/Windcave\/HandleApproved","cancelled":"https:\/\/localhost:44333\/Payments\/Windcave\/HandleCancelled","declined":"https:\/\/localhost:44333\/Payments\/Windcave\/HandleDeclined"},"cardId":null,"currency":"NZD","customer":{"account":"1","billing":{"address1":"43\/45 Fenchurch St,","address2":"ezfsx","city":"Glen Innes, Auckland","countryCode":"NZ","name":"Fenchurch Store","phoneNumber":"3254865","postalCode":"1072","state":null},"email":"fenchurch.nz@gmail.com","firstName":"Fenchurch","lastName":"Store","phoneNumber":"3254865","shipping":{"address1":"43\/45 Fenchurch St,","address2":"ezfsx","city":"Glen Innes, Auckland","countryCode":"NZ","name":"Fenchurch Store","phoneNumber":"3254865","postalCode":"1072","state":null}},"expires":null,"language":"en-NZ","merchantReference":"76","methods":["card","account2account"],"notificationUrl":"https:\/\/localhost:44333\/Payments\/Windcave\/HandleNotificationCallback","storeCard":false,"storeCustomer":false,"storedCardIndicator":null,"type":"purchase"}, Nop.Core.Domain.Orders.Order, c30d2398be2302e84358c7a516229d5b-0001-00000076-purchase)
+20:04:29.139 [I] [8000001c0005fb00b63f84710c7967bb] WindcaveRestClient.SetClientProps()
+20:04:29.597 [I] [8000001c0005fb00b63f84710c7967bb] WindcavePaymentProcessor.AddAuthErrorNoteToOrder(76, Response. StatusCode:404 Body:{
+    "requestId" : "1000666419",
+    "timestampUtc" : "2021-09-14T08:04:29Z"
+})
+20:07:50.444 [I] [800000cf0002ff00b63f84710c7967bb] WindcavePaymentProcessor::ValidatePaymentForm()
+20:07:50.444 [I] [800000cf0002ff00b63f84710c7967bb] WindcavePaymentProcessor::GetPaymentInfo()
+20:08:11.307 [I] [800000d10002ff00b63f84710c7967bb] WindcavePaymentProcessor::PostProcessPayment()
+20:08:11.307 [I] [800000d10002ff00b63f84710c7967bb] WindcavePaymentProcessor.SessionExists(77)
+20:08:11.378 [I] [800000d10002ff00b63f84710c7967bb] WindcavePaymentProcessor.GetXID()
+20:08:11.378 [I] [800000d10002ff00b63f84710c7967bb] WindcavePaymentProcessor.GetXID generated:57ef968b3961a591fde8c3873ce3693f-0001-00000077-purchase
+20:08:11.378 [I] [800000d10002ff00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession(77, 57ef968b3961a591fde8c3873ce3693f-0001-00000077-purchase, 0, <?xml version="1.0" encoding="utf-16"?><DictionarySerializer><item><key>Save card details</key><value>False</value></item><item><key>Use previously saved card</key><value>False</value></item></DictionarySerializer>)
+20:08:11.378 [I] [800000d10002ff00b63f84710c7967bb] WindcaveHelper::GetTransactionObjFromOrderObj()
+20:08:11.380 [I] [800000d10002ff00b63f84710c7967bb] WindcaveHelper.GetPluginVersion()
+20:08:11.381 [I] [800000d10002ff00b63f84710c7967bb] WindcaveRestClient.GetPostResponseBodyAsync()
+20:08:11.381 [I] [800000d10002ff00b63f84710c7967bb] WindcaveRestClient.DoPostAsync(https://sec.windcave.com/, api/v1/sessions, TlpMaXF1b3I6YThjOThjNGRlM2FkMmIxZmQwNGE4NWU2MDA1OGFkMjJjZDIyYzc4YmQwMmFlNzJhZjdmMTMwOTU4M2ZjODM1MQ==, {"amount":"20.99","callbackUrls":{"approved":"https:\/\/localhost:44333\/Payments\/Windcave\/HandleApproved","cancelled":"https:\/\/localhost:44333\/Payments\/Windcave\/HandleCancelled","declined":"https:\/\/localhost:44333\/Payments\/Windcave\/HandleDeclined"},"cardId":null,"currency":"NZD","customer":{"account":"1","billing":{"address1":"43\/45 Fenchurch St,","address2":"ezfsx","city":"Glen Innes, Auckland","countryCode":"NZ","name":"Fenchurch Store","phoneNumber":"3254865","postalCode":"1072","state":null},"email":"fenchurch.nz@gmail.com","firstName":"Fenchurch","lastName":"Store","phoneNumber":"3254865","shipping":{"address1":"43\/45 Fenchurch St,","address2":"ezfsx","city":"Glen Innes, Auckland","countryCode":"NZ","name":"Fenchurch Store","phoneNumber":"3254865","postalCode":"1072","state":null}},"expires":null,"language":"en-NZ","merchantReference":"77","methods":["card","account2account"],"notificationUrl":"https:\/\/localhost:44333\/Payments\/Windcave\/HandleNotificationCallback","storeCard":false,"storeCustomer":false,"storedCardIndicator":null,"type":"purchase"}, Nop.Core.Domain.Orders.Order, 57ef968b3961a591fde8c3873ce3693f-0001-00000077-purchase)
+20:08:11.381 [I] [800000d10002ff00b63f84710c7967bb] WindcaveRestClient.SetClientProps()
+20:08:12.313 [I] [800000d10002ff00b63f84710c7967bb] WindcavePaymentProcessor.AddAuthErrorNoteToOrder(77, Response. StatusCode:403 Body:{
+    "requestId" : "1135672004",
+    "timestampUtc" : "2021-09-14T08:08:11Z",
+    "errors" : [
+        {
+            "message" : "This feature is disabled for the user"
+        }
+    ]
+})
+20:08:12.555 [I] [800000d10002ff00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession. Request Fails: 403 Forbidden
+20:08:12.556 [I] [800000d10002ff00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession. Error Field:  | Error: This feature is disabled for the user
+20:08:13.397 [I] [800000d30002ff00b63f84710c7967bb] WindcavePaymentProcessingController.HandleApiError()
+20:08:13.398 [E] [800000d30002ff00b63f84710c7967bb] WindcavePaymentProcessingController.HandleApiError(77, 403)
+20:18:04.807 [I] [800000890000f600b63f84710c7967bb] WindcavePaymentProcessor::ValidatePaymentForm()
+20:18:04.807 [I] [800000890000f600b63f84710c7967bb] WindcavePaymentProcessor::GetPaymentInfo()
+20:18:19.106 [I] [800000df0002ff00b63f84710c7967bb] WindcavePaymentProcessor::PostProcessPayment()
+20:18:19.106 [I] [800000df0002ff00b63f84710c7967bb] WindcavePaymentProcessor.SessionExists(78)
+20:18:19.179 [I] [800000df0002ff00b63f84710c7967bb] WindcavePaymentProcessor.GetXID()
+20:18:19.179 [I] [800000df0002ff00b63f84710c7967bb] WindcavePaymentProcessor.GetXID generated:dbca7b85998028be0fd4276cba1b44e5-0001-00000078-purchase
+20:18:19.179 [I] [800000df0002ff00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession(78, dbca7b85998028be0fd4276cba1b44e5-0001-00000078-purchase, 0, <?xml version="1.0" encoding="utf-16"?><DictionarySerializer><item><key>Save card details</key><value>False</value></item><item><key>Use previously saved card</key><value>False</value></item></DictionarySerializer>)
+20:18:19.180 [I] [800000df0002ff00b63f84710c7967bb] WindcaveHelper::GetTransactionObjFromOrderObj()
+20:18:19.182 [I] [800000df0002ff00b63f84710c7967bb] WindcaveHelper.GetPluginVersion()
+20:18:19.183 [I] [800000df0002ff00b63f84710c7967bb] WindcaveRestClient.GetPostResponseBodyAsync()
+20:18:19.183 [I] [800000df0002ff00b63f84710c7967bb] WindcaveRestClient.DoPostAsync(https://sec.windcave.com/pxaccess/pxpay.aspx, api/v1/sessions, TlpMaXF1b3I6YThjOThjNGRlM2FkMmIxZmQwNGE4NWU2MDA1OGFkMjJjZDIyYzc4YmQwMmFlNzJhZjdmMTMwOTU4M2ZjODM1MQ==, {"amount":"20.99","callbackUrls":{"approved":"https:\/\/localhost:44333\/Payments\/Windcave\/HandleApproved","cancelled":"https:\/\/localhost:44333\/Payments\/Windcave\/HandleCancelled","declined":"https:\/\/localhost:44333\/Payments\/Windcave\/HandleDeclined"},"cardId":null,"currency":"NZD","customer":{"account":"1","billing":{"address1":"43\/45 Fenchurch St,","address2":"ezfsx","city":"Glen Innes, Auckland","countryCode":"NZ","name":"Fenchurch Store","phoneNumber":"3254865","postalCode":"1072","state":null},"email":"fenchurch.nz@gmail.com","firstName":"Fenchurch","lastName":"Store","phoneNumber":"3254865","shipping":{"address1":"43\/45 Fenchurch St,","address2":"ezfsx","city":"Glen Innes, Auckland","countryCode":"NZ","name":"Fenchurch Store","phoneNumber":"3254865","postalCode":"1072","state":null}},"expires":null,"language":"en-NZ","merchantReference":"78","methods":["card","account2account"],"notificationUrl":"https:\/\/localhost:44333\/Payments\/Windcave\/HandleNotificationCallback","storeCard":false,"storeCustomer":false,"storedCardIndicator":null,"type":"purchase"}, Nop.Core.Domain.Orders.Order, dbca7b85998028be0fd4276cba1b44e5-0001-00000078-purchase)
+20:18:19.183 [I] [800000df0002ff00b63f84710c7967bb] WindcaveRestClient.SetClientProps()
+20:18:19.702 [I] [800000df0002ff00b63f84710c7967bb] WindcavePaymentProcessor.AddAuthErrorNoteToOrder(78, Response. StatusCode:403 Body:<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Payment Express</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache, no-store, max-age=0, must-revalidate" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" />
+
+    <link id="Css1" href="https://sec.paymentexpress.com/pxmi3/0205_0002" type="text/css" rel="stylesheet" />
+    <link id="Css2" href="https://sec.paymentexpress.com/pxmi3/0201_0002" type="text/css" rel="stylesheet" />
+  </head>
+  <body class='DpsBody'  >
+      <div name="DpsPopupBackground" class="DpsPopupBackground"></div> 
+      <div class='wrapper'>
+    <form id='Form1'  enctype='multipart/form-data' method='post' action='101_0_124f5f_205_0_0' autocomplete='off' onsubmit='return OnSubmit();'>
+<noscript>
+<div class="DpsWarningBanner" >
+This page requires javascript to be enabled on your browser to operate fully. Please enable and then refresh this page.
+</div>
+</noscript>
+      <div class='DpsUiPageTitle1' ><span></span></div>
+      <div class='DpsUiPageTitle2' ><table><tr><td>PAYMENT MANAGER</td><td></td></tr></table></div>
+      <div class='DpsUiPanel DpsUiPanelWestpacLogo' id='PanelReadOnly' name='PanelReadOnly'>
+      <div>
+      <fieldset class='DpsPanelFieldset'>
+      <legend class='DpsSrHidden' aria-hidden='false'></legend>
+      </fieldset>
+      </div>
+      </div>
+
+      <div class='DpsUiPanel DpsUiPanelLogon' id='PanelReadOnly' name='PanelReadOnly'>
+      <div class='DpsUiPanel DpsUiPanelLogon DpsUiPanelFlat'>
+	        <fieldset class='DpsPanelFieldset'>     
+            <h1 class='DpsUiPanelLegend DpsUiPanelLogonLegend' style="font-weight:bold; font-size:50px;">Oops!</h1>
+			<span class='DpsText  DpsLogonSubtext DpsLogonAccount' style="font-size:18px; line-height:30px;">We can't seem to find the page you're looking for.</span>
+			 <a style="font-size:14px; color:#fff; background-color: #e53935; padding: 12px 35px; border-bottom: 2px solid #b2312e;display: block;max-width: 140px; background-image: none!important;text-align: center; text-transform:uppercase; margin:0 auto; margin-top:20px;" href="https://sec.paymentexpress.com/pxmi3/logon">back to home</a>
+			</fieldset>
+      </div>
+      <div>
+      </div>
+      </div>
+
+      <div class='DpsUiPanel DpsUiPanelCopyright' id='PanelReadOnly' name='PanelReadOnly'>
+      <div>
+      <fieldset class='DpsPanelFieldset'>
+      <legend class='DpsSrHidden' aria-hidden='false'></legend>
+          <p class='DpsParagraph  DpsWrapText' id='ParagraphCopyright' name='ParagraphCopyright'>Copyright 2018 Payment Express Limited. All Rights Reserved.</p>
+          <span class='DpsText ' id='LegalNotice1' name='LegalNotice1'>Please read our </span>
+          <a class='DpsLink  DpsLegalNoticeLink' href="legalnotice">Legal Notice</a>
+          <span class='DpsText ' id='LegalNotice2' name='LegalNotice2'> before entering this site. </span>
+      </fieldset>
+      </div>
+      </div>
+
+      <div class='DpsUiPanel DpsUiPanelWestpacFooter' id='PanelReadOnly' name='PanelReadOnly'>
+      <div>
+      <fieldset class='DpsPanelFieldset'>
+      <legend class='DpsSrHidden' aria-hidden='false'></legend>
+          <p class='DpsParagraph  DpsUiPanelWestpacFooterNoHidden DpsHidden DpsWrapText' id='ParagraphWestpacFooter' name='ParagraphWestpacFooter'>To become a Westpac Internet Payment Solution Plus merchant or for any queries call the Westpac Merchant Assist team on 0800 888 066.</p>
+      </fieldset>
+      </div>
+      </div>
+
+      <input name='IId' type='hidden' id='IId' value="" />
+      <input name='IIdVal' type='hidden' id='IIdVal' value="" />
+      <input name='IIdMenuShown' type='hidden' id='IIdMenuShown' value="" />
+      <input name='IIdMenuItemSelected' type='hidden' id='IIdMenuItemSelected' value="100" />
+      <input name='CurrentTab' type='hidden' id='CurrentTab' value='' />
+    </form>
+    <div class='push'></div>
+    </div>
+      <div class='DpsUiPanelFooter' ><table><tr><td class='DpsTableCellLegend'></td><td></td><td nowrap></td><td class='DpsFooterCopyright'> &#169; Copyright 2000-2016 | <a href='http://www.paymentexpress.com/Home.aspx'>www.paymentexpress.com</a> | <a href='http://www.paymentexpress.com/About/About_DPS'>About us</a> | <a href='http://www.paymentexpress.com/About/About_DPS/Privacy_Policy.aspx'>Privacy Policy</a> | <a href='http://www.paymentexpress.com/Contact_Us.aspx'>Contact us</a> </td>      </tr></table></div>
+    <script src="https://sec.paymentexpress.com/pxmi3/0305_0001" type="text/javascript" ></script>
+    <script src="https://sec.paymentexpress.com/pxmi3/0308_0001" type="text/javascript" ></script>
+    <script src="../js/js-webshim/polyfiller.js" type="text/javascript" ></script>
+    <script type="text/javascript">
+        jQuery.swap = function(elem, options, callback, args) {
+           var ret, name, old = {};
+           for (name in options) {
+                   old[name] = elem.style[name];
+                   elem.style[name] = options[name];
+           }
+           ret = callback.apply(elem, args || []);
+           for (name in options) {
+                   elem.style[name] = old[name];
+           }
+           return ret;
+       };
+    </script>
+    <script type="text/javascript">
+        webshims.setOptions('forms', { addValidators: true }); 
+        webshim.setOptions('ajax', { crossDomain: true }); 
+        webshims.setOptions('extendNative', true); 
+        $.webshims.polyfill('forms forms-ext'); 
+    </script>
+    <script type='text/javascript' >
+
+  function OnLoad() {
+$('#6717').on({
+  invalid: function(e) {
+    this.setCustomValidity($.prop(this, 'validationMessage').replace('Please fill out this field.','Please enter a valid username.') );
+  },
+  keypress: function(e) {
+    return PxCheckForAndHandleSubmission(e);
+
+  }
+});
+$('#6718').on({
+  invalid: function(e) {
+    this.setCustomValidity($.prop(this, 'validationMessage').replace('Please fill out this field.','Please enter a valid password.') );
+  },
+  keypress: function(e) {
+    return PxCheckForAndHandleSubmission(e);
+
+  }
+});
+$('#6721').on('click', function(e) {PxDoNavSubmit2('6721','Add'); PxValidate('PanelReadOnly'); PxShowInvalidTab();if (!document.getElementById('Form1').checkValidity()) { PxFieldInvalidStyle('PanelReadOnly'); } else { $('#clicked6721').html('<div class="spinner"><div class="bar1"></div><div class="bar2"></div><div class="bar3"></div><div class="bar4"></div><div class="bar5"></div><div class="bar6"></div><div class="bar7"></div><div class="bar8"></div><div class="bar9"></div><div class="bar10"></div><div class="bar11"></div><div class="bar12"></div></div>Logon'); $('#6721').addClass('noIcon'); }});
+$('#6722').on('click', function(e) {PxDoNavSubmit2('6722','Forgot'); $('#clicked6722').html('<div class="spinner"><div class="bar1"></div><div class="bar2"></div><div class="bar3"></div><div class="bar4"></div><div class="bar5"></div><div class="bar6"></div><div class="bar7"></div><div class="bar8"></div><div class="bar9"></div><div class="bar10"></div><div class="bar11"></div><div class="bar12"></div></div>Forgot Password..'); $('#6722').addClass('noIcon'); });
+$('#6723').on({
+  keypress: function(e) {
+    return PxCheckForAndHandleSubmission(e);
+
+  }
+});
+LogonOnload();
+  }
+$(document).ready(OnLoad);
+
+                function LogonOnload() {
+                    PxGetBrowserInfo();
+                    DynamicCopyright();
+                }
+				function PxGetBrowserInfo() {var ScreenData = 'w:' + screen.availWidth + ';h:' + screen.availHeight + ';c:' + navigator.cookieEnabled + ';o:' + navigator.platform + ';'; var Target = $('[name=PXMI3BData]')[0];Target.value = ScreenData;$('[name=_Usr]')[0].focus();}
+			
+                function DynamicCopyright() {
+                    $('#ParagraphCopyright').text($('#ParagraphCopyright').text().replace('2016', '2000-' + (new Date().getFullYear())));
+                }
+            
+function PxValidate(panelName) {
+var ve = $('[name=PanelReadOnly] [name=_Usr]:not("span")')[0]; ve.removeAttribute('required'); ve.setCustomValidity('');
+if (panelName == 'PanelReadOnly') {
+        }
+else { ve.value=''; }
+var ve = $('[name=PanelReadOnly] [name=_Pw]:not("span")')[0]; ve.removeAttribute('required'); ve.setCustomValidity('');
+if (panelName == 'PanelReadOnly') {
+        }
+else { ve.value=''; }
+
+return true;
+}
+
+  function OnSubmit() {
+if (document.getElementById('Form1').checkValidity()) {
+document.getElementById('6721').disabled=true;
+document.getElementById('6722').disabled=true;
+}
+
+  }
+    </script>
+  </body>
+</html>
+)
+20:18:19.725 [E] [800000df0002ff00b63f84710c7967bb] ERROR IN WindcaveHelper.DeSerializeJson(). Message: There was an error deserializing the object of type Nop.Plugin.Payments.Windcave.Models.WindcaveRestModels.ErrorResponse. Encountered unexpected character '<'.
+20:25:43.464 [I] [8000009b0000f600b63f84710c7967bb] WindcavePaymentProcessor::ValidatePaymentForm()
+20:25:43.464 [I] [8000009b0000f600b63f84710c7967bb] WindcavePaymentProcessor::GetPaymentInfo()
+20:26:53.374 [I] [800000620007ff00b63f84710c7967bb] WindcavePaymentProcessor::PostProcessPayment()
+20:26:53.375 [I] [800000620007ff00b63f84710c7967bb] WindcavePaymentProcessor.SessionExists(79)
+20:26:53.474 [I] [800000620007ff00b63f84710c7967bb] WindcavePaymentProcessor.GetXID()
+20:26:53.475 [I] [800000620007ff00b63f84710c7967bb] WindcavePaymentProcessor.GetXID generated:5e1d44195cfea59b2f0ad666d15d2acf-0001-00000079-purchase
+20:26:53.475 [I] [800000620007ff00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession(79, 5e1d44195cfea59b2f0ad666d15d2acf-0001-00000079-purchase, 0, <?xml version="1.0" encoding="utf-16"?><DictionarySerializer><item><key>Save card details</key><value>False</value></item><item><key>Use previously saved card</key><value>False</value></item></DictionarySerializer>)
+20:26:53.475 [I] [800000620007ff00b63f84710c7967bb] WindcaveHelper::GetTransactionObjFromOrderObj()
+20:26:53.476 [I] [800000620007ff00b63f84710c7967bb] WindcaveHelper.GetPluginVersion()
+20:26:53.477 [I] [800000620007ff00b63f84710c7967bb] WindcaveRestClient.GetPostResponseBodyAsync()
+20:26:53.477 [I] [800000620007ff00b63f84710c7967bb] WindcaveRestClient.DoPostAsync(https://sec.windcave.com, api/v1/sessions, TlpMaXF1b3I6YThjOThjNGRlM2FkMmIxZmQwNGE4NWU2MDA1OGFkMjJjZDIyYzc4YmQwMmFlNzJhZjdmMTMwOTU4M2ZjODM1MQ==, {"amount":"20.99","callbackUrls":{"approved":"https:\/\/localhost:44333\/Payments\/Windcave\/HandleApproved","cancelled":"https:\/\/localhost:44333\/Payments\/Windcave\/HandleCancelled","declined":"https:\/\/localhost:44333\/Payments\/Windcave\/HandleDeclined"},"cardId":null,"currency":"NZD","customer":{"account":"1","billing":{"address1":"43\/45 Fenchurch St,","address2":"ezfsx","city":"Glen Innes, Auckland","countryCode":"NZ","name":"Fenchurch Store","phoneNumber":"3254865","postalCode":"1072","state":null},"email":"fenchurch.nz@gmail.com","firstName":"Fenchurch","lastName":"Store","phoneNumber":"3254865","shipping":{"address1":"43\/45 Fenchurch St,","address2":"ezfsx","city":"Glen Innes, Auckland","countryCode":"NZ","name":"Fenchurch Store","phoneNumber":"3254865","postalCode":"1072","state":null}},"expires":null,"language":"en-NZ","merchantReference":"79","methods":["card","account2account"],"notificationUrl":"https:\/\/localhost:44333\/Payments\/Windcave\/HandleNotificationCallback","storeCard":false,"storeCustomer":false,"storedCardIndicator":null,"type":"purchase"}, Nop.Core.Domain.Orders.Order, 5e1d44195cfea59b2f0ad666d15d2acf-0001-00000079-purchase)
+20:26:53.477 [I] [800000620007ff00b63f84710c7967bb] WindcaveRestClient.SetClientProps()
+20:26:54.478 [I] [800000620007ff00b63f84710c7967bb] WindcavePaymentProcessor.AddAuthErrorNoteToOrder(79, Response. StatusCode:403 Body:{
+    "requestId" : "917296543",
+    "timestampUtc" : "2021-09-14T08:26:53Z",
+    "errors" : [
+        {
+            "message" : "This feature is disabled for the user"
+        }
+    ]
+})
+20:26:55.984 [I] [800000620007ff00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession. Request Fails: 403 Forbidden
+20:26:55.984 [I] [800000620007ff00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession. Error Field:  | Error: This feature is disabled for the user
+20:26:56.507 [I] [800000260005fb00b63f84710c7967bb] WindcavePaymentProcessingController.HandleApiError()
+20:26:56.507 [E] [800000260005fb00b63f84710c7967bb] WindcavePaymentProcessingController.HandleApiError(79, 403)
+22:44:44.250 [I] [8000007c0004ff00b63f84710c7967bb] WindcavePaymentProcessor::ValidatePaymentForm()
+22:44:44.356 [I] [8000007c0004ff00b63f84710c7967bb] WindcavePaymentProcessor::GetPaymentInfo()
+22:45:21.682 [I] [800000430006ee00b63f84710c7967bb] WindcavePaymentProcessor::PostProcessPayment()
+22:45:21.777 [I] [800000430006ee00b63f84710c7967bb] WindcavePaymentProcessor.SessionExists(83)
+22:45:24.869 [I] [800000430006ee00b63f84710c7967bb] WindcavePaymentProcessor.GetXID()
+22:45:24.870 [I] [800000430006ee00b63f84710c7967bb] WindcavePaymentProcessor.GetXID generated:7b2717424eccdb437ae4d3642064cd1f-0001-00000083-purchase
+22:45:24.893 [I] [800000430006ee00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession(83, 7b2717424eccdb437ae4d3642064cd1f-0001-00000083-purchase, 0, <?xml version="1.0" encoding="utf-16"?><DictionarySerializer><item><key>Save card details</key><value>False</value></item><item><key>Use previously saved card</key><value>False</value></item></DictionarySerializer>)
+22:45:24.895 [I] [800000430006ee00b63f84710c7967bb] WindcaveHelper::GetTransactionObjFromOrderObj()
+22:45:24.972 [I] [800000430006ee00b63f84710c7967bb] WindcaveHelper.GetPluginVersion()
+22:45:24.973 [I] [800000430006ee00b63f84710c7967bb] WindcaveRestClient.GetPostResponseBodyAsync()
+22:45:24.974 [I] [800000430006ee00b63f84710c7967bb] WindcaveRestClient.DoPostAsync(https://sec.windcave.com/, api/v1/sessions, TlpMaXF1b3I6YThjOThjNGRlM2FkMmIxZmQwNGE4NWU2MDA1OGFkMjJjZDIyYzc4YmQwMmFlNzJhZjdmMTMwOTU4M2ZjODM1MQ==, {"amount":"20.99","callbackUrls":{"approved":"https:\/\/localhost:44333\/Payments\/Windcave\/HandleApproved","cancelled":"https:\/\/localhost:44333\/Payments\/Windcave\/HandleCancelled","declined":"https:\/\/localhost:44333\/Payments\/Windcave\/HandleDeclined"},"cardId":null,"currency":"NZD","customer":{"account":"1","billing":{"address1":"43\/45 Fenchurch St,","address2":"ezfsx","city":"Glen Innes, Auckland","countryCode":"NZ","name":"Fenchurch Store","phoneNumber":"3254865","postalCode":"1072","state":null},"email":"fenchurch.nz@gmail.com","firstName":"Fenchurch","lastName":"Store","phoneNumber":"3254865","shipping":{"address1":"43\/45 Fenchurch St,","address2":"ezfsx","city":"Glen Innes, Auckland","countryCode":"NZ","name":"Fenchurch Store","phoneNumber":"3254865","postalCode":"1072","state":null}},"expires":null,"language":"en-NZ","merchantReference":"83","methods":["card","account2account"],"notificationUrl":"https:\/\/localhost:44333\/Payments\/Windcave\/HandleNotificationCallback","storeCard":false,"storeCustomer":false,"storedCardIndicator":null,"type":"purchase"}, Nop.Core.Domain.Orders.Order, 7b2717424eccdb437ae4d3642064cd1f-0001-00000083-purchase)
+22:45:24.975 [I] [800000430006ee00b63f84710c7967bb] WindcaveRestClient.SetClientProps()
+22:45:25.570 [I] [800000430006ee00b63f84710c7967bb] WindcavePaymentProcessor.AddAuthErrorNoteToOrder(83, Response. StatusCode:403 Body:{
+    "requestId" : "917283777",
+    "timestampUtc" : "2021-09-14T10:45:25Z",
+    "errors" : [
+        {
+            "message" : "This feature is disabled for the user"
+        }
+    ]
+})
+22:45:25.799 [I] [800000430006ee00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession. Request Fails: 403 Forbidden
+22:45:25.830 [I] [800000430006ee00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession. Error Field:  | Error: This feature is disabled for the user
+22:45:26.441 [I] [800001050002ff00b63f84710c7967bb] WindcavePaymentProcessingController.HandleApiError()
+22:45:26.442 [E] [800001050002ff00b63f84710c7967bb] WindcavePaymentProcessingController.HandleApiError(83, 403)
+23:24:48.630 [I] [8000006a0007ff00b63f84710c7967bb] WindcavePaymentProcessor::ValidatePaymentForm()
+23:24:48.737 [I] [8000006a0007ff00b63f84710c7967bb] WindcavePaymentProcessor::GetPaymentInfo()
+23:27:34.661 [I] [800000a60002fc00b63f84710c7967bb] WindcavePaymentProcessor::PostProcessPayment()
+23:27:34.664 [I] [800000a60002fc00b63f84710c7967bb] WindcavePaymentProcessor.SessionExists(85)
+23:27:37.874 [I] [800000a60002fc00b63f84710c7967bb] WindcavePaymentProcessor.GetXID()
+23:27:37.874 [I] [800000a60002fc00b63f84710c7967bb] WindcavePaymentProcessor.GetXID generated:570bfb430329e203838ce509a175c5e1-0001-00000085-purchase
+23:27:37.895 [I] [800000a60002fc00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession(85, 570bfb430329e203838ce509a175c5e1-0001-00000085-purchase, 0, <?xml version="1.0" encoding="utf-16"?><DictionarySerializer><item><key>Save card details</key><value>False</value></item><item><key>Use previously saved card</key><value>False</value></item></DictionarySerializer>)
+23:27:37.897 [I] [800000a60002fc00b63f84710c7967bb] WindcaveHelper::GetTransactionObjFromOrderObj()
+23:27:37.975 [I] [800000a60002fc00b63f84710c7967bb] WindcaveHelper.GetPluginVersion()
+23:27:38.261 [I] [800000a60002fc00b63f84710c7967bb] WindcaveRestClient.GetPostResponseBodyAsync()
+23:27:38.265 [I] [800000a60002fc00b63f84710c7967bb] WindcaveRestClient.DoPostAsync(https://sec.windcave.com/, api/v1/sessions, TlpMaXF1b3I6YThjOThjNGRlM2FkMmIxZmQwNGE4NWU2MDA1OGFkMjJjZDIyYzc4YmQwMmFlNzJhZjdmMTMwOTU4M2ZjODM1MQ==, {"amount":"41.98","callbackUrls":{"approved":"https:\/\/localhost:44333\/Payments\/Windcave\/HandleApproved","cancelled":"https:\/\/localhost:44333\/Payments\/Windcave\/HandleCancelled","declined":"https:\/\/localhost:44333\/Payments\/Windcave\/HandleDeclined"},"cardId":null,"currency":"NZD","customer":{"account":"1","billing":{"address1":"43\/45 Fenchurch St,","address2":"ezfsx","city":"Glen Innes, Auckland","countryCode":"NZ","name":"Fenchurch Store","phoneNumber":"3254865","postalCode":"1072","state":null},"email":"fenchurch.nz@gmail.com","firstName":"Fenchurch","lastName":"Store","phoneNumber":"3254865","shipping":{"address1":"43\/45 Fenchurch St,","address2":"ezfsx","city":"Glen Innes, Auckland","countryCode":"NZ","name":"Fenchurch Store","phoneNumber":"3254865","postalCode":"1072","state":null}},"expires":null,"language":"en-NZ","merchantReference":"85","methods":["card","account2account"],"notificationUrl":"https:\/\/localhost:44333\/Payments\/Windcave\/HandleNotificationCallback","storeCard":false,"storeCustomer":false,"storedCardIndicator":null,"type":"purchase"}, Nop.Core.Domain.Orders.Order, 570bfb430329e203838ce509a175c5e1-0001-00000085-purchase)
+23:27:38.266 [I] [800000a60002fc00b63f84710c7967bb] WindcaveRestClient.SetClientProps()
+23:27:39.821 [I] [800000a60002fc00b63f84710c7967bb] WindcavePaymentProcessor.AddAuthErrorNoteToOrder(85, Response. StatusCode:403 Body:{
+    "requestId" : "917270718",
+    "timestampUtc" : "2021-09-14T11:27:39Z",
+    "errors" : [
+        {
+            "message" : "This feature is disabled for the user"
+        }
+    ]
+})
+23:27:40.316 [I] [800000a60002fc00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession. Request Fails: 403 Forbidden
+23:27:40.317 [I] [800000a60002fc00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession. Error Field:  | Error: This feature is disabled for the user
+23:27:41.726 [I] [8000003d0001f400b63f84710c7967bb] WindcavePaymentProcessingController.HandleApiError()
+23:27:41.727 [E] [8000003d0001f400b63f84710c7967bb] WindcavePaymentProcessingController.HandleApiError(85, 403)
+23:43:42.617 [I] [8000001b0000f400b63f84710c7967bb] WindcavePaymentProcessor::ValidatePaymentForm()
+23:43:42.722 [I] [8000001b0000f400b63f84710c7967bb] WindcavePaymentProcessor::GetPaymentInfo()
+23:51:36.173 [I] [8000010e0002ff00b63f84710c7967bb] WindcavePaymentProcessor::ValidatePaymentForm()
+23:51:36.174 [I] [8000010e0002ff00b63f84710c7967bb] WindcavePaymentProcessor::GetPaymentInfo()
+23:51:52.725 [I] [800001100002ff00b63f84710c7967bb] WindcavePaymentProcessor::PostProcessPayment()
+23:51:52.823 [I] [800001100002ff00b63f84710c7967bb] WindcavePaymentProcessor.SessionExists(88)
+23:51:55.739 [I] [800001100002ff00b63f84710c7967bb] WindcavePaymentProcessor.GetXID()
+23:51:55.740 [I] [800001100002ff00b63f84710c7967bb] WindcavePaymentProcessor.GetXID generated:79cf5810b5153da50b615ec3ae5db8ce-0001-00000088-purchase
+23:51:55.763 [I] [800001100002ff00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession(88, 79cf5810b5153da50b615ec3ae5db8ce-0001-00000088-purchase, 0, <?xml version="1.0" encoding="utf-16"?><DictionarySerializer><item><key>Save card details</key><value>False</value></item><item><key>Use previously saved card</key><value>False</value></item></DictionarySerializer>)
+23:51:55.766 [I] [800001100002ff00b63f84710c7967bb] WindcaveHelper::GetTransactionObjFromOrderObj()
+23:51:55.848 [I] [800001100002ff00b63f84710c7967bb] WindcaveHelper.GetPluginVersion()
+23:51:55.849 [I] [800001100002ff00b63f84710c7967bb] WindcaveRestClient.GetPostResponseBodyAsync()
+23:51:55.850 [I] [800001100002ff00b63f84710c7967bb] WindcaveRestClient.DoPostAsync(https://sec.windcave.com/, api/v1/sessions, TlpMaXF1b3I6YThjOThjNGRlM2FkMmIxZmQwNGE4NWU2MDA1OGFkMjJjZDIyYzc4YmQwMmFlNzJhZjdmMTMwOTU4M2ZjODM1MQ==, {"amount":"20.99","callbackUrls":{"approved":"https:\/\/localhost:44333\/Payments\/Windcave\/HandleApproved","cancelled":"https:\/\/localhost:44333\/Payments\/Windcave\/HandleCancelled","declined":"https:\/\/localhost:44333\/Payments\/Windcave\/HandleDeclined"},"cardId":null,"currency":"NZD","customer":{"account":"1","billing":{"address1":"43\/45 Fenchurch St,","address2":"ezfsx","city":"Glen Innes, Auckland","countryCode":"NZ","name":"Fenchurch Store","phoneNumber":"3254865","postalCode":"1072","state":null},"email":"fenchurch.nz@gmail.com","firstName":"Fenchurch","lastName":"Store","phoneNumber":"3254865","shipping":{"address1":"43\/45 Fenchurch St,","address2":"ezfsx","city":"Glen Innes, Auckland","countryCode":"NZ","name":"Fenchurch Store","phoneNumber":"3254865","postalCode":"1072","state":null}},"expires":null,"language":"en-NZ","merchantReference":"88","methods":["card","account2account"],"notificationUrl":"https:\/\/localhost:44333\/Payments\/Windcave\/HandleNotificationCallback","storeCard":false,"storeCustomer":false,"storedCardIndicator":null,"type":"purchase"}, Nop.Core.Domain.Orders.Order, 79cf5810b5153da50b615ec3ae5db8ce-0001-00000088-purchase)
+23:51:55.851 [I] [800001100002ff00b63f84710c7967bb] WindcaveRestClient.SetClientProps()
+23:51:56.354 [I] [800001100002ff00b63f84710c7967bb] WindcavePaymentProcessor.AddAuthErrorNoteToOrder(88, Response. StatusCode:403 Body:{
+    "requestId" : "917301175",
+    "timestampUtc" : "2021-09-14T11:51:56Z",
+    "errors" : [
+        {
+            "message" : "This feature is disabled for the user"
+        }
+    ]
+})
+23:51:56.518 [I] [800001100002ff00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession. Request Fails: 403 Forbidden
+23:51:56.519 [I] [800001100002ff00b63f84710c7967bb] WindcavePaymentProcessor.CreateSession. Error Field:  | Error: This feature is disabled for the user
+23:51:57.000 [I] [800000580006ee00b63f84710c7967bb] WindcavePaymentProcessingController.HandleApiError()
+23:51:57.001 [E] [800000580006ee00b63f84710c7967bb] WindcavePaymentProcessingController.HandleApiError(88, 403)
+23:56:45.052 [I] [800000620006ee00b63f84710c7967bb] WindcavePaymentProcessor::ValidatePaymentForm()
+23:56:45.157 [I] [800000620006ee00b63f84710c7967bb] WindcavePaymentProcessor::GetPaymentInfo()
+23:58:34.042 [I] [800000260000f400b63f84710c7967bb] WindcavePaymentProcessor::PostProcessPayment()
+23:58:34.044 [I] [800000260000f400b63f84710c7967bb] WindcavePaymentProcessor.SessionExists(89)
+23:58:37.095 [I] [800000260000f400b63f84710c7967bb] WindcavePaymentProcessor.GetXID()
+23:58:37.095 [I] [800000260000f400b63f84710c7967bb] WindcavePaymentProcessor.GetXID generated:c6aaf6b293f10d54f3ecbcd516f32ab0-0001-00000089-purchase
+23:58:37.120 [I] [800000260000f400b63f84710c7967bb] WindcavePaymentProcessor.CreateSession(89, c6aaf6b293f10d54f3ecbcd516f32ab0-0001-00000089-purchase, 0, <?xml version="1.0" encoding="utf-16"?><DictionarySerializer><item><key>Save card details</key><value>False</value></item><item><key>Use previously saved card</key><value>False</value></item></DictionarySerializer>)
+23:58:37.121 [I] [800000260000f400b63f84710c7967bb] WindcaveHelper::GetTransactionObjFromOrderObj()
+23:58:37.341 [I] [800000260000f400b63f84710c7967bb] WindcaveHelper.GetPluginVersion()
+23:58:37.342 [I] [800000260000f400b63f84710c7967bb] WindcaveRestClient.GetPostResponseBodyAsync()
+23:58:37.343 [I] [800000260000f400b63f84710c7967bb] WindcaveRestClient.DoPostAsync(https://sec.windcave.com/, api/v1/sessions, TlpMaXF1b3I6YThjOThjNGRlM2FkMmIxZmQwNGE4NWU2MDA1OGFkMjJjZDIyYzc4YmQwMmFlNzJhZjdmMTMwOTU4M2ZjODM1MQ==, {"amount":"20.99","callbackUrls":{"approved":"https:\/\/localhost:44333\/Payments\/Windcave\/HandleApproved","cancelled":"https:\/\/localhost:44333\/Payments\/Windcave\/HandleCancelled","declined":"https:\/\/localhost:44333\/Payments\/Windcave\/HandleDeclined"},"cardId":null,"currency":"NZD","customer":{"account":"1","billing":{"address1":"43\/45 Fenchurch St,","address2":"ezfsx","city":"Glen Innes, Auckland","countryCode":"NZ","name":"Fenchurch Store","phoneNumber":"3254865","postalCode":"1072","state":null},"email":"fenchurch.nz@gmail.com","firstName":"Fenchurch","lastName":"Store","phoneNumber":"3254865","shipping":{"address1":"43\/45 Fenchurch St,","address2":"ezfsx","city":"Glen Innes, Auckland","countryCode":"NZ","name":"Fenchurch Store","phoneNumber":"3254865","postalCode":"1072","state":null}},"expires":null,"language":"en-NZ","merchantReference":"89","methods":["card","account2account"],"notificationUrl":"https:\/\/localhost:44333\/Payments\/Windcave\/HandleNotificationCallback","storeCard":false,"storeCustomer":false,"storedCardIndicator":null,"type":"purchase"}, Nop.Core.Domain.Orders.Order, c6aaf6b293f10d54f3ecbcd516f32ab0-0001-00000089-purchase)
+23:58:37.344 [I] [800000260000f400b63f84710c7967bb] WindcaveRestClient.SetClientProps()
+23:58:37.922 [I] [800000260000f400b63f84710c7967bb] WindcavePaymentProcessor.AddAuthErrorNoteToOrder(89, Response. StatusCode:403 Body:{
+    "requestId" : "1150290238",
+    "timestampUtc" : "2021-09-14T11:58:38Z",
+    "errors" : [
+        {
+            "message" : "This feature is disabled for the user"
+        }
+    ]
+})
+23:58:38.167 [I] [800000260000f400b63f84710c7967bb] WindcavePaymentProcessor.CreateSession. Request Fails: 403 Forbidden
+23:58:38.191 [I] [800000260000f400b63f84710c7967bb] WindcavePaymentProcessor.CreateSession. Error Field:  | Error: This feature is disabled for the user
+23:58:38.685 [I] [800000300005fb00b63f84710c7967bb] WindcavePaymentProcessingController.HandleApiError()
+23:58:38.686 [E] [800000300005fb00b63f84710c7967bb] WindcavePaymentProcessingController.HandleApiError(89, 403)

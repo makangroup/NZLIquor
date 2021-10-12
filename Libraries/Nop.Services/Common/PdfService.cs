@@ -1324,6 +1324,15 @@ namespace Nop.Services.Common
                 address.AddCell(AddToddress1(order, font, titleFont, doc));
                 //address.AddCell(GetPdfCell(" ", font, PdfCell.ALIGN_LEFT, 0));
                 doc.Add(address);
+                doc.Add(AddEmptyLine());
+
+                //Billing and Shipping address
+                address = new PdfPTable(2) { WidthPercentage = 100f };
+                address.SetWidths(new int[] { 50,50 });
+                PrintBillingInfo(lang, titleFont, order, font, address);
+                PrintShippingInfo(lang, order, titleFont, font, address);
+                doc.Add(address);
+                doc.Add(AddEmptyLine());
 
                 PrintPickingProducts(vendorId, lang, titleFont, doc, order, font, attributesFont);
 

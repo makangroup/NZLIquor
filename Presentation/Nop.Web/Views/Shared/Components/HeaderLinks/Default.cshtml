@@ -9,24 +9,14 @@
             </div>*@
                 <div class="text-right">
                     <div class="top_nav_right">
-
-
-
                         @if (Model.IsAuthenticated)
                         {
-                        <div class="top_nav_menu1">
-                            <div class="currency"> @await Component.InvokeAsync("AdminHeaderLinks") </div>
-                            <div class="language"><a href="@Url.RouteUrl("CustomerInfo")"> <i class="fa fa-user" aria-hidden="true"></i></a> </div>
-                            <div class="account"><a href="@Url.RouteUrl("Logout")">@T("Account.Logout")</a> </div>
-                            <div class="account"><a href="@Url.RouteUrl("ContactUs")">CONTACT</a> </div>
-                        </div>
-                          
-                            @*<div class="account">
-                <a href="@Url.RouteUrl("ShoppingCart")">
-                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                    <span id="checkout_items" class="checkout_items">@T("ShoppingCart.HeaderQuantity", Model.ShoppingCartItems)</span>
-                </a>
-            </div>*@
+                            <div class="top_nav_menu1">
+                                <div class="currency"> @await Component.InvokeAsync("AdminHeaderLinks") </div>
+                                <div class="account"><a href="@Url.RouteUrl("CustomerInfo")"> @*<i class="fa fa-user" aria-hidden="true"></i>*@ Account</a> </div>
+                                <div class="account"><a href="@Url.RouteUrl("Logout")">@T("Account.Logout")</a> </div>
+                                <div class="account"><a href="@Url.RouteUrl("ContactUs")">CONTACT</a> </div>
+                            </div>
                         }
                         else
                         {
@@ -34,28 +24,38 @@
                             ? url.ToString()
                             : webHelper.GetRawUrl(Context.Request);
                     <div class="top_nav_menu">
-                        <div class="language">
-                            @*<button onclick="myFunction()" class="dropbtn"> MY ACCOUNT <i class="fa fa-angle-down"></i></button>
-            <div id="myDropdown" class="dropdown-content">*@
-                            <a href="/corporatecustomer/register/" class="ico-register"> <i class="fa fa-sign-in" aria-hidden="true"></i> @T("Account.Register")</a>
+                        <div class="language" style="background: none;  border-right: none;">
+                            <ul>
+                                <li class="drop-down" >
+                                    <a href="" style="color:white!important;">ORDER ONLINE</a>
+                                    <ul style="background:black!important;">
+                                        <li>
+                                            <a href="/corporatecustomer/register/" style="color:white!important;    padding: 10px 20px;"> ORDER TRADE</a>
+                                        </li>
+                                        <li>
+                                            <a href="@Url.RouteUrl("Register")" style="color:white!important;    padding: 10px 20px;">
+                                                HOME DELIVERY
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="@Url.RouteUrl("Login")" style="color:white!important;     padding: 10px 20px;">
+                                                @T("Account.Login")
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
                         </div>
-                        <div class="language">
+                        @*<div class="language">
                             <a href="@Url.RouteUrl("Login")" class="ico-login"> <i class="fa fa-user-plus" aria-hidden="true"></i> @T("Account.Login")</a>
-                        </div>
-                        <div class="language"><a href="@Url.RouteUrl("ContactUs")">CONTACT</a> </div>
+                        </div>*@
+                        <div class="language"><a href="@Url.RouteUrl("ContactUs")" style="color:white!important;">CONTACT</a> </div>
                     </div>
-    
-                                @*<div class="account">
-                    <a href="@Url.RouteUrl("ShoppingCart")">
-                        <i class="faab fa-shopping-cart" aria-hidden="true"></i>
-                        <span id="checkout_items" class="checkout_items">@Model.ShoppingCartItems</span>
-                    </a>
-                </div>*@
-                                }
+                        }
 
 
-                                @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderLinksAfter })
-                            </div>
+                        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderLinksAfter })
+                    </div>
                         </div>
             
             </div>

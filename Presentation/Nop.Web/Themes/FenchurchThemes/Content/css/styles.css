@@ -111,6 +111,120 @@
 		top: 20px;
 	}
 
+/* Header*/
+
+.language ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.language > ul {
+	display: flex;
+}
+
+	.language > ul > li {
+		position: relative;
+		white-space: nowrap;
+		padding: 18px 15px;
+		margin-left: 5px;
+		transition: 0.3s;
+	}
+
+.language a {
+	display: block;
+	position: relative;
+	color: black;
+	transition: 0.3s;
+	font-size: 16px;
+	font-weight: 600;
+	font-family: "Open Sans", sans-serif;
+}
+
+	.language a:hover {
+		color: #cc1616;
+		text-decoration: none;
+		background-color: transparent;
+	}
+
+.language > ul > li:hover, .nav-menu .active {
+	/* background: #cc1616;*/
+}
+
+.language .drop-down ul {
+	display: block;
+	position: absolute;
+	left: 0;
+	/*top: calc(100% + 30px);*/
+	z-index: 99;
+	opacity: 0;
+	visibility: hidden;
+	padding: 10px 10px;
+	background: #fff;
+	box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+	transition: 0.3s;
+}
+
+.language .drop-down:hover > ul {
+	opacity: 1;
+	top: 100%;
+	visibility: visible;
+}
+
+.language .drop-down li {
+	/*min-width: 180px;*/
+	position: relative;
+	text-align: left;
+}
+
+.nav-menu .drop-down ul a {
+	padding: 10px 20px;
+	/* font-size: 14px;
+    font-weight: 500;
+    text-transform: none;
+    color: #191919;*/
+}
+
+.language .drop-down ul a:hover, .nav-menu .drop-down ul .active > a, .nav-menu .drop-down ul li:hover > a {
+	color: #e82d2d;
+}
+
+.language .drop-down > a:after {
+	/*  content: "\ea99";
+    font-family: IcoFont;
+    padding-left: 5px;*/
+	display: inline-block;
+	margin-left: 0.255em;
+	vertical-align: 0.255em;
+	content: "";
+	border-top: 0.3em solid;
+	border-right: 0.3em solid transparent;
+	border-bottom: 0px;
+	border-left: 0.3em solid transparent;
+}
+
+.language .drop-down .drop-down ul {
+	top: 0;
+	left: calc(100% - 30px);
+}
+
+.language .drop-down .drop-down:hover > ul {
+	opacity: 1;
+	top: 0;
+	left: 100%;
+}
+
+.language .drop-down .drop-down > a {
+	padding-right: 35px;
+}
+
+	.language .drop-down .drop-down > a:after {
+		/* content: "\eaa0";
+        font-family: IcoFont;*/
+		position: absolute;
+		right: 15px;
+		top: 20px;
+	}
 
 
 /* Fixed sidenav, full height */
@@ -1137,7 +1251,7 @@ label, label + * {
 }
 
 .register1 {
-	padding-right: 350px;
+	padding-right: 250px;
 }
 
 .register3 {
